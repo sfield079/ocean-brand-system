@@ -1,3 +1,7 @@
+"""SUPERSEDED 26 Sep 2026. The examples in output/reference/examples/ are now copied from the
+production pipelines (npm run starter, npm run documents). This prototype predates the deck recipes,
+the logo-only close and the combined notices. Do not use it."""
+raise SystemExit("Superseded: run npm run starter and npm run documents")
 import os, subprocess
 A = 'file:///home/user/workspace/examples/assets/'
 P = dict(blackmoss='#0B1617', peacock='#102426', cedar='#1B4039', sage='#618C7C', honeydew='#F3FBF8',

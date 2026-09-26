@@ -1,3 +1,7 @@
+"""SUPERSEDED 26 Sep 2026. The deck recipes are now built from real decks (lib/recipe.js,
+surfaces/decks/recipes.json) and surfaces/decks/deck_recipes.png is tiled from their renders.
+Do not use this mock-up builder."""
+raise SystemExit("Superseded: run npm run starter instead")
 from PIL import Image, ImageDraw, ImageFont
 FB='/home/user/.fonts/StackSansHeadline-variable.ttf'
 def f(sz,w):

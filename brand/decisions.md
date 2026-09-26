@@ -185,6 +185,7 @@ A report delivered as slides (for example a quarterly investor update) uses the 
 - Photos: any source (Part 6). Case studies use real Ocean projects.
 - Closes with an acceptance and signature block (P1 style) and a terms appendix on White.
 - One Crimson accent per page at most (for example a deadline or incentive expiry).
+- **Notice (Part 10):** classification `proposal` with the recipient and pricing validity. Every page footer reads, for example, `OCN-PRP-0001 · Confidential proposal · Draft · Do not use`; the cover and a closing "Distribution notice" block carry the full sentences. A section can carry a stricter status (for example pricing marked `do-not-use` until approved), and every page it touches shows it. A proposal cannot be released without a named recipient and validity, or while its status is `specimen`. Starters: `documents/_starter/proposal.json` (Letter PDF) and `decks/proposals/_starter/` (proposal deck).
 
 ### P3 — Technical and feasibility reports
 - Cover per Part 3; interior Honeydew + Blackmoss (long reading) or Honeydew + Peacock.
@@ -302,7 +303,14 @@ Every deck, proposal, report and contract carries one **classification** (who ma
 | `do-not-use` | Do not use | Anything withdrawn or not cleared for use |
 | `superseded` | Superseded · Do not use | Replaced by a newer version |
 
-Examples: a draft client deck reads **Confidential · Draft · Do not use**; a reference template reads **Confidential · Design specimen · Do not use**; a draft contract reads **OCN-EPC-2026-014 · v1.0 · Confidential · Draft · Do not use** on every page. A single slide or page can carry a stricter status than its document (`deck.mark(slide, 'do-not-use')`). The classification never gets weaker on a single slide.
+Examples: a draft client deck reads **Confidential · Draft · Do not use**; a reference template reads **Confidential · Design specimen · Do not use**; a draft contract reads **OCN-EPC-2026-014 · v1.0 · Confidential · Draft · Do not use** on every page. A single slide or page can carry a stricter status than its document (`deck.mark(slide, 'do-not-use')` in decks; `"status"` on a section in proposals and reports). The classification never gets weaker on a single slide.
+
+Where the notice appears:
+- **Decks:** every slide except the cover and the close, including the agenda, dividers and the key-number slide. The cover carries the full sentences. On display pairings the 9 pt footer uses the field's darkest text partner (for example Peacock on Sprig) so it stays readable.
+- **Proposals and reports:** every page footer, the cover and a closing "Distribution notice" block.
+- **Contracts:** every page footer, next to the document ID and version, in the PDF and the Word template.
+
+Release rules (enforced in `lib/ocean.js`, `lib/notices.py` and `scripts/qa.py`): a released proposal names its recipient and validity; a `specimen` status cannot be released; every interior slide of any PPTX must carry a notice, including decks built outside this pipeline.
 
 The wording is a business template; counsel should approve it before it is relied on, and legal agreements keep their own confidentiality clauses.
 

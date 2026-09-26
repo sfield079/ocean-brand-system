@@ -142,8 +142,10 @@
   "date": "26 SEP 2026",
   "coverTitle": "A clear plan\nfor your site",
   "pair": "honeydew-cedar",
-  "notice": "proposal",
+  "_notice": "Distribution notice (brand/decisions.md Part 10). classification: proposal (default for proposals), investor, confidential, internal or public. status: final, draft, specimen, do-not-use or superseded. The footer shows both on every page, e.g. 'Confidential proposal · Draft · Do not use'; the cover and the closing block carry the full sentences. A released proposal must name the recipient and the pricing validity. A section may carry a stricter status, e.g. \"status\": \"do-not-use\" on pricing that is not yet approved.",
+  "type": "proposal",
+  "classification": "proposal",
+  "status": "specimen",
   "recipient": "Client name",
-  "validity": "30 days",
-  "status": "specimen"
+  "validity": "30 days"
 }

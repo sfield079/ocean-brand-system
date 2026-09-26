@@ -135,6 +135,7 @@ These stay as defined in the decisions file (P2–P7, and the reports-vs-present
 - Charts follow Section 9 and icons follow Section 3.
 - Deck length follows Section 8.
 - A report delivered as slides uses the presentation system.
+- Every proposal, report and deck carries the combined notice (classification plus status) described in decisions.md Part 10. Proposal starters: `documents/_starter/proposal.json` and `decks/proposals/_starter/`.
 
 ---
 

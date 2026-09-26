@@ -111,10 +111,22 @@ def make_styles(ink):
       'caption': dict(fontSize=8, leading=11, spaceBefore=4, spaceAfter=10)}
     return {name: ParagraphStyle(name, **(base | opts)) for name, opts in specs.items()}
 
+class StatusMark(Flowable):
+    """Zero-size marker: records a stricter section status on every page the section touches."""
+    def __init__(self, status, end=False): super().__init__(); self.status, self.end = status, end
+    def wrap(self, *a): return 0, 0
+    def draw(self):
+        c = self.canv
+        c._ocean_active = None if self.end else self.status
+        if c._ocean_active: c._ocean_status = c._ocean_status + [c._ocean_active]
+
 def numbered_canvas(total_holder):
     class NumberedCanvas(rl_canvas.Canvas):
-        def __init__(self, *a, **k): super().__init__(*a, **k); self._saved = []
-        def showPage(self): self._saved.append(dict(self.__dict__)); self._startPage()
+        def __init__(self, *a, **k):
+            super().__init__(*a, **k); self._saved = []; self._ocean_active = None; self._ocean_status = []
+        def showPage(self):
+            self._saved.append(dict(self.__dict__)); self._startPage()
+            self._ocean_status = [self._ocean_active] if self._ocean_active else []
         def save(self):
             total_holder['n'] = len(self._saved)
             for state in self._saved:
@@ -122,7 +134,7 @@ def numbered_canvas(total_holder):
             super().save()
     return NumberedCanvas
 
-from lib.notices import resolve as notice_for
+from lib.notices import resolve as notice_for, check_release, label_with, STRICT
 
 
 def build(source, output):
@@ -136,7 +148,10 @@ def build(source, output):
     label = data.get('label', 'Ocean RCS'); edition = data.get('edition', 'Ocean RCS')
     docid = data.get('id', 'OCN-DOC'); date = data.get('date', '')
     cover = data.get('cover', True)
-    notice_label, notice_line = notice_for(data)
+    if data.get('type') == 'proposal' and (data.get('classification') or data.get('notice')) not in ('proposal', 'investor', 'public'):
+        raise ValueError('Proposals use the proposal classification (brand/notices.json)')
+    notice_label, notice_line = notice_for(data); check_release(data)
+    doc_status = data.get('status') or ('specimen' if data.get('draft') else 'final')
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(output), pagesize=size, leftMargin=LM, rightMargin=LM, topMargin=96, bottomMargin=62,
         title=data['title'], author='Ocean RCS', initialFontName='OceanRegular')
@@ -149,6 +164,11 @@ def build(source, output):
     story += [Rule(INK, 1, 14)]
     for n, section in enumerate(data['sections'], 1):
         if section.get('pageBreak'): story.append(PageBreak())
+        # A section can carry a stricter status than the document (for example pricing marked Do not use);
+        # every page it touches shows that status in the footer.
+        st_here = section.get('status')
+        if st_here and STRICT.index(st_here) <= STRICT.index(doc_status): st_here = None
+        story.append(StatusMark(st_here))
         block = []
         if section.get('title'):
             block += [Caps(f"{n:02d}  {section.get('kicker', '')}".strip(), 6, INK, 6), p(section['title'], 'section')]
@@ -171,6 +191,10 @@ def build(source, output):
                 ('LINEBELOW', (0, 0), (-1, 0), 1.2, INK), ('LINEBELOW', (0, 1), (-1, -1), 0.4, C['sage'])]))
             story += [CondPageBreak(80), t, Spacer(1, 10)]
         if section.get('note'): story.append(p(section['note'], 'note'))
+        if st_here: story.append(StatusMark(None, end=True))
+
+    # Every proposal and report closes with its full distribution notice (decisions.md Part 10).
+    story += [Spacer(1, 14), Rule(INK, 0.6, 8), Caps('Distribution notice', 6, INK, 5), p(notice_line, 'note')]
 
     holder = {'n': 1}
     def draw_cover(c):
@@ -192,7 +216,8 @@ def build(source, output):
         for k, ln in enumerate(reversed(simpleSplit(notice_line, 'OceanLight', 7, w-112))): c.drawString(56, 90 + k*9, ln)
         c.setStrokeColor(hd); c.line(56, 76, w-56, 76)
         x = 56
-        for k, v in data.get('meta', [['Date', date or '—'], ['Status', 'Specimen' if data.get('draft') else 'Issued']]):
+        status_word = {'final': 'Issued', 'draft': 'Draft', 'specimen': 'Specimen', 'do-not-use': 'Do not use', 'superseded': 'Superseded'}[doc_status]
+        for k, v in data.get('meta', [['Date', date or '—'], ['Status', status_word]]):
             x += caps(c, x, 60, k, 6, hd, 'OceanLight') + 8; x += caps(c, x, 60, v, 6, hd) + 26
     def chrome(c):
         c.saveState(); w, h = size; page = c.getPageNumber(); total = holder['n']
@@ -207,7 +232,9 @@ def build(source, output):
         caps(c, x3+10, top-14, edition, 5.6, INK, 'OceanLight'); caps(c, x3+10, top-25, 'Ocean RCS', 5.6, INK)
         # Running footer: document ID, date, page X of Y.
         c.setLineWidth(0.6); c.line(LM, 46, w-LM, 46)
-        caps(c, LM, 32, f"{docid} · {notice_label}", 5.6, INK)
+        marks = [m for m in getattr(c, '_ocean_status', []) if m]
+        page_label = label_with(data, max(marks, key=STRICT.index)) if marks else notice_label
+        caps(c, LM, 32, f"{docid} · {page_label}", 5.6, INK)
         pw = caps(c, w-LM, 32, f'Page {page:02d} of {total:02d}', 5.6, INK, 'OceanBold', 'right')
         if date: caps(c, w-LM-pw-18, 32, date, 5.6, INK, 'OceanLight', 'right')
         c.restoreState()

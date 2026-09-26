@@ -45,7 +45,14 @@ console.log('PASS: approved pairings and one Crimson moment per deck');
   b.pullQuote({text: 'Large enough', pair: 'sprig-sage'});
   const c = new D({classification: 'confidential', status: 'draft'});
   assert.strictEqual(c.notice.label, 'Confidential · Draft · Do not use');
-  assert.strictEqual(new D({notice: 'specimen'}).notice.label, 'Confidential · Design specimen · Do not use');
+  assert.strictEqual(new D({draft: true, notice: 'specimen'}).notice.label, 'Confidential · Design specimen · Do not use');
   assert.strictEqual(new D({notice: 'public'}).notice.label, 'Not confidential');
   console.log('PASS: pairing tiers and combined confidential + do-not-use notices');
+}
+{
+  const {OceanDeck: D} = require('../lib/ocean');
+  assert.throws(() => new D({classification: 'proposal'}), /must name its recipient/);
+  assert.throws(() => new D({status: 'specimen'}), /cannot be released/);
+  assert.strictEqual(new D({classification: 'proposal', status: 'draft', recipient: 'Acme'}).notice.label, 'Confidential proposal · Draft · Do not use');
+  console.log('PASS: proposal decks name the recipient; specimens cannot be released');
 }

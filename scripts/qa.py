@@ -41,6 +41,15 @@ def check(path,draft=False):
         for a,b in itertools.combinations(boxes,2):
             if min(a[0]+a[2],b[0]+b[2])-max(a[0],b[0])>0.04 and min(a[1]+a[3],b[1]+b[3])-max(a[1],b[1])>0.04:
                 errors.append(f'slide {i}: text overlap: {a[4]} / {b[4]}')
+    # Distribution notice on every slide but the cover and the close (decisions.md Part 10).
+    NOTICES=json.loads((ROOT/'brand/notices.json').read_text())
+    labels=[c['label'].split(' · ')[0].lower() for c in NOTICES['classifications'].values()]
+    for i,slide in enumerate(prs.slides,1):
+        if i in (1,len(prs.slides)): continue
+        txt=' '.join(sh.text_frame.text for sh in slide.shapes if sh.has_text_frame).lower()
+        if not any(l in txt for l in labels):
+            errors.append(f'slide {i}: no distribution notice in the footer (for example Confidential · Draft · Do not use)')
+    if abs(W-13.333)>0.02 or abs(H-7.5)>0.02: errors.append(f'slide size {W:.2f} x {H:.2f} in; Ocean decks are 13.333 x 7.5 in (16:9)')
     if len(prs.slides)>2:
         bg=lambda sl: sl.background.fill.fore_color.rgb if sl.background.fill.type==1 else None
         if str(bg(prs.slides[0]))!=str(bg(prs.slides[len(prs.slides)-1])):
