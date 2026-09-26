@@ -129,7 +129,7 @@ def build_docx(output):
     sec.first_page_header.paragraphs[0].add_run().add_picture(str(ROOT/'assets/logos/png/logo_horizontal_blackmoss.png'), height=Pt(24))
     sec.header.paragraphs[0].add_run().add_picture(str(ROOT/'assets/logos/png/logo_graphic_blackmoss.png'), height=Pt(24))
     for f in (sec.first_page_footer, sec.footer):
-        p = f.paragraphs[0]; p.style = d.styles['Ocean Footer']; p.text = 'OCN-XXX-0000 · v1.0\tPage X of Y\tConfidential'
+        p = f.paragraphs[0]; p.style = d.styles['Ocean Footer']; p.text = 'OCN-XXX-0000 · v1.0 · Confidential · Draft · Do not use\tPage X of Y\tInitials ____'
     d.add_paragraph('Agreement title', style='Ocean Title')
     d.add_paragraph('This Agreement is made on [date] between [Party] (“Owner”) and Ocean RCS (“Contractor”).', style='Ocean Body')
     d.add_paragraph('1.\u00a0\u00a0Definitions', style='Ocean Heading 1')

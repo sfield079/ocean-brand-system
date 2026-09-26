@@ -132,6 +132,8 @@ things must look are in `output/reference/` and `surfaces/*/`.
   divider, statement, keyNumber (the one Crimson moment), twoColumn, pillars, metrics,
   timeline, table, chart, caseStudy, team, ask, appendix and back. Each takes an approved
   `pair` (for example `honeydew-peacock`); unapproved pairings and a second Crimson moment throw.
+- Proposals: `documents/_starter/proposal.json` (Letter PDF) and `decks/proposals/_starter/`
+  (deck), both with the `proposal` notice, recipient and validity (decisions.md P2, Part 10).
 - Reports and proposals: `lib/publication.py` (JSON source in `documents/_starter`).
   Sage textured cover, staging header, running footer "Page X of Y", key/value glance
   tiles, Crimson risk flags.
@@ -145,7 +147,7 @@ things must look are in `output/reference/` and `surfaces/*/`.
 
 1. Read the sources and identify the audience, decision, surface and format.
 2. Build from tokens and shared layouts, and keep evidence editable.
-3. Run `npm test`, `npm run starter` and `npm run documents`, plus
+3. Check every item in `brand/DECK-CHECKLIST.md` (decks). Run `npm test`, `npm run starter` and `npm run documents`, plus
    `scripts/qa.py` (PPTX) and `scripts/qa_pdf.py` (PDF; add `--legal` for legal documents).
 4. Inspect EVERY rendered page at readable size against the guide and
    `output/reference/`. An automated PASS is not visual QA.

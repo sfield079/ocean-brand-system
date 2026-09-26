@@ -3,7 +3,7 @@
 const path = require('path');
 const IMG = f => path.join(__dirname, '../../assets/images', f);
 module.exports = {
-  deck: {title: 'Ocean RCS layout reference', draft: true, notice: 'specimen', kind: 'Layout reference', client: 'Ocean RCS'},
+  deck: {title: 'Ocean RCS layout reference', draft: true, classification: 'confidential', status: 'specimen', kind: 'Layout reference', client: 'Ocean RCS'},
   sections: [
     {name: 'Site', title: 'Clarity starts with the site', subtitle: 'Roof, structure, service and the constraints that shape the array.'},
     {name: 'System', title: 'A system built for the building', subtitle: 'Solar, storage and interconnection sized to the load.'},

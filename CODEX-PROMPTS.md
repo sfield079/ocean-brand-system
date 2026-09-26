@@ -5,9 +5,12 @@
 Follow AGENTS.md and brand/BRAND-SYSTEM.md. Create an editable presentation for
 [audience] to support [decision], using the supplied verified sources. Use the
 shared layout library, tokens, Stack Sans Headline, the deck recipe for the
-chosen length (§8), one approved pairing per slide and original logos at §16
-sizes. Match output/reference/examples/Ocean_Example_Presentation.pdf. Choose
-the length the content needs. Build, validate, inspect every page, fix defects and deliver
+chosen length (§8), one approved pairing per section and original logos at §16
+sizes. Build it with lib/recipe.js or lib/ocean.js; never hand-build slides.
+Set the notice: classification (confidential, proposal, investor, internal or
+public) and status (draft until approved). Match
+output/reference/examples/Ocean_Example_Presentation.pdf and check every item in
+brand/DECK-CHECKLIST.md. Choose the length the content needs. Build, validate, inspect every page, fix defects and deliver
 PPTX plus a PDF with embedded fonts. Clearly identify missing facts.
 
 ## Customer proposal
@@ -15,8 +18,13 @@ PPTX plus a PDF with embedded fonts. Clearly identify missing facts.
 Use the Ocean publication system to create a readable Letter PDF proposal for
 [customer/project]. Use the verified scope, pricing and terms supplied here.
 Include decision summary, scope, assumptions, exclusions, schedule dependencies
-and next steps. Use lib/publication.py and preserve the editable JSON source.
-Match output/reference/examples/Ocean_Example_Report.pdf and the report profile in brand/decisions.md.
+and next steps. Copy documents/_starter/proposal.json, set classification
+"proposal", the recipient, the pricing validity and status "draft" until Ocean
+approves it (footer: "Confidential proposal · Draft · Do not use"). Mark any
+section that is not cleared, such as unapproved pricing, with "status":
+"do-not-use". Use lib/publication.py and preserve the editable JSON source.
+Match output/reference/examples/Ocean_Example_Proposal.pdf and profile P2 in brand/decisions.md.
+For a proposal deck, start from decks/proposals/_starter/.
 Verify embedded fonts and inspect every page before delivery.
 
 ## Report

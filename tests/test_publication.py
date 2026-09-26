@@ -51,3 +51,28 @@ class LegalTests(unittest.TestCase):
             legal.build(ROOT/'documents/_starter/contract.json',out)
             self.assertTrue(check(out,draft=True,legal=True))
             self.assertFalse(check(out,draft=True))  # Stack Sans-only check must reject legal fonts
+
+
+class ProposalNoticeTests(unittest.TestCase):
+    def _src(self, **kw):
+        import json, tempfile
+        d = json.loads((ROOT / 'documents/_starter/proposal.json').read_text())
+        d.update(kw); f = tempfile.NamedTemporaryFile('w', suffix='.json', delete=False); json.dump(d, f); f.close()
+        return f.name
+
+    def test_released_proposal_needs_recipient_and_validity(self):
+        from lib import publication
+        import re, json
+        src = self._src(draft=False, status='final', recipient='Client name')
+        txt = re.sub(r'\[TBD\]', '1', Path(src).read_text()); Path(src).write_text(txt)
+        with self.assertRaises(ValueError): publication.build(src, '/tmp/p.pdf')
+
+    def test_section_status_marks_its_pages(self):
+        from lib import publication
+        import json, subprocess
+        d = json.loads((ROOT / 'documents/_starter/proposal.json').read_text())
+        d['status'] = 'draft'; d['sections'][3]['status'] = 'do-not-use'
+        src = self._src(**d); publication.build(src, '/tmp/p2.pdf')
+        text = subprocess.run(['pdftotext', '-layout', '/tmp/p2.pdf', '-'], capture_output=True, text=True).stdout
+        self.assertIn('CONFIDENTIAL PROPOSAL · DO NOT USE', text)
+        self.assertIn('CONFIDENTIAL PROPOSAL · DRAFT · DO NOT USE', text)
