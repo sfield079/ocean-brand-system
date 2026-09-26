@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict');
+const {OceanDeck,wrap,CW}=require('../lib/ocean');
+const d=new OceanDeck();
+assert.throws(()=>d.cover({title:'[TBD]'}),/placeholder/);
+assert.throws(()=>wrap('UnbreakableLongWord',0.2,32),/Unbreakable/);
+assert.throws(()=>d.statement({headline:'Test',support:'A lengthy sentence. '.repeat(200)}),/does not fit/);
+assert.throws(()=>d.table({headline:'Test',header:['A','B'],rows:[['1','2']],colW:[1,1]}),/widths/);
+assert.throws(()=>d.table({headline:'Test',header:['A','B'],rows:[['only one']],colW:[CW/2,CW/2]}),/count/);
+assert.throws(()=>d.chart({headline:'Test',categories:['A'],series:[{name:'S',values:[1,2]}]}),/match/);
+assert.throws(()=>d.image(d.page(),'missing.jpg',1,2,3,3),/Missing/);
+const lines=wrap('A clear statement about evidence',3,17);
+assert.ok(lines.length>=1 && lines.join(' ')==='A clear statement about evidence');
+console.log('PASS: release placeholders, glyph fit, overflow, table geometry, chart data and missing images');

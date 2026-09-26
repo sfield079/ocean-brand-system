@@ -1,0 +1,60 @@
+{
+  "draft": true,
+  "label": "TECHNICAL REPORT / DESIGN REFERENCE",
+  "title": "A decision-ready view of the site",
+  "subtitle": "A readable report format for findings, supporting evidence and practical next steps. This specimen demonstrates structure, not an actual site assessment.",
+  "edition": "Publication system / 2026",
+  "sections": [
+    {
+      "title": "Executive finding",
+      "paragraphs": [
+        "State the central finding in one concise paragraph. Explain its operational significance and the decision it supports. Separate measured results from estimates and unresolved questions."
+      ]
+    },
+    {
+      "title": "Evidence and interpretation",
+      "table": {
+        "headers": [
+          "Evidence",
+          "Interpretation",
+          "Decision use"
+        ],
+        "widths": [
+          0.28,
+          0.4,
+          0.32
+        ],
+        "rows": [
+          [
+            "Site observation",
+            "Describe the condition recorded during inspection.",
+            "Identify the work or investigation it supports."
+          ],
+          [
+            "Measurement",
+            "State units, period, method and source.",
+            "Explain the result without overstating precision."
+          ],
+          [
+            "Source document",
+            "Identify the document and its revision.",
+            "Distinguish confirmed requirements from assumptions."
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Recommendations",
+      "paragraphs": [
+        "Prioritize the action supported by the evidence. Identify the inspection or document needed to resolve uncertainty. Assign responsibility and define the completion evidence."
+      ]
+    },
+    {
+      "title": "Limitations",
+      "paragraphs": [
+        "State what the report did not evaluate and which conclusions depend on incomplete information. Keep limitations beside the findings they qualify, rather than hiding them in tiny print."
+      ],
+      "note": "Design specimen only. All example entries describe report-writing requirements; they are not findings about an Ocean project."
+    }
+  ]
+}

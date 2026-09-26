@@ -1,40 +1,87 @@
-# Ocean RCS Deck System
+# Ocean RCS publication system
 
-Code-driven production system for Ocean RCS investor, proposal, and capabilities decks.
-Codex reads `AGENTS.md` automatically; that file is the rulebook.
+A reusable system for editable presentations and readable proposal/report PDFs.
+White pages, original logos, required Stack Sans Headline, restrained brand
+accents and explicit quality checks. Read AGENTS.md and brand/DESIGN-SYSTEM.md.
 
-## Setup (one time)
-1. Create a private GitHub repo named `ocean-deck-system` and upload this folder's contents.
-2. In Codex (chatgpt.com/codex), connect GitHub and select this repo; create an environment.
-   Setup script for the environment: `npm install && apt-get update && apt-get install -y libreoffice poppler-utils && pip install python-pptx`
-3. Drop real assets into `assets/` (logos, Higgsfield images, site photos) and facts into `source/`.
+## Cloud setup
 
-## Local use
-```
-npm install
-pip install python-pptx          # QA script
-npm run starter                  # builds + renders + QAs the 13-layout reference deck
-```
-Requires LibreOffice (`soffice`) and poppler (`pdftoppm`) for rendering.
+Use repository `sfield079/ocean-deck-system`, branch `main`, image `universal`.
+Set the Codex environment setup script to:
 
-## Make a new deck
-```
-cp -r decks/_starter decks/investor/<deck-name>
-# edit content in decks/investor/<deck-name>/build.js, change the save() name
-node decks/investor/<deck-name>/build.js
-bash scripts/render.sh output/pptx/<deck-name>.pptx
-python3 scripts/qa.py output/pptx/<deck-name>.pptx
+```bash
+bash scripts/setup.sh
 ```
 
-## Layouts in lib/ocean.js
-cover · divider · statement · twoColumn · pillars · metrics · timeline · table · chart · caseStudy · team · ask · appendix
+Keep agent internet off. Setup installs npm/Python packages, LibreOffice,
+Poppler, fontconfig and bundled fonts. No secrets or environment variables are
+needed. When changing the setup script, rebuild the environment cache.
 
-The library refuses text that doesn't fit its box (it throws an error rather than shrinking type).
-That is intentional: shorten or split the slide.
+## Commands
 
-## Fonts
-Default is Arial so files render identically everywhere. To use Stack Sans, install it on every
-machine that opens the PPTX, then change `fonts` in `brand/color-system.json`. PDF is always the
-safe delivery format.
+```bash
+npm ci
+python3 -m pip install -r scripts/requirements.txt
+python3 scripts/install_fonts.py
+npm test
+npm run starter
+npm run documents
+```
 
-See `CODEX-PROMPTS.md` for copy-paste prompts.
+`starter` needs Bash, LibreOffice and Poppler. It builds all 13 editable layouts,
+checks the PPTX, exports the PDF, verifies embedded fonts and renders PNGs.
+`documents` builds a two-page proposal specimen and one-page report specimen
+directly from structured JSON with embedded fonts. No office renderer needed.
+On Windows, use your Python executable in place of `python3`; document commands
+and `node decks/_starter/build.js` work natively. Use the Linux cloud pipeline
+for full deck rendering when Bash/LibreOffice tools are not on your PATH.
+
+## New publications
+
+Copy a starter into `decks/<category>/<name>/` or `documents/<name>/`.
+Adjust relative imports when moving the starter to a deeper folder. Set
+`draft:false` for release; replace all template content with verified inputs.
+For documents call `lib.publication.build(source_json, output_pdf)`.
+Supported document formats are Letter (default) and A4 (`"format":"A4"`).
+
+All text and chart data in the PPTX remain editable. Document JSON is the
+editable source; the PDF retains selectable live text. No claim of editable DOCX
+output is made. Use the document path for reports, not miniature slide text.
+
+## Quality gates
+
+```bash
+python3 scripts/qa.py output/pptx/example.pptx
+bash scripts/render.sh output/pptx/example.pptx
+python3 scripts/qa_pdf.py output/pdf/example.pdf
+```
+
+Only specimens use `--draft`. Release QA rejects unresolved placeholders.
+PPTX QA checks fonts, font minimums, bounds, text overlap and text colors,
+including table/chart XML. PDF QA verifies actual font use, font embedding,
+selectable text, bounds and likely text overprint. The layout engine also
+measures glyph widths before writing. These checks are not a substitute for
+visual review. Inspect every rendered page and fix all visible problems.
+
+GitHub Actions runs regression checks and builds all specimens on each change.
+Download the `ocean-publication-specimens` artifact for PDFs, PPTX and renders.
+Successful Actions means automated validation passed, not design approval.
+
+## Fonts and assets
+
+`brand/fonts/` includes the Google Fonts variable source, four static weights
+and OFL license. No fallback is permitted. Installer is idempotent and per-user.
+Original logo SVGs and a transparent PNG are in `assets/logos/`.
+The source guide is `brand/Ocean_StyleGuide_2026.pdf`. Reference decisions and
+source links are recorded in `brand/REFERENCE-NOTES.md`.
+
+## ChatGPT project bridge
+
+ChatGPT project chats do not automatically load GitHub AGENTS.md. Add
+`brand/CHATGPT-PROJECT-INSTRUCTIONS.md` to the Ocean RCS project's sources and
+reference the repository in its instructions. Keep existing business context.
+The current user brief supersedes older chat instructions about dark covers,
+Arial fallbacks and generated backgrounds.
+
+See CODEX-PROMPTS.md for reusable task briefs. Reference specimens are not
+external business deliverables and do not assert project results or returns.

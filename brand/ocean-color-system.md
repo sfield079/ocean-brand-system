@@ -1,12 +1,6 @@
-# Ocean Color System
+# Ocean color roles
 
-| Name | Hex | Use |
-|---|---|---|
-| Blackmoss | #0B1617 | Dark backgrounds, body text on light |
-| Peacock | #102426 | Secondary dark, table headers, cards |
-| Cedar | #1B4039 | Primary accent, chart series 1, rules |
-| Sage | #618C7C | Secondary accent, labels, chart series 2 |
-| White | #FFFFFF | Light backgrounds, text on dark |
-
-Derived tints (cards/striping only): Mist #EEF2F0, Fog #D5DED9, Sage Light #A9C2B8.
-Machine-readable version: color-system.json.
+Read `DESIGN-SYSTEM.md`. Canonical tokens live in `color-system.json`.
+White is the default canvas. Blackmoss is primary text, Cedar secondary text,
+Sage restrained emphasis. Default dark covers are retired. Small Sage text on
+white is not permitted. Photography and original black logos retain their colors.

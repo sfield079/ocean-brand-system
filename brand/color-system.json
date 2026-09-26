@@ -12,18 +12,29 @@
     "sageLight": "A9C2B8"
   },
   "fonts": {
-    "heading": "Arial",
-    "body": "Arial",
-    "target": "Stack Sans",
-    "note": "Switch heading/body to 'Stack Sans' only when installed on every machine opening the PPTX."
+    "heading": "Stack Sans Headline",
+    "body": "Stack Sans Headline",
+    "target": "Stack Sans Headline",
+    "note": "Required for all output. Install bundled fonts; never silently substitute. PDF fonts must be embedded."
   },
   "typeScale": {
-    "coverTitle": 44,
+    "coverTitle": 48,
     "dividerTitle": 36,
-    "headline": 28,
+    "headline": 32,
     "subhead": 18,
-    "body": 16,
+    "body": 17,
     "label": 13,
     "footnote": 10
-  }
+  },
+  "roles": {
+    "page": "FFFFFF",
+    "ink": "0B1617",
+    "secondaryInk": "1B4039",
+    "accent": "618C7C",
+    "rule": "D5DED9",
+    "tableHeader": "102426",
+    "cover": "FFFFFF"
+  },
+  "documentTypeScale": { "title": 30, "section": 18, "body": 11, "table": 10, "footer": 9 },
+  "presentationTypeRanges": { "body": [16,18], "table": [13,16], "footer": [9,10] }
 }
