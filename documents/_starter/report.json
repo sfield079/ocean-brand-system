@@ -1,14 +1,36 @@
 {
   "draft": true,
-  "label": "TECHNICAL REPORT / DESIGN REFERENCE",
+  "label": "Technical report / design reference",
   "title": "A decision-ready view of the site",
   "subtitle": "A readable report format for findings, supporting evidence and practical next steps. This specimen demonstrates structure, not an actual site assessment.",
-  "edition": "Publication system / 2026",
+  "edition": "Site feasibility report",
   "sections": [
     {
       "title": "Executive finding",
       "paragraphs": [
         "State the central finding in one concise paragraph. Explain its operational significance and the decision it supports. Separate measured results from estimates and unresolved questions."
+      ],
+      "kicker": "Finding"
+    },
+    {
+      "title": "Site at a glance",
+      "kicker": "Summary",
+      "paragraphs": [
+        "Key figures sit in chamfered tiles with counting diamonds. Replace them with verified values."
+      ],
+      "glance": [
+        {
+          "label": "Array size",
+          "value": "412 kW DC"
+        },
+        {
+          "label": "Usable roof",
+          "value": "68,400 ft\u00b2"
+        },
+        {
+          "label": "Service",
+          "value": "2,000 A \u00b7 480 V"
+        }
       ]
     },
     {
@@ -41,20 +63,38 @@
             "Distinguish confirmed requirements from assumptions."
           ]
         ]
-      }
+      },
+      "kicker": "Evidence"
     },
     {
       "title": "Recommendations",
       "paragraphs": [
         "Prioritize the action supported by the evidence. Identify the inspection or document needed to resolve uncertainty. Assign responsibility and define the completion evidence."
-      ]
+      ],
+      "kicker": "Recommendations"
     },
     {
       "title": "Limitations",
       "paragraphs": [
         "State what the report did not evaluate and which conclusions depend on incomplete information. Keep limitations beside the findings they qualify, rather than hiding them in tiny print."
       ],
-      "note": "Design specimen only. All example entries describe report-writing requirements; they are not findings about an Ocean project."
+      "note": "Design specimen only. All example entries describe report-writing requirements; they are not findings about an Ocean project.",
+      "kicker": "Limitations"
+    },
+    {
+      "title": "Open risks",
+      "kicker": "Risks",
+      "items": [
+        {
+          "risk": true,
+          "title": "Utility approval",
+          "text": "Interconnection may require a separate service study. Flag it with the Crimson marker only when the risk is real."
+        }
+      ]
     }
-  ]
+  ],
+  "id": "OCN-RPT-0001",
+  "date": "26 SEP 2026",
+  "coverTitle": "A decision-ready\nview of the site",
+  "pair": "honeydew-blackmoss"
 }

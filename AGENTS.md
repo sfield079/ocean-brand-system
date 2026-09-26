@@ -17,8 +17,7 @@ documents, business cards, email, digital signage, charts, icons and graphics.
 5. `brand/audit/`: the independent audit and page-by-page guide analysis
    (evidence, not rules).
 
-If older text in this repo (for example `lib/` defaults, the specimens in
-`output/pdf/` and `output/pptx/`, or `brand/REFERENCE-NOTES.md`) conflicts with
+If older text in this repo (for example `brand/REFERENCE-NOTES.md`) conflicts with
 the documents above, the documents above win. Approved references for how
 things must look are in `output/reference/` and `surfaces/*/`.
 
@@ -117,23 +116,27 @@ things must look are in `output/reference/` and `surfaces/*/`.
 - Distinguish contracted revenue from optionality. No guaranteed returns,
   automatic incentives or guaranteed equipment collateral value.
 
-## Production paths and migration
+## Production paths
 
-- Decks: `lib/ocean.js`, starting in `decks/_starter`. Proposals and reports:
-  `lib/publication.py`, starting in `documents/_starter`.
-- These libraries **have not yet been migrated** to the approved system. Until
-  they are, match `output/reference/` visually and follow the migration prompt
-  in `CODEX-PROMPTS.md`. Do not treat their current white-page defaults as
-  approved.
-- `tools/prototypes/` holds the HTML/Chromium builders that produced the
-  approved references (exact coordinates). They are a record, not a pipeline.
+- Decks: `lib/ocean.js` (pptxgenjs), starting in `decks/_starter`. Layouts: cover, agenda,
+  divider, statement, keyNumber (the one Crimson moment), twoColumn, pillars, metrics,
+  timeline, table, chart, caseStudy, team, ask, appendix and back. Each takes an approved
+  `pair` (for example `honeydew-peacock`); unapproved pairings and a second Crimson moment throw.
+- Reports and proposals: `lib/publication.py` (JSON source in `documents/_starter`).
+  Sage textured cover, staging header, running footer "Page X of Y", key/value glance
+  tiles, Crimson risk flags.
+- Legal documents: `lib/legal.py` (`documents/_starter/contract.json`) produces the plain
+  Times New Roman PDF; `templates/ocean-legal-template.docx` is the Word template for counsel.
+- Letters, cards, email, signage, web and apps: follow `surfaces/*/` and
+  `tools/prototypes/`, which hold the HTML builders for the approved references.
+- Logos for PPTX/PDF come from `assets/logos/png/` (rasterized from the SVG masters at 600 px tall).
 
 ## Workflow and QA
 
 1. Read the sources and identify the audience, decision, surface and format.
 2. Build from tokens and shared layouts, and keep evidence editable.
 3. Run `npm test`, `npm run starter` and `npm run documents`, plus
-   `scripts/qa.py` (PPTX) and `scripts/qa_pdf.py` (PDF).
+   `scripts/qa.py` (PPTX) and `scripts/qa_pdf.py` (PDF; add `--legal` for legal documents).
 4. Inspect EVERY rendered page at readable size against the guide and
    `output/reference/`. An automated PASS is not visual QA.
 5. Fix, rebuild, rerender and reinspect. Deliver PDF plus editable source, with

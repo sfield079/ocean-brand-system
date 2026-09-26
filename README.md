@@ -12,7 +12,7 @@ signage, charts, icons and graphics. Read `AGENTS.md`, then `brand/BRAND-SYSTEM.
 | `charts/` | Chart system builder, SVG/PNG reference and animation reference |
 | `surfaces/` | Approved references per surface (web, apps, decks, formal, print, email, signage) |
 | `output/reference/` | Approved example deck, report, contract and overview boards |
-| `lib/`, `decks/`, `documents/`, `scripts/` | Production pipeline (migration to the approved system pending) |
+| `lib/`, `decks/`, `documents/`, `scripts/` | Production pipelines: decks (`ocean.js`), reports and proposals (`publication.py`), legal (`legal.py`) |
 | `tools/prototypes/` | Builders that produced the approved references |
 
 ## Cloud setup
@@ -39,10 +39,10 @@ npm run starter
 npm run documents
 ```
 
-`starter` needs Bash, LibreOffice and Poppler. It builds all 13 editable layouts,
+`starter` needs Bash, LibreOffice and Poppler. It builds all 16 editable layouts,
 checks the PPTX, exports the PDF, verifies embedded fonts and renders PNGs.
-`documents` builds a two-page proposal specimen and one-page report specimen
-directly from structured JSON with embedded fonts. No office renderer needed.
+`documents` builds the proposal, report and legal contract specimens from structured JSON
+with embedded fonts, plus the Word legal template. No office renderer needed.
 On Windows, use your Python executable in place of `python3`; document commands
 and `node decks/_starter/build.js` work natively. Use the Linux cloud pipeline
 for full deck rendering when Bash/LibreOffice tools are not on your PATH.
@@ -80,8 +80,9 @@ Successful Actions means automated validation passed, not design approval.
 
 ## Fonts and assets
 
-`brand/fonts/` includes the Google Fonts variable source, four static weights
-and OFL license. No fallback is permitted. Installer is idempotent and per-user.
+`brand/fonts/` includes the Google Fonts variable source, five static weights
+(Light, Regular, Medium, SemiBold, Bold) and the OFL license. `brand/fonts/legal/` holds
+Liberation Serif (metric-identical to Times New Roman) for legal PDFs when Times is absent. No fallback is permitted. Installer is idempotent and per-user.
 Original logo SVGs and a transparent PNG are in `assets/logos/`.
 The source guide is `brand/Ocean_StyleGuide_2026.pdf`. Reference decisions and
 source links are recorded in `brand/REFERENCE-NOTES.md`.

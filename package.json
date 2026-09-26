@@ -1,12 +1,12 @@
 {
-  "name": "ocean-deck-system",
+  "name": "ocean-brand-system",
   "private": true,
   "version": "1.0.0",
-  "description": "Ocean RCS presentation production system",
+  "description": "Ocean RCS brand system: rules, tokens, assets and production pipelines",
   "scripts": {
     "build:starter": "node decks/_starter/build.js",
     "starter": "node decks/_starter/build.js && python3 scripts/qa.py output/pptx/ocean-layout-reference.pptx --draft && bash scripts/render.sh output/pptx/ocean-layout-reference.pptx --draft",
-    "documents": "python3 scripts/build_documents.py && python3 scripts/qa_pdf.py output/pdf/ocean-proposal-reference.pdf --draft && python3 scripts/qa_pdf.py output/pdf/ocean-report-reference.pdf --draft",
+    "documents": "python3 scripts/build_documents.py && python3 scripts/qa_pdf.py output/pdf/ocean-proposal-reference.pdf --draft && python3 scripts/qa_pdf.py output/pdf/ocean-report-reference.pdf --draft && python3 scripts/qa_pdf.py output/pdf/ocean-contract-reference.pdf --draft --legal",
     "test": "node tests/layouts.test.js && python3 -m unittest discover -s tests -p test_*.py"
   },
   "dependencies": {

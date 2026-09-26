@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def install():
     fonts = sorted((ROOT / 'brand/fonts').glob('StackSansHeadline-*.ttf'))
     fonts = [f for f in fonts if 'variable' not in f.name]
-    if len(fonts) != 4:
+    if len(fonts) != 5:
         raise RuntimeError('Bundled static fonts missing. Restore brand/fonts from GitHub.')
     system = platform.system()
     if system == 'Windows':
@@ -34,5 +34,5 @@ def install():
         resolved = subprocess.check_output(['fc-match', '-f', '%{family}', 'Stack Sans Headline'], text=True)
         if 'Stack Sans Headline' not in resolved:
             raise RuntimeError(f'Font substitution detected: {resolved}')
-    print(f'Installed Stack Sans Headline (4 weights): {dest}')
+    print(f'Installed Stack Sans Headline (Light, Regular, Medium, SemiBold, Bold): {dest}')
 if __name__ == '__main__': install()

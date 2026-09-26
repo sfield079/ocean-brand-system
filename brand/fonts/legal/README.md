@@ -1,0 +1,1 @@
+Liberation Serif (SIL Open Font License 1.1, Red Hat / Liberation project). Metric-identical to Times New Roman. Used only to embed legal PDFs when Times New Roman is not installed. Legal documents are specified in Times New Roman.

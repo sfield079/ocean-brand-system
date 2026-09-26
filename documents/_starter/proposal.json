@@ -1,15 +1,145 @@
 {
   "draft": true,
-  "label": "COMMERCIAL PROPOSAL / DESIGN REFERENCE",
+  "label": "Commercial proposal / design reference",
   "title": "A clear plan for your site",
   "subtitle": "A reusable proposal structure for energy and connected infrastructure. Replace this explanatory content with verified project inputs.",
-  "edition": "Publication system / 2026",
+  "edition": "Commercial proposal",
   "sections": [
-    {"title":"The decision", "paragraphs":["Lead with the decision the customer needs to make. Explain the site need, the proposed scope and the expected practical benefit in plain language. Keep the opening useful to a reader who has not attended the sales meeting."]},
-    {"title":"Proposed scope", "table":{"headers":["Workstream","What the proposal should establish"],"widths":[0.26,0.74],"rows":[["Site review","Document existing conditions, customer priorities and available evidence."],["Design and approvals","Define the engineering scope, required approvals and responsibility for each dependency."],["Delivery","Identify included equipment and work, sequencing and commissioning requirements."],["Handover","Describe documentation, training and agreed service responsibilities."]]}},
-    {"title":"Commercial clarity", "paragraphs":["Present verified pricing, payment milestones, schedule dependencies and exclusions together. Make scope boundaries easy to find. Keep internal margins and supplier negotiations out of the customer document."],"note":"This is a design specimen, not a project quotation. No prices, savings, warranties or delivery dates are asserted."},
-    {"pageBreak":true,"title":"Terms that support a decision", "paragraphs":["A proposal should explain what happens next, who owns each step and which conditions must be satisfied before delivery begins. Use a table when those responsibilities are easier to compare side by side."],"table":{"headers":["Decision point","Required project input","Owner"],"widths":[0.26,0.51,0.23],"rows":[["Scope acceptance","Agreed inclusions, exclusions and acceptance criteria","Named parties"],["Technical release","Approved design and site-specific requirements","Project team"],["Mobilization","Access, payment and prerequisite approvals","Named parties"],["Completion","Commissioning records and handover requirements","Project team"]]}},
-    {"title":"Assumptions and exclusions","items":[{"title":"Site conditions","text":"State the evidence used and any conditions that still need inspection. Avoid language implying that unknown conditions have already been resolved."},{"title":"Schedule dependencies","text":"Separate target dates from contractual commitments. Identify utility, permitting, procurement and customer dependencies when relevant."},{"title":"Performance and support","text":"Use the actual agreed terms and manufacturer documentation. Do not import guarantees from an older proposal or website."}]},
-    {"title":"Next step","paragraphs":["Close with one specific customer action and the documents needed to support it. Keep the call to action practical and consistent with the proposal's current status."]}
-  ]
+    {
+      "title": "The decision",
+      "paragraphs": [
+        "Lead with the decision the customer needs to make. Explain the site need, the proposed scope and the expected practical benefit in plain language. Keep the opening useful to a reader who has not attended the sales meeting."
+      ],
+      "kicker": "Decision"
+    },
+    {
+      "title": "Project at a glance",
+      "kicker": "Summary",
+      "glance": [
+        {
+          "label": "System size",
+          "value": "[TBD] kW DC"
+        },
+        {
+          "label": "Storage",
+          "value": "[TBD] kWh"
+        },
+        {
+          "label": "Schedule",
+          "value": "[TBD] days"
+        }
+      ]
+    },
+    {
+      "title": "Proposed scope",
+      "table": {
+        "headers": [
+          "Workstream",
+          "What the proposal should establish"
+        ],
+        "widths": [
+          0.26,
+          0.74
+        ],
+        "rows": [
+          [
+            "Site review",
+            "Document existing conditions, customer priorities and available evidence."
+          ],
+          [
+            "Design and approvals",
+            "Define the engineering scope, required approvals and responsibility for each dependency."
+          ],
+          [
+            "Delivery",
+            "Identify included equipment and work, sequencing and commissioning requirements."
+          ],
+          [
+            "Handover",
+            "Describe documentation, training and agreed service responsibilities."
+          ]
+        ]
+      },
+      "kicker": "Scope"
+    },
+    {
+      "title": "Commercial clarity",
+      "paragraphs": [
+        "Present verified pricing, payment milestones, schedule dependencies and exclusions together. Make scope boundaries easy to find. Keep internal margins and supplier negotiations out of the customer document."
+      ],
+      "note": "This is a design specimen, not a project quotation. No prices, savings, warranties or delivery dates are asserted.",
+      "kicker": "Commercial"
+    },
+    {
+      "pageBreak": true,
+      "title": "Terms that support a decision",
+      "paragraphs": [
+        "A proposal should explain what happens next, who owns each step and which conditions must be satisfied before delivery begins. Use a table when those responsibilities are easier to compare side by side."
+      ],
+      "table": {
+        "headers": [
+          "Decision point",
+          "Required project input",
+          "Owner"
+        ],
+        "widths": [
+          0.26,
+          0.51,
+          0.23
+        ],
+        "rows": [
+          [
+            "Scope acceptance",
+            "Agreed inclusions, exclusions and acceptance criteria",
+            "Named parties"
+          ],
+          [
+            "Technical release",
+            "Approved design and site-specific requirements",
+            "Project team"
+          ],
+          [
+            "Mobilization",
+            "Access, payment and prerequisite approvals",
+            "Named parties"
+          ],
+          [
+            "Completion",
+            "Commissioning records and handover requirements",
+            "Project team"
+          ]
+        ]
+      },
+      "kicker": "Terms"
+    },
+    {
+      "title": "Assumptions and exclusions",
+      "items": [
+        {
+          "title": "Site conditions",
+          "text": "State the evidence used and any conditions that still need inspection. Avoid language implying that unknown conditions have already been resolved."
+        },
+        {
+          "title": "Schedule dependencies",
+          "text": "Separate target dates from contractual commitments. Identify utility, permitting, procurement and customer dependencies when relevant."
+        },
+        {
+          "title": "Performance and support",
+          "text": "Use the actual agreed terms and manufacturer documentation. Do not import guarantees from an older proposal or website."
+        }
+      ],
+      "kicker": "Assumptions"
+    },
+    {
+      "title": "Next step",
+      "paragraphs": [
+        "Close with one specific customer action and the documents needed to support it. Keep the call to action practical and consistent with the proposal's current status."
+      ],
+      "kicker": "Next step"
+    }
+  ],
+  "id": "OCN-PRP-0001",
+  "date": "26 SEP 2026",
+  "coverTitle": "A clear plan\nfor your site",
+  "pair": "honeydew-cedar"
 }
