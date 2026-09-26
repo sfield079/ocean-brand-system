@@ -1,0 +1,24 @@
+font.family: Stack Sans Headline
+font.size: 11
+font.weight: 400
+axes.facecolor: F3FBF8
+figure.facecolor: F3FBF8
+axes.edgecolor: 0B1617
+axes.labelcolor: 0B1617
+axes.linewidth: 1.0
+axes.spines.top: False
+axes.spines.right: False
+axes.spines.left: False
+axes.grid: True
+axes.grid.axis: y
+grid.color: 0B1617
+grid.alpha: 0.12
+grid.linewidth: 0.8
+xtick.color: 0B1617
+ytick.color: 0B1617
+xtick.major.size: 0
+ytick.major.size: 0
+axes.prop_cycle: cycler('color', ['1B4039', '618C7C', '6E734C', 'A69856'])
+legend.frameon: False
+lines.linewidth: 2.4
+lines.solid_capstyle: round

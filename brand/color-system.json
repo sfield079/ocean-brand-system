@@ -4,7 +4,12 @@
     "peacock": "102426",
     "cedar": "1B4039",
     "sage": "618C7C",
-    "white": "FFFFFF"
+    "white": "FFFFFF",
+    "olive": "6E734C",
+    "citron": "A69856",
+    "crimson": "EB3819",
+    "sprig": "D5CCA0",
+    "honeydew": "F3FBF8"
   },
   "tints": {
     "mist": "EEF2F0",
@@ -35,6 +40,38 @@
     "tableHeader": "102426",
     "cover": "FFFFFF"
   },
-  "documentTypeScale": { "title": 30, "section": 18, "body": 11, "table": 10, "footer": 9 },
-  "presentationTypeRanges": { "body": [16,18], "table": [13,16], "footer": [9,10] }
+  "documentTypeScale": {
+    "title": 30,
+    "section": 18,
+    "body": 11,
+    "table": 10,
+    "footer": 9
+  },
+  "presentationTypeRanges": {
+    "body": [
+      16,
+      18
+    ],
+    "table": [
+      13,
+      16
+    ],
+    "footer": [
+      9,
+      10
+    ]
+  },
+  "palette": {
+    "blackmoss": "0B1617",
+    "peacock": "102426",
+    "cedar": "1B4039",
+    "sage": "618C7C",
+    "olive": "6E734C",
+    "citron": "A69856",
+    "crimson": "EB3819",
+    "sprig": "D5CCA0",
+    "honeydew": "F3FBF8",
+    "white": "FFFFFF"
+  },
+  "note": "Canonical tokens live in tokens/ocean.tokens.json. This file is kept for lib/ocean.js and lib/publication.py until they are migrated. roles below are legacy; approved roles are in brand/BRAND-SYSTEM.md."
 }

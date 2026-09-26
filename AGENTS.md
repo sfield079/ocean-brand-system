@@ -1,75 +1,145 @@
-# Ocean RCS publication system
+# Ocean RCS brand system
 
-These rules apply to every presentation, proposal, report, company overview,
-one-pager and appendix in this repository. Read `brand/DESIGN-SYSTEM.md` and
-`brand/REFERENCE-NOTES.md` before authoring. Current user instructions override
-older reference chats and generated advice.
+This repository is the single brand source of truth for every Ocean surface:
+oceanrcs.com, Ocean micro-apps, decks, reports, proposals, formal and legal
+documents, business cards, email, digital signage, charts, icons and graphics.
 
-## Identity and design
+## Controlling documents (read in this order)
+
+1. `brand/Ocean_StyleGuide_2026.pdf`: the Brand Bible. Every word, letter
+   and design element in it is intentional. It overrides everything else here.
+2. `brand/decisions.md`: approved decision register (D1–D21) and document
+   profiles. Approved by Ocean leadership on 26 September 2026.
+3. `brand/typography.md`: the typography rules (T1–T27, Rules 1–10).
+4. `brand/BRAND-SYSTEM.md`: surface-by-surface specification (web, apps,
+   decks, reports, formal, print, email, signage, charts, icons, graphics,
+   logo sizing, decisions L1–L6) and the repository migration status.
+5. `brand/audit/`: the independent audit and page-by-page guide analysis
+   (evidence, not rules).
+
+If older text in this repo (for example `lib/` defaults, the specimens in
+`output/pdf/` and `output/pptx/`, or `brand/REFERENCE-NOTES.md`) conflicts with
+the documents above, the documents above win. Approved references for how
+things must look are in `output/reference/` and `surfaces/*/`.
+
+## Identity
 
 - Ocean RCS means Renewable Connected Systems. Use the full name once.
   Do not position Ocean as a hyperscale data-center developer.
 - "Sequoia-level" means disciplined narrative, evidence and production quality,
   not copying another company's identity or claiming its endorsement.
-- Default to white pages, Blackmoss text, sparse Sage accents, thin rules and
-  open editorial columns. Keep covers light; Sage is an optional cover treatment.
-- No AI backgrounds, generated decoration, watermark logos, grids behind text,
-  gradients, glows, fake dashboards or repeated oversized cards.
-- Use real supplied photography when useful. Preserve natural color. No image
-  quota, no automatic hero image and no mandatory image on covers.
-- Use original `assets/logos/` artwork. Preserve aspect ratio and clear space.
-  Never recreate a logo with text, recolor it or place it over a busy background.
 
-## Fonts and fit
+## Color
 
-- The exact approved family is **Stack Sans Headline**, from style-guide page 8.
-  Use it for headings, body, tables, charts, numbers and footers.
-- No silent Arial, Helvetica, Calibri or Inter substitution. Install bundled
-  fonts with `python scripts/install_fonts.py` when absent. Cloud setup must
-  run `bash scripts/setup.sh`. Fonts work offline once setup finishes.
-- Slides: 48 pt cover, 32 pt headline, 16–18 pt body, 13–16 pt tables,
-  9–10 pt footer. Statements and metrics can use larger type.
-- Letter/A4 documents: 30 pt title, 18 pt section, 11 pt prose, 10 pt tables,
-  9 pt footer. Do not force presentation typography onto long documents.
+- Palette: Blackmoss #0B1617, Peacock #102426, Cedar #1B4039, Sage #618C7C,
+  Olive #6E734C, Citron #A69856, Crimson #EB3819, Sprig #D5CCA0,
+  Honeydew #F3FBF8. White #FFFFFF is for print and formal documents only.
+- Tokens come from `tokens/ocean.tokens.json` (CSS and Tailwind builds in
+  `tokens/build/`). Never hard-code a hex value outside tokens.
+- Each page, slide or screen section uses **one approved two-color pairing**
+  (field + ink) from `brand/decisions.md` Part 2. Photography, charts and a
+  single Crimson accent are the permitted exceptions.
+- Contrast decides use (`tokens/contrast-matrix.json`): body text needs 4.5:1;
+  Sage/Honeydew (3.6:1) carries large text and graphics only.
+- Crimson appears once per deck as a moment, and otherwise only to flag one
+  value or an alert.
+
+## Typography
+
+- **Stack Sans Headline** for all brand surfaces. Four working weights:
+  Light 300, Regular 400, Medium 500, Bold 700. All caps are always Bold or
+  Light at +0.25 em. Display tracking follows `brand/typography.md`.
+- **Legal documents** (contracts, EPC agreements, NDAs, MSAs, term sheets,
+  resolutions, lien waivers, signature pages) use **Times New Roman**
+  throughout (approved L5). Letters, memos, invoices, quotes and change orders
+  stay in Stack Sans.
+- Email signatures fall back to Arial because email clients cannot load
+  Stack Sans. No other substitution is permitted.
 - Never shrink to fit or split words. Edit, widen a column or split the page.
-- PDF fonts must be embedded and checked, not merely named in the source.
+  PDF fonts must be embedded and checked.
+
+## Logo and graphic mark
+
+- Use the official artwork in `assets/logos/` (masters) and
+  `assets/logos/variants/` (one-color versions in each palette color).
+  Preserve aspect ratio and clear space; never rebuild the logo from text.
+- Minimum sizes are fixed per surface in `brand/BRAND-SYSTEM.md` §16. They
+  are minimums, and larger is allowed. Examples: web header 44 px, letter
+  28 pt, legal page 1 24 pt, card front 0.9 in, email 78 px.
+- The graphic mark alone is used for app icons, favicons, continuation pages,
+  photo corners, chart sheets and signage corners. Use it at most once per page
+  and never as a pattern or bullet.
+
+## Surfaces
+
+- **Presentations and reports are different systems.** Decks follow the
+  recipes in §8 (5 to 30 slides, same spine). Reports and proposals follow the
+  report profile in `brand/decisions.md`.
+- **Formal documents** follow the plain institutional standard (§6): white,
+  Blackmoss only, logo on page 1 and graphic mark on continuation pages, and no
+  textures, photos, chamfers, icons or color.
+- **Web and micro-apps** follow §4. oceanrcs.com uses Honeydew + Blackmoss
+  (L2). Apps default to Blackmoss + Honeydew, with the approved Honeydew +
+  Peacock alternative and a user toggle (L3).
+- **Business cards, email and signage** follow §7, §12 and §13. The card
+  back carries a personal QR code linking to oceanrcs.com, and the front logo
+  may be embossed (L4).
+
+## Charts, icons and graphics
+
+- Charts follow §9 and `tokens/build/ocean.mplstyle`. Use Sage for context and
+  Cedar for the focus. **Every number on a data shape is Honeydew Bold.** Output
+  is vector (SVG/PDF). On screen, charts animate in with a staggered ease-out.
+  Reference: `charts/ocean-chart-system.*`.
+- Icons: Material Symbols Outlined, wght 400, fill 0, grade 0, opsz 24, with
+  the icon at 50% of its cell. Use only the names in `assets/icons/manifest.json`.
+- Micro-graphics (chamfer frames, diamond counters, double rule, risk flag,
+  nav chip) are in `assets/graphics/`. Wave textures are in `assets/textures/`
+  and are used only as subtle, low-contrast texture.
+
+## Images
+
+- Any source is allowed in any order: Ocean photos, licensed stock, or top-rated
+  generators (Higgsfield and others). **Unlicensed photos are excluded (L6).**
+- Record every image in `assets/images/image-manifest.json` (source, license,
+  AI flag). Label AI-generated images "Representative" in client material.
+- Images show real environments, people, infrastructure and natural light,
+  in natural color. Overlays stay restrained, per the guide.
 
 ## Truth and editorial discipline
 
-- Facts come from user-supplied evidence and `source/`. Reference proposals and
-  the website establish design, not verified current commercial claims.
+- Facts come from user-supplied evidence and `source/`. Specimens and
+  references demonstrate design only and are not client-ready business claims.
 - Never invent projects, customers, contracts, utility rights, incentives,
   equipment ownership, revenue, returns, licenses or team credentials.
 - Label illustrative and forecast figures; cite sources and assumptions.
 - Keep internal margins and vendor sourcing costs out of external materials.
 - Distinguish contracted revenue from optionality. No guaranteed returns,
   automatic incentives or guaranteed equipment collateral value.
-- Prefer direct headings and concise prose. No inflated adjectives or forced
-  three-part slogans. Preserve useful details in an appendix.
 
-## Shared production paths
+## Production paths and migration
 
-- 16:9 editable slides use `lib/ocean.js`. Extend shared layouts when needed;
-  do not scatter custom coordinates through every deck. Start in `decks/_starter`.
-- Proposals and reports use `lib/publication.py` and structured JSON, starting
-  in `documents/_starter`. Keep the editable source alongside the PDF.
-- Specimens demonstrate design only. They are not client-ready business claims.
-- Draft mode may show placeholders. Release mode must fail on missing assets
-  and unresolved placeholders. Never deliver a draft as final.
+- Decks: `lib/ocean.js`, starting in `decks/_starter`. Proposals and reports:
+  `lib/publication.py`, starting in `documents/_starter`.
+- These libraries **have not yet been migrated** to the approved system. Until
+  they are, match `output/reference/` visually and follow the migration prompt
+  in `CODEX-PROMPTS.md`. Do not treat their current white-page defaults as
+  approved.
+- `tools/prototypes/` holds the HTML/Chromium builders that produced the
+  approved references (exact coordinates). They are a record, not a pipeline.
 
 ## Workflow and QA
 
-1. Read sources and identify audience, decision and format.
-2. Outline, then build. A complete-build or system-revision request authorizes
-   proceeding without an extra outline approval. Ask only for blocking facts.
-3. Use shared colors, fonts and layouts; keep evidence editable.
-4. Run `npm run starter`, `npm run documents` and relevant `npm test` checks.
-5. Run PPTX `scripts/qa.py` and PDF `scripts/qa_pdf.py`. Release checks fail on
-   missing/unembedded fonts, text overflow, overlap and unresolved placeholders.
-6. Inspect EVERY rendered page at readable size. Automated PASS is not visual QA.
-7. Fix, rebuild, rerender and reinspect. Deliver PDF plus editable source, with
-   an honest note about any unresolved limitations. Renders go in output/renders.
+1. Read the sources and identify the audience, decision, surface and format.
+2. Build from tokens and shared layouts, and keep evidence editable.
+3. Run `npm test`, `npm run starter` and `npm run documents`, plus
+   `scripts/qa.py` (PPTX) and `scripts/qa_pdf.py` (PDF).
+4. Inspect EVERY rendered page at readable size against the guide and
+   `output/reference/`. An automated PASS is not visual QA.
+5. Fix, rebuild, rerender and reinspect. Deliver PDF plus editable source, with
+   an honest note about any unresolved limitations.
+6. Work on a branch and open a pull request with before/after renders. Do not
+   merge brand-rule changes without Ocean leadership approval.
 
-Keep rules, tokens, layout code, examples, fonts and checks synchronized. A
-ChatGPT project does not automatically inherit a GitHub repo. Its bridge is
-`brand/CHATGPT-PROJECT-INSTRUCTIONS.md`; keep project references current.
+Keep rules, tokens, layout code, references, fonts and checks synchronized.
+ChatGPT projects bridge through `brand/CHATGPT-PROJECT-INSTRUCTIONS.md`.
