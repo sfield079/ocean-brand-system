@@ -73,5 +73,6 @@
       "name": "Firstname Lastname"
     }
   ],
-  "notice": "confidential"
+  "notice": "confidential",
+  "status": "draft"
 }

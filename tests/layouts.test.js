@@ -35,3 +35,17 @@ console.log('PASS: approved pairings and one Crimson moment per deck');
   assert.strictEqual(c.log[2].pair, c.log[0].pair);
   console.log('PASS: close matches cover, section pairings, notices and investor disclaimer');
 }
+// Pairing tiers and combined notices
+{
+  const {OceanDeck: D} = require('../lib/ocean');
+  const a = new D({draft: true, sections: ['A']});
+  assert.throws(() => a.statement({section: 'A', headline: 'H', support: 'S', pair: 'sprig-sage'}), /cannot carry a content slide/);
+  const b = new D({draft: true});
+  assert.throws(() => b.pullQuote({text: 'x', pair: 'honeydew-sprig'}), /tonal pairing/);
+  b.pullQuote({text: 'Large enough', pair: 'sprig-sage'});
+  const c = new D({classification: 'confidential', status: 'draft'});
+  assert.strictEqual(c.notice.label, 'Confidential · Draft · Do not use');
+  assert.strictEqual(new D({notice: 'specimen'}).notice.label, 'Confidential · Design specimen · Do not use');
+  assert.strictEqual(new D({notice: 'public'}).notice.label, 'Not confidential');
+  console.log('PASS: pairing tiers and combined confidential + do-not-use notices');
+}

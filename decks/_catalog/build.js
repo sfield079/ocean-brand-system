@@ -2,10 +2,11 @@
 // Design specimen. Figures are illustrative.
 const {OceanDeck} = require('../../lib/ocean');
 (async () => {
-  const d = new OceanDeck({title: 'Ocean RCS layout catalog', draft: true, notice: 'investor', recipient: 'the named investor',
+  const d = new OceanDeck({title: 'Ocean RCS layout catalog', draft: true, notice: 'investor', status: 'specimen', recipient: 'the named investor',
     sections: ['Company', 'Team'], kind: 'Layout catalog', client: 'Ocean RCS'});
   d.cover({kicker: 'Investor briefing', title: 'Layout\nCatalog', date: 'Layout catalog', subtitle: 'Investor name',
-    meta: [['Date', '26 Sep 2026'], ['Status', 'Specimen']], pair: 'peacock-honeydew', background: 'environment'});
+    meta: [['Date', '26 Sep 2026'], ['Status', 'Specimen']], pair: 'peacock-honeydew',
+    environmentImage: require('path').join(__dirname, '../../assets/images/rooftop.jpg')});  // project-type photo, any Part 6 source
   d.statement({section: 'Company', eyebrow: '01  Company', headline: 'Emphasis without noise', pair: 'honeydew-cedar',
     support: 'Use **Bold** for the words that carry the point, ==a chip== for the one fact that must pop, and a bottom line for the conclusion.',
     bottomLine: {label: 'Bottom line', text: 'One emphasis device per idea. Never all three on one line.'}});
@@ -19,6 +20,7 @@ const {OceanDeck} = require('../../lib/ocean');
   d.appendix({title: 'Keep useful detail\naccessible', header: ['Record', 'Include', 'Purpose'], colW: [3, 5.5, 3.633],
     rows: [['Source register', 'Document, date and owner', 'Trace each important claim'], ['Assumptions', 'Input, basis and limitation', 'Show what remains uncertain'],
       ['Technical detail', 'Relevant scope and specifications', 'Support diligence'], ['Commercial terms', 'Verified inclusions and exclusions', 'Make boundaries explicit']]});
+  d.pullQuote({text: 'Steel and sunlight shape\ntomorrow\'s world today.', attribution: 'Ocean voice, Guide 06'});
   d.back();  // adds the investor disclaimer slide automatically, then the close in the cover pairing
   await d.save('ocean-layout-catalog');
 })().catch(e => { console.error(e); process.exit(1); });

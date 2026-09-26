@@ -195,15 +195,16 @@ Reference renders: `deck_recipes.png` (built from the real 5-, 10- and 15-slide 
 | 21–30 | As above, plus an appendix after next steps (Honeydew + Blackmoss, report-style) | 4 | One (maximum two, in different sections) | Yes | Yes |
 | 30+ | Split into a presentation deck (≤20) and a report | — | — | — | — |
 
-Reference pairings (15 slides): cover and close Sage + Honeydew; agenda Honeydew + Blackmoss; Site Honeydew + Peacock (divider Peacock + Honeydew); System Sprig + Cedar (divider Cedar + Sprig); Economics Honeydew + Olive (divider Olive + Honeydew); key number Blackmoss + Honeydew with Crimson; Next steps Honeydew + Blackmoss. The 10-slide recipe shows the environment cover; the 5-slide recipe shows the earthy Olive + Honeydew cover and close.
+Reference pairings (15 slides): cover and close Sage + Honeydew; agenda Honeydew + Blackmoss; Site Honeydew + Peacock (divider Peacock + Honeydew); System Sprig + Cedar (divider **Sprig + Sage** on shallow water); Economics **Honeydew + Olive** (divider Olive + Honeydew on the olive grove); key number Blackmoss + Honeydew with Crimson; Next steps Honeydew + Blackmoss. The 10-slide recipe shows the environment cover; the 5-slide recipe shows the earthy **Olive + Honeydew** cover and close and the **Sprig + Crimson** key-number moment. The layout catalog shows a Sage + Sprig pull quote and a cover built from a project photo. Where every pairing is used: decisions.md Part 12.
 
 **Rules at every length** (enforced by `lib/ocean.js` on save)
 - The close uses the cover's pairing and background, whatever the cover uses, and carries the vertical logo only (decisions.md Part 13).
 - Pairings are assigned per section. Every content slide in a section uses that section's pairing, and adjacent sections never share one. Bookends, agenda, dividers, key number and notice slides do not count toward the content pairings.
-- A divider reverses its section's pairing and sits on that color's environment background (decisions.md Part 11), with a Light numeral and the section name.
+- A divider reverses its section's pairing or uses one that shares a color with it, and sits on that color's environment background unless a photo is supplied under the image SOP (decisions.md Parts 6 and 11).
+- Content slides use text- or large-tier pairings only; display pairings carry 44 pt type and up (decisions.md Part 12).
 - **Rhythm:** no more than four slides in a row without a photograph or environment background, no more than two dense slides (tables, timelines, appendix) in a row, one chart per slide.
 - **Emphasis:** the ladder in decisions.md Part 9 (Bold, chip, highlighted tile, bottom line, Crimson).
-- **Notice:** one distribution notice per deck (decisions.md Part 10). Investor decks get an "Important notice" slide before the close automatically.
+- **Notice:** every footer shows classification and status together, for example Confidential · Draft · Do not use (decisions.md Part 10). Investor decks get an "Important notice" slide before the close automatically.
 - Staging-header navigation lists the deck's sections (maximum five). Numbering is continuous; the appendix restarts at A1.
 - Photographs are cropped to their frame before placement and QA rejects any stretched image.
 

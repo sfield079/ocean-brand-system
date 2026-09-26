@@ -45,10 +45,10 @@ def ratio(a, b):
 def mix(a, b, t): return tuple(round(x + (y - x) * t) for x, y in zip(a, b))
 
 
-def partner(field, toward):
+def partner(field, toward, target=TARGET):
     """Tone of the field moved toward black/white until it reaches the contrast target."""
     t = 0.0
-    while t < 1 and ratio(field, mix(field, toward, t)) < TARGET:
+    while t < 1 and ratio(field, mix(field, toward, t)) < target:
         t += 0.01
     return mix(field, toward, t)
 
@@ -57,8 +57,8 @@ def cover_crop(im, size):
     return ImageOps.fit(im, size, Image.LANCZOS, centering=(0.5, 0.5))
 
 
-def gradient_map(photo, a, b):
-    g = ImageOps.autocontrast(photo.convert('L'), cutoff=2).filter(ImageFilter.GaussianBlur(1.2))
+def gradient_map(photo, a, b, blur=1.2):
+    g = ImageOps.autocontrast(photo.convert('L'), cutoff=2).filter(ImageFilter.GaussianBlur(blur))
     lut = [tuple(round(a[k] + (b[k] - a[k]) * i / 255) for k in range(3)) for i in range(256)]
     return Image.merge('RGB', [g.point([lut[i][k] for i in range(256)]) for k in range(3)])
 
@@ -86,10 +86,32 @@ def main():
             tone = partner(field, toward)
             lo, hi = (tone, field) if mode == 'dark' else (field, tone)
             fade(gradient_map(base, lo, hi), field).save(OUT / f'env_{name}_map_{mode}.jpg', quality=88, optimize=True)
+            # Soft variant for display pairings (Sage + Sprig, Sprig + Crimson): half the contrast, blurred detail.
+            tone = partner(field, toward, 1.2)
+            lo, hi = (tone, field) if mode == 'dark' else (field, tone)
+            fade(gradient_map(base, lo, hi, 6), field).save(OUT / f'env_{name}_map_{mode}_soft.jpg', quality=88, optimize=True)
         overlay = Image.blend(photo, Image.new('RGB', photo.size, field), 0.18)
         overlay.save(OUT / f'env_{name}_strip.jpg', quality=88, optimize=True)
         print('built', name)
 
 
+def map_one(src, field_name, mode):
+    """Gradient-map any photo (Ocean project, licensed stock or AI, per decisions.md Part 6) into one field colour."""
+    import hashlib
+    src = Path(src); field = rgb(COL[field_name])
+    key = hashlib.sha1(f'{src.resolve()}|{src.stat().st_mtime}|{field_name}|{mode}'.encode()).hexdigest()[:12]
+    out = ROOT / 'output/.cache/env' / f'{src.stem}-{field_name}-{mode}-{key}.jpg'
+    if not out.exists():
+        out.parent.mkdir(parents=True, exist_ok=True)
+        tone = partner(field, (0, 0, 0) if mode == 'dark' else (255, 255, 255))
+        lo, hi = (tone, field) if mode == 'dark' else (field, tone)
+        fade(gradient_map(cover_crop(Image.open(src).convert('RGB'), SIZE), lo, hi), field).save(out, quality=88)
+    return out
+
+
 if __name__ == '__main__':
-    main()
+    import sys
+    if len(sys.argv) == 5 and sys.argv[1] == '--map':
+        print(map_one(sys.argv[2], sys.argv[3], sys.argv[4]))
+    else:
+        main()

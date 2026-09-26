@@ -10,7 +10,7 @@
     "coverMatchesClose": "The close uses the cover's pairing and background, whatever pairing the cover uses.",
     "closeIsLogoOnly": "The close shows the vertical logo and nothing else.",
     "sectionPairing": "Every content slide in a section uses that section's pairing; adjacent sections never share one.",
-    "dividerPairing": "A divider reverses its section's pairing (the section ink becomes the field) and sits on that colour's environment background.",
+    "dividerPairing": "A divider reverses its section's pairing, or uses a pairing that shares one of its colours (for example Sprig + Sage for a Sprig + Cedar section). It sits on that field's environment background unless a photo is supplied under the image SOP.",
     "maxContentPairings": 4,
     "maxSlidesWithoutPhoto": 4,
     "maxDenseInARow": 2,
@@ -19,14 +19,15 @@
       "appendix",
       "timeline"
     ],
-    "noticeSlide": "Investor decks add a disclaimer slide immediately before the close. It does not count toward the recipe length."
+    "noticeSlide": "Investor decks add a disclaimer slide immediately before the close. It does not count toward the recipe length.",
+    "pairingTiers": "Content slides use text or large tiers only. Display pairings (Sage + Sprig, Sprig + Crimson, Citron + Honeydew, Cedar + Olive) carry 44 pt type and up on dividers, pull quotes and key moments. Tonal pairings carry no text."
   },
   "recipes": {
     "5": {
       "name": "Briefing",
       "sections": {
         "Site": "honeydew-peacock",
-        "System": "sprig-cedar"
+        "System": "honeydew-cedar"
       },
       "slides": [
         "cover",
@@ -38,7 +39,8 @@
       "cover": {
         "pair": "olive-honeydew",
         "background": "environment"
-      }
+      },
+      "keyNumber": "sprig-crimson"
     },
     "10": {
       "name": "Client presentation",
@@ -88,7 +90,10 @@
         "key",
         "nextSteps",
         "close"
-      ]
+      ],
+      "dividers": {
+        "System": "sprig-sage"
+      }
     }
   }
 }

@@ -122,14 +122,7 @@ def numbered_canvas(total_holder):
             super().save()
     return NumberedCanvas
 
-NOTICES = json.loads((ROOT/'brand/notices.json').read_text())
-
-
-def notice_for(data):
-    key = data.get('notice', 'specimen' if data.get('draft') else NOTICES['default'])
-    n = NOTICES['notices'][key]
-    fill = lambda t: t.replace('{recipient}', data.get('recipient', 'the named recipient')).replace('{validity}', data.get('validity', '30 days'))
-    return n['label'], fill(n['line'])
+from lib.notices import resolve as notice_for
 
 
 def build(source, output):
@@ -194,7 +187,9 @@ def build(source, output):
         c.setFont('OceanLight', 50); y = 262
         for line in str(data.get('coverTitle', data['title'])).split('\n'):
             c.drawString(52, y, line); y -= 46
-        c.setFont('OceanLight', 7); c.setFillColor(hd); c.drawString(56, 90, notice_line)
+        from reportlab.lib.utils import simpleSplit
+        c.setFont('OceanLight', 7); c.setFillColor(hd)
+        for k, ln in enumerate(reversed(simpleSplit(notice_line, 'OceanLight', 7, w-112))): c.drawString(56, 90 + k*9, ln)
         c.setStrokeColor(hd); c.line(56, 76, w-56, 76)
         x = 56
         for k, v in data.get('meta', [['Date', date or '—'], ['Status', 'Specimen' if data.get('draft') else 'Issued']]):
@@ -213,8 +208,8 @@ def build(source, output):
         # Running footer: document ID, date, page X of Y.
         c.setLineWidth(0.6); c.line(LM, 46, w-LM, 46)
         caps(c, LM, 32, f"{docid} · {notice_label}", 5.6, INK)
-        caps(c, w/2, 32, date, 5.6, INK, 'OceanLight', 'left') if date else None
-        caps(c, w-LM, 32, f'Page {page:02d} of {total:02d}', 5.6, INK, 'OceanBold', 'right')
+        pw = caps(c, w-LM, 32, f'Page {page:02d} of {total:02d}', 5.6, INK, 'OceanBold', 'right')
+        if date: caps(c, w-LM-pw-18, 32, date, 5.6, INK, 'OceanLight', 'right')
         c.restoreState()
     def background(c, _doc):
         # Runs before page content: field color, or the full cover.

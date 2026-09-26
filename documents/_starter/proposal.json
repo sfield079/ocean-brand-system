@@ -144,5 +144,6 @@
   "pair": "honeydew-cedar",
   "notice": "proposal",
   "recipient": "Client name",
-  "validity": "30 days"
+  "validity": "30 days",
+  "status": "specimen"
 }

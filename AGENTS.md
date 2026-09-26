@@ -43,11 +43,13 @@ things must look are in `output/reference/` and `surfaces/*/`.
 - Crimson appears once per deck as a moment, and otherwise only to flag one
   value or an alert. To make information pop, use the emphasis ladder in
   `brand/decisions.md` Part 9 (Bold, chip, highlighted tile, bottom line), not extra colors.
-- Only the 30 approved pairings. The six excluded pairs are illegible (Part 12).
+- Only the 30 approved pairings, each used where Part 12 says. Olive + Honeydew, Sage + Sprig
+  and Sprig + Crimson are leadership priorities; display pairings carry 44 pt type and up only.
 - The close repeats the cover's pairing and background and carries the logo only.
-- Every deck, proposal, report and contract carries one distribution notice from
-  `brand/notices.json` (Part 10).
-- Photographs are cropped, never stretched. Dividers use the environment backgrounds (Part 11).
+- Every deck, proposal, report and contract footer shows classification and status together,
+  for example "Confidential · Draft · Do not use" (`brand/notices.json`, Part 10).
+- Photographs are cropped, never stretched. Dividers use the environment backgrounds (Part 11),
+  and the image SOP (Part 6) still governs Ocean, stock and AI photos wherever the use case calls for them.
 
 ## Typography
 

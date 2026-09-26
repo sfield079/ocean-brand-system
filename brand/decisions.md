@@ -36,9 +36,9 @@ Companion specs, in order of precedence:
 | D20 | Web and apps | oceanrcs.com defaults to Honeydew + Blackmoss with section pairings; micro-apps default to Blackmoss + Honeydew **with an approved Honeydew + Peacock alternative and a user toggle**; Crimson in apps only for alerts (Spec §4) | **Approved 26 Sep 2026** |
 | D21 | Logo sizing and the graphic mark | Minimum logo sizes per surface are fixed in Spec §16 (for example 44 px in the web header, 28 pt on letters, 0.9 in on the card front). The graphic mark alone is used for app icons, continuation pages, photo corners, chart sheets and signage corners | **Approved 26 Sep 2026** |
 | D22 | Emphasis | Six-step ladder (Bold, chip, scale, highlighted tile, bottom-line band, Crimson); one device per idea; works on every pairing without Crimson (Part 9) | **Approved 26 Sep 2026** |
-| D23 | Distribution notices | One notice per deck, proposal, report or contract from `brand/notices.json`; footer label plus cover line; investor decks add a notice slide (Part 10) | **Proposed 26 Sep 2026; wording needs counsel review** |
-| D24 | Environment backgrounds | One place photograph per color; gradient-mapped for dividers and optional covers; never behind body text (Part 11) | **Proposed 26 Sep 2026** |
-| D25 | Pairings | No new pairings; decks use more of the 30 approved (Part 12) | **Proposed 26 Sep 2026** |
+| D23 | Distribution notices | Classification plus status in one footer (for example Confidential · Draft · Do not use) on every deck, proposal, report and contract page; cover line; investor notice slide (Part 10) | **Approved 26 Sep 2026; wording to be reviewed by counsel** |
+| D24 | Environment backgrounds | One place photograph per color; gradient-mapped for dividers and optional covers; the image SOP in Part 6 still applies where the use case calls for Ocean, stock or AI photos (Part 11) | **Approved 26 Sep 2026** |
+| D25 | Pairings | No new pairings. Olive + Honeydew, Sage + Sprig and Sprig + Crimson are leadership priorities with defined uses; every pairing has a tier and use (Part 12) | **Approved 26 Sep 2026** |
 | D26 | Cover and close | Close repeats the cover pairing and background and shows the logo only (Part 13) | **Approved 26 Sep 2026** |
 
 ## Part 2 — Pairing reference (30 approved)
@@ -284,19 +284,27 @@ Rules:
 
 ## Part 10 — Distribution notices (D23)
 
-Every deck, proposal, report and contract carries exactly one distribution notice from `brand/notices.json`. The short label runs in every footer; the full line sits on the cover above the closing rule.
+Every deck, proposal, report and contract carries one **classification** (who may see it) and one **status** (whether it may be used). The footer shows both together on every page, for example `OCEAN RCS · CONFIDENTIAL · DRAFT · DO NOT USE`; the cover carries the full sentences. Values live in `brand/notices.json`.
 
-| Notice | Footer label | Use for |
+| Classification | Footer | Cover line (summary) |
 |---|---|---|
-| `confidential` (default) | Confidential | Client decks and reports |
-| `proposal` | Confidential proposal | Priced proposals: names the recipient, pricing validity and that nothing binds until a contract is signed |
-| `investor` | Confidential · For discussion only | Investor and lender decks: not an offer of securities; forward-looking statements are estimates. Adds an "Important notice" slide automatically before the close |
-| `internal` | Internal use only | Internal decks and reviews |
-| `public` | Not confidential | Material cleared to share |
+| `confidential` (default) | Confidential | Prepared for the recipient; do not copy, forward or distribute without written consent |
+| `proposal` | Confidential proposal | Names the recipient and pricing validity; not binding until a contract is signed |
+| `investor` | Confidential · For discussion only | Not an offer of securities. Adds an "Important notice" slide before the close automatically |
+| `internal` | Internal use only | Do not share outside Ocean RCS |
+| `public` | Not confidential | May be shared with attribution |
+
+| Status | Footer addition | Use |
+|---|---|---|
+| `final` (default) | none | Issued material |
 | `draft` | Draft · Do not use | Work in progress |
 | `specimen` | Design specimen · Do not use | Templates and reference files |
+| `do-not-use` | Do not use | Anything withdrawn or not cleared for use |
+| `superseded` | Superseded · Do not use | Replaced by a newer version |
 
-The wording is a business template. Counsel should approve it before it is relied on, and legal agreements keep their own confidentiality clauses.
+Examples: a draft client deck reads **Confidential · Draft · Do not use**; a reference template reads **Confidential · Design specimen · Do not use**; a draft contract reads **OCN-EPC-2026-014 · v1.0 · Confidential · Draft · Do not use** on every page. A single slide or page can carry a stricter status than its document (`deck.mark(slide, 'do-not-use')`). The classification never gets weaker on a single slide.
+
+The wording is a business template; counsel should approve it before it is relied on, and legal agreements keep their own confidentiality clauses.
 
 ## Part 11 — Environment backgrounds (D24)
 
@@ -311,11 +319,68 @@ Where they are used:
 - **Never** behind body text, tables, charts or on report body pages.
 - Content slides keep unaltered real photographs (Ocean crews and sites first).
 
-## Part 12 — Pairings: use more of the 30, add none (D25)
+**The image SOP still applies (Part 6).** The environment photographs are one option, not a replacement for the image rules. When the use case calls for it, any Part 6 source can take the environment's place, and the same integrity limits hold:
+- A case study, "our work" section or site-evidence page uses real Ocean project photos, never an environment or AI image presented as Ocean's work.
+- A divider can carry an Ocean project photo instead of the environment (`divider({image})`), and a cover or close can gradient-map any approved photo, such as an Ocean site, licensed stock or an AI image, into its field (`cover({environmentImage})`).
+- AI and stock images stay labeled "Representative image" wherever a reader could mistake them for a specific project, and every image is logged in the manifest.
 
-The guide approves 30 of the 36 possible color pairs. The six it leaves out are the ones that cannot be read: Sage + Crimson 1.09:1, Olive + Crimson 1.21:1, Sage + Citron 1.31:1, Sage + Olive 1.32:1, Citron + Crimson 1.42:1 and Cedar + Crimson 2.78:1. Adding any of them would break legibility and the guide, so no new pairings are added.
+## Part 12 — Pairings: where each one is used (D25)
 
-What changes instead: decks use more of the 30 approved pairings. The reference decks now use Honeydew + Peacock, Sprig + Cedar, Honeydew + Olive and Honeydew + Blackmoss as section pairings, Peacock + Honeydew, Cedar + Sprig and Olive + Honeydew as dividers, and Olive + Honeydew as an alternative cover.
+No new pairings are added. The guide approves 30 of the 36 possible pairs; the six it leaves out cannot be read (Sage + Crimson 1.09:1, Olive + Crimson 1.21:1, Sage + Citron 1.31:1, Sage + Olive 1.32:1, Citron + Crimson 1.42:1, Cedar + Crimson 2.78:1).
+
+### Leadership priority pairings
+
+| Pairing | Contrast | What it is for | Where it is used | Where it is not used |
+|---|---|---|---|---|
+| **Olive + Honeydew** | 4.73:1 | The earthy pairing: land, growth, economics and sustainability | Earthy covers and closes (olive grove environment); Economics, sustainability, land, agriculture and water sections (Honeydew field, Olive ink); Olive dividers; Olive chart focus | Nowhere is off limits for text. Crimson is not approved on Olive, so emphasis uses chips, highlighted tiles and bottom lines |
+| **Sage + Sprig** | 2.34:1 | The calm natural pairing: lake and shallow water | Section dividers (Sprig field, Sage 120 pt numeral and 44 pt title on the shallow-water background), pull-quote and statement slides, brand-atmosphere backgrounds, card backs, social tiles, signage idle screens | Body text, captions, labels, tables, charts, footers and content slides. Type 44 pt and up only |
+| **Sprig + Crimson** | 2.54:1 | The warm urgency pairing (Guide 04's Crimson card) | The alternative key-number moment on warm briefings; action-required and deadline slides; incentive-deadline banners; signage alerts; campaign and social graphics | Body text, tables, charts and routine pages. Type 44 pt and up only; supporting detail goes on the next slide or in notes. Counts as the deck's one Crimson moment |
+
+### Tiers (enforced in code)
+
+| Tier | Contrast | Allowed |
+|---|---|---|
+| Text | 4.5:1 and up | Any text size, content slides and documents |
+| Large | 3 to 4.5:1 | Type 25 pt and up, bold labels and graphics (D2, D18) |
+| Display | 2 to 3:1 | Type 44 pt and up and graphics: dividers, pull quotes, key moments. Never content slides |
+| Tonal | Under 2:1 | Textures, marks and environment maps. No text |
+
+`lib/ocean.js` rejects content slides on display or tonal pairings, text under 44 pt on display pairings, and any text on tonal pairings.
+
+### All 30 pairings
+
+| Pairing | Contrast | Tier | Where it is used |
+|---|---|---|---|
+| Blackmoss + Honeydew | 17.49:1 | Text | Default dark pairing. Key-number slide (with the Crimson moment), investor covers, app default, signage. Any text size. |
+| Peacock + Honeydew | 15.33:1 | Text | Workhorse content pairing on Honeydew (Site sections, tables). Peacock field + Honeydew for dividers and the app light alternative. Any text size. |
+| Blackmoss + Sprig | 11.37:1 | Text | Warm dark pairing. Sprig text on Blackmoss for premium pages, card backs, signage. Any text size. |
+| Cedar + Honeydew | 10.86:1 | Text | Content on Honeydew with Cedar ink (chart pages), Cedar dividers, formal brand pieces. Any text size. |
+| Peacock + Sprig | 9.96:1 | Text | Warm content pairing (Sprig field, Peacock ink) for photo and detail slides. Any text size. |
+| Cedar + Sprig | 7.05:1 | Text | System and technical sections (Sprig field, Cedar ink); Cedar dividers with Sprig type. Any text size. |
+| Blackmoss + Citron | 6.35:1 | Text | Premium accent: award, milestone or headline-figure slides; Citron type on Blackmoss. Any text size. |
+| Peacock + Citron | 5.56:1 | Text | Premium accent on Peacock; headline figures and quotes. Any text size. |
+| Blackmoss + Sage | 4.86:1 | Text | Dark data pages and dashboards: Sage type and chart context on Blackmoss. Any text size. |
+| Honeydew + Olive | 4.73:1 | Text | The earthy pairing: covers and closes, Economics, sustainability, land, agriculture and water sections, Olive dividers. Olive ink on Honeydew is body-safe (4.73:1); Crimson is not approved on Olive, so emphasis uses chips, highlighted tiles and bottom lines. |
+| Blackmoss + Crimson | 4.48:1 | Large | Warnings and the key-number moment on Blackmoss. Crimson type 25 pt and up. |
+| Peacock + Sage | 4.26:1 | Large | Secondary dark content with Sage type; headlines 25 pt and up, labels, charts. |
+| Cedar + Citron | 3.94:1 | Large | Warm accent on Cedar: headlines 25 pt and up, figures, icons. |
+| Peacock + Crimson | 3.93:1 | Large | Alert or key figure on Peacock; Crimson 25 pt and up. |
+| Honeydew + Crimson | 3.91:1 | Large | Alerts, risk flags and past-due notices on Honeydew; Crimson type 25 pt and up or bold labels. |
+| Blackmoss + Olive | 3.7:1 | Large | Earthy dark accent: Olive headlines 25 pt and up and graphics on Blackmoss. |
+| Sage + Honeydew | 3.6:1 | Large | Default cover and close (Sage field, Honeydew type), card fronts, hero lines. 25 pt and up; never body text (D18). |
+| Peacock + Olive | 3.24:1 | Large | Earthy dark accent: headlines 25 pt and up, graphics. |
+| Sprig + Olive | 3.07:1 | Large | Warm earthy pairing: Sprig field with Olive headlines 25 pt and up; sustainability graphics. |
+| Cedar + Sage | 3.02:1 | Large | Tonal green: headlines 25 pt and up, charts (Sage context on Cedar). |
+| Honeydew + Citron | 2.75:1 | Display | Display only (44 pt and up) and graphics: sunlight accents, icons on Honeydew. |
+| Sprig + Crimson | 2.54:1 | Display | The warm urgency pairing (Guide 04's Crimson card): the alternative key-number moment on a warm briefing, action-required and deadline slides, incentive-deadline banners, signage alerts and campaign or social graphics. Display type 44 pt and up only; the supporting detail goes on the next slide or in notes. Counts as the deck's Crimson moment. |
+| Sage + Sprig | 2.34:1 | Display | The calm natural pairing (lake and shallow water): section dividers, pull-quote and statement slides, brand-atmosphere backgrounds, card backs, social tiles and signage idle screens. Display type 44 pt and up and graphics only; never body text, captions, tables or charts. |
+| Cedar + Olive | 2.29:1 | Display | Display only (44 pt and up) and graphics: forest and grove textures. |
+| Sprig + Citron | 1.79:1 | Tonal | Tonal only: textures and marks; no text. |
+| Olive + Citron | 1.72:1 | Tonal | Tonal only: textures and marks; no text. |
+| Blackmoss + Cedar | 1.61:1 | Tonal | Tonal only: textures, the cover particle wave, marks; no text. |
+| Honeydew + Sprig | 1.54:1 | Tonal | Tonal only: textures, watermark marks; no text. |
+| Peacock + Cedar | 1.41:1 | Tonal | Tonal only: textures and marks; no text. |
+| Blackmoss + Peacock | 1.14:1 | Tonal | Tonal only: textures, the premium background wave; no text. |
 
 ## Part 13 — Cover and close (D26)
 
