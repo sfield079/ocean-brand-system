@@ -74,5 +74,40 @@
     "grade": 0,
     "opsz": 24,
     "cell-ratio": 0.5
+  },
+  "pairing": {
+    "approved": [
+      "blackmoss+peacock",
+      "blackmoss+cedar",
+      "blackmoss+sage",
+      "blackmoss+honeydew",
+      "blackmoss+sprig",
+      "blackmoss+olive",
+      "blackmoss+citron",
+      "blackmoss+crimson",
+      "peacock+cedar",
+      "peacock+sage",
+      "peacock+honeydew",
+      "peacock+sprig",
+      "peacock+olive",
+      "peacock+citron",
+      "peacock+crimson",
+      "cedar+sage",
+      "cedar+honeydew",
+      "cedar+sprig",
+      "cedar+olive",
+      "cedar+citron",
+      "sage+honeydew",
+      "sage+sprig",
+      "honeydew+sprig",
+      "honeydew+olive",
+      "honeydew+citron",
+      "honeydew+crimson",
+      "sprig+olive",
+      "sprig+citron",
+      "sprig+crimson",
+      "olive+citron"
+    ],
+    "note": "Unordered field + ink pairs (brand/decisions.md Part 2). Contrast limits: tokens/contrast-matrix.json."
   }
 }

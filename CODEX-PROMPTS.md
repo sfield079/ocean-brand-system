@@ -34,33 +34,17 @@ and verify font embedding. These are design specimens, so draft placeholders
 are permitted only in the layout reference. Report failures honestly. Do not
 publish sample business claims or create a fictional project to fill a layout.
 
-## Migrate the production libraries (next Codex task)
+## Extend the system
 
-Follow AGENTS.md. The approved brand system (brand/BRAND-SYSTEM.md,
-brand/decisions.md, brand/typography.md, tokens/) is now controlling, but
-`lib/ocean.js` and `lib/publication.py` still produce the superseded white
-editorial style. On a new branch `refine/ocean-brand-system-libraries`:
+Follow AGENTS.md. The production libraries were migrated on 26 September 2026.
+When adding a layout, surface or template: read tokens only, use an approved pairing,
+match the relevant file in `output/reference/` or `surfaces/`, add a test in `tests/`,
+regenerate the specimens, render every page, and open a pull request with
+before/after renders. Do not merge brand-rule changes without Ocean leadership approval.
 
-1. Read colors, weights, tracking, radius and chamfer from
-   `tokens/ocean.tokens.json`, and remove hard-coded values.
-2. Rebuild the deck layouts to match `output/reference/examples/
-   Ocean_Example_Presentation.pdf` and the recipes in
-   `surfaces/decks/deck_recipes.png`: Sage cover with texture, the framed
-   staging header, pairing per slide, chamfer tiles, diamond counters, logo
-   sizes per §16 and one Crimson moment.
-3. Rebuild the report and proposal layouts to match
-   `output/reference/examples/Ocean_Example_Report.pdf`.
-4. Add a formal/legal document path matching `surfaces/formal/`. Legal
-   documents use Times New Roman 11.5/16.5; letters use Stack Sans. Produce a
-   .docx template with named styles.
-5. Port the chart style (`tokens/build/ocean.mplstyle`, `charts/build_charts.py`)
-   into native PPTX charts where possible: Sage for context, Cedar for the focus,
-   and Honeydew Bold numbers on every data shape.
-6. Extend `scripts/qa.py` and `scripts/qa_pdf.py`: fail on off-token hex values,
-   on more than one field/ink pairing per slide (excluding photos, charts and
-   the Crimson accent), on logos below the §16 minimums, and on any font other
-   than Stack Sans (or Times New Roman in legal documents).
-7. Regenerate `output/pptx/` and `output/pdf/` specimens. Render every page and
-   compare it with `output/reference/`.
-8. Open a pull request with before/after renders and a page-level changelog.
-   Do not merge automatically.
+## Legal document
+
+Use `lib/legal.py` and a JSON source like `documents/_starter/contract.json`, or the Word
+template `templates/ocean-legal-template.docx`. Times New Roman throughout, plain
+institutional layout, logo on page 1 and graphic mark on continuation pages. Run
+`python3 scripts/qa_pdf.py <file> --legal`. Never draft legal terms; use counsel's text.

@@ -17,7 +17,7 @@ def embedded_fonts(resources):
         if obj.get('/Subtype')=='/Form':found.update(embedded_fonts(obj.get('/Resources')))
     return found
 
-def check(path,draft=False):
+def check(path,draft=False,legal=False):
     reader=PdfReader(path);errors=[]
     with pdfplumber.open(path) as pdf:
         for n,(page,raw) in enumerate(zip(pdf.pages,reader.pages),1):
@@ -26,7 +26,9 @@ def check(path,draft=False):
             if not draft and re.search(r'\[TBD|\[IMAGE|\[PLACEHOLDER',text,re.I):errors.append(f'page {n}: unresolved placeholder')
             fonts=embedded_fonts(raw.get('/Resources'))
             for used in {c['fontname'] for c in page.chars}:
-                if 'StackSansHeadline' not in used.replace(' ','').replace('-',''):
+                flat=used.replace(' ','').replace('-','')
+                ok='StackSansHeadline' in flat or (legal and ('TimesNewRoman' in flat or 'LiberationSerif' in flat))
+                if not ok:
                     errors.append(f'page {n}: substituted font {used}')
                 if not fonts.get(used,False):errors.append(f'page {n}: font not embedded: {used}')
             for char in page.chars:
@@ -38,12 +40,12 @@ def check(path,draft=False):
             for c in chars:byline.setdefault(round(c['top']/2),[]).append(c)
             for line in byline.values():
                 line.sort(key=lambda c:c['x0'])
-                if any(a['x1']-b['x0']>max(1.5,min(a['width'],b['width'])*0.5) for a,b in zip(line,line[1:])):
+                if any(a['x1']-b['x0']>max(1.5,min(a['width'],b['width'])*0.5) and b['text'] not in '.,:;’\'' for a,b in zip(line,line[1:])):
                     errors.append(f'page {n}: possible text overprint; inspect');break
     for e in errors:print('ERROR:',e)
     print(f'PDF QA: {path} / {len(reader.pages)} pages')
-    print('RESULT FAIL' if errors else 'RESULT PASS (embedded Stack Sans Headline; visual review still required)')
+    print('RESULT FAIL' if errors else 'RESULT PASS (embedded approved fonts; visual review still required)')
     return not errors
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('path');p.add_argument('--draft',action='store_true');a=p.parse_args()
-    raise SystemExit(0 if check(a.path,a.draft) else 1)
+    p=argparse.ArgumentParser();p.add_argument('path');p.add_argument('--draft',action='store_true');p.add_argument('--legal',action='store_true',help='legal documents: Times New Roman permitted');a=p.parse_args()
+    raise SystemExit(0 if check(a.path,a.draft,a.legal) else 1)

@@ -11,3 +11,11 @@ assert.throws(()=>d.image(d.page(),'missing.jpg',1,2,3,3),/Missing/);
 const lines=wrap('A clear statement about evidence',3,17);
 assert.ok(lines.length>=1 && lines.join(' ')==='A clear statement about evidence');
 console.log('PASS: release placeholders, glyph fit, overflow, table geometry, chart data and missing images');
+// Brand-system rules (26 Sep 2026)
+const {pairing}=require('../lib/ocean');
+assert.throws(()=>pairing('sage-citron'),/not an approved/);
+assert.ok(pairing('honeydew-blackmoss').F==='F3FBF8');
+const d2=new OceanDeck({draft:true});
+d2.keyNumber({kicker:'K',value:'1',text:'Once'});
+assert.throws(()=>d2.keyNumber({kicker:'K',value:'2',text:'Twice'}),/Crimson appears once/);
+console.log('PASS: approved pairings and one Crimson moment per deck');

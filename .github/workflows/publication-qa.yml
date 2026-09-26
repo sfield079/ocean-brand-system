@@ -1,7 +1,7 @@
 name: Publication QA
 on:
   push:
-    branches: [main, 'codex/**']
+    branches: [main, 'codex/**', 'brand-system/**']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -30,6 +30,7 @@ jobs:
           mkdir -p output/renders/proposal output/renders/report
           pdftoppm -png -r 110 output/pdf/ocean-proposal-reference.pdf output/renders/proposal/page
           pdftoppm -png -r 110 output/pdf/ocean-report-reference.pdf output/renders/report/page
+          mkdir -p output/renders/contract && pdftoppm -png -r 110 output/pdf/ocean-contract-reference.pdf output/renders/contract/page
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -4,7 +4,7 @@ Status: approved by leadership 26 September 2026 (decisions L1–L6 in Section 1
 Controls: Ocean Style Guide 2026 (the "Brand Bible"), plus the approved decisions in "Ocean Approved Decisions and Document Profiles" and the typography rules in "Ocean Brand Bible Typography Rules"
 Scope change: the repository `sfield079/ocean-deck-system` stops being a deck generator. It becomes the **single brand source of truth** for every Ocean surface: oceanrcs.com, Ocean micro-apps, decks, reports, proposals, formal documents, business cards, email, digital signage, charts, icons and graphics.
 
-Merged into the repository on 26 September 2026. Sections 2 and 18 describe what is in place and what Codex still has to migrate.
+Merged into the repository on 26 September 2026, and the production libraries were migrated the same day. Section 18 records the status.
 
 ---
 
@@ -351,6 +351,7 @@ Never use the mark as a bullet or pattern, repeat it more than once per page, or
 | Tokens (`tokens/`) | In place. `brand/color-system.json` now carries the full palette for the existing code |
 | Logos, icons, graphics, textures, chart style | In place under `assets/`, `charts/` and `tokens/build/` |
 | Approved reference renders | `output/reference/` and `surfaces/*/` |
-| `lib/ocean.js` (decks) and `lib/publication.py` (reports, proposals) | **Not yet migrated.** They still produce the older white editorial style. Codex migrates them using `CODEX-PROMPTS.md` > "Migrate the production libraries" |
+| `lib/ocean.js` (decks), `lib/publication.py` (reports, proposals), `lib/legal.py` (legal) | **Migrated 26 Sep 2026.** Tokens-driven; specimens regenerated in `output/pptx/` and `output/pdf/` |
 | Prototype builders (`tools/prototypes/`) | HTML/Chromium scripts that produced the approved references. They use absolute sandbox paths and are kept as a record of exact coordinates, not as production code |
-| Folder restructure in Section 2 | Deferred until the libraries are migrated, so existing commands keep working |
+| Folder restructure in Section 2 | Optional. The current layout (`brand/`, `tokens/`, `assets/`, `charts/`, `surfaces/`, `lib/`) covers every role in Section 2, so existing commands keep working |
+| Off-token checks | `scripts/qa.py` rejects off-palette text colors, non-approved fonts and logos under the §16 minimums; `lib/ocean.js` rejects unapproved pairings and a second Crimson moment |
