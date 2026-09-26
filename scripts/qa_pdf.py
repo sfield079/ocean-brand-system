@@ -22,7 +22,7 @@ def check(path,draft=False,legal=False):
     with pdfplumber.open(path) as pdf:
         for n,(page,raw) in enumerate(zip(pdf.pages,reader.pages),1):
             text=page.extract_text() or ''
-            if not text.strip():errors.append(f'page {n}: no selectable text')
+            if not text.strip() and not (n==len(pdf.pages) and n>2):errors.append(f'page {n}: no selectable text')  # the logo-only close is exempt
             if not draft and re.search(r'\[TBD|\[IMAGE|\[PLACEHOLDER',text,re.I):errors.append(f'page {n}: unresolved placeholder')
             fonts=embedded_fonts(raw.get('/Resources'))
             for used in {c['fontname'] for c in page.chars}:

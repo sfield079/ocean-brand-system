@@ -19,3 +19,19 @@ const d2=new OceanDeck({draft:true});
 d2.keyNumber({kicker:'K',value:'1',text:'Once'});
 assert.throws(()=>d2.keyNumber({kicker:'K',value:'2',text:'Twice'}),/Crimson appears once/);
 console.log('PASS: approved pairings and one Crimson moment per deck');
+// Recipe rules (26 Sep 2026 revision)
+{
+  const {OceanDeck: D} = require('../lib/ocean');
+  const a = new D({draft: true, sections: ['A', 'B']});
+  a.cover({title: 'T', pair: 'olive-honeydew'});
+  assert.throws(() => a.back({pair: 'sage-honeydew'}), /cover pairing/);
+  const b = new D({draft: true, sections: ['A']});
+  b.statement({section: 'A', headline: 'H', support: 'S', pair: 'honeydew-peacock'});
+  assert.throws(() => b.statement({section: 'A', headline: 'H', support: 'S', pair: 'honeydew-cedar'}), /shares one pairing/);
+  assert.throws(() => new D({notice: 'secret'}), /Unknown notice/);
+  const c = new D({draft: true, notice: 'investor'});
+  c.cover({title: 'T'}); c.back();
+  assert.strictEqual(c.log.map(k => k.kind).join(','), 'cover,notice,close');
+  assert.strictEqual(c.log[2].pair, c.log[0].pair);
+  console.log('PASS: close matches cover, section pairings, notices and investor disclaimer');
+}

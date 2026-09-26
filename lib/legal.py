@@ -20,6 +20,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Flowable, KeepTogether
 
 ROOT = Path(__file__).resolve().parent.parent
+NOTICE_LABEL = {k: v['label'] for k, v in json.loads((ROOT/'brand/notices.json').read_text())['notices'].items()}
 TOKENS = json.loads((ROOT/'tokens/ocean.tokens.json').read_text())
 INK = colors.HexColor(TOKENS['color']['blackmoss']['value'])
 WHITE = colors.HexColor(TOKENS['color']['white']['value'])
@@ -92,7 +93,7 @@ def build(source, output):
         c.drawString(M, 40, doc_id); c.drawCentredString(w/2, 40, f"Page {pg} of {Holder.total or '—'}")
         if pg == 1:
             c.drawString(w-M-86, 40, 'Initials'); c.setStrokeColor(INK); c.setLineWidth(0.6); c.rect(w-M-54, 36, 24, 12); c.rect(w-M-24, 36, 24, 12)
-        else: c.drawRightString(w-M, 40, 'Confidential')
+        else: c.drawRightString(w-M, 40, NOTICE_LABEL.get(data.get('notice', 'confidential'), 'Confidential'))
         c.restoreState()
     # Two passes so "Page X of Y" is exact.
     import io

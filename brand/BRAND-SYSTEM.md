@@ -184,25 +184,28 @@ The same logic extends to letterhead (identical to the formal-letter header), en
 
 ## 8. Deck recipes: same system at any length
 
-Reference render: `deck_recipes.png`.
+Reference renders: `deck_recipes.png` (built from the real 5-, 10- and 15-slide decks). Data: `surfaces/decks/recipes.json`. Builder: `lib/recipe.js`, so one content file produces any length (`node decks/_starter/build.js 5|10|15`).
 
 | Deck length | Required spine | Content pairings | Crimson | Dividers | Agenda |
 |---|---|---|---|---|---|
-| 1–4 (one-pager deck) | Cover + content | 1–2 | None, or one small accent | No | No |
+| 1–4 (one-pager deck) | Cover + content + close | 1–2 | None, or one small accent | No | No |
 | 5–7 | Cover, content, one key-number slide, close | 2 | One key-number moment | No | No |
-| 8–11 | Cover, agenda, sections, key number, next steps, close | 3 | One | No | Yes |
+| 8–11 | Cover, agenda, sections, key number, next steps, close | 3–4 | One | No | Yes |
 | 12–20 | Cover, agenda, one divider per section, key number, next steps, close | 3–4 | One | Yes, one per section | Yes |
-| 21–30 | As above, plus an appendix after close (White/Honeydew + Blackmoss, report-style) | 4 | One (maximum two, in different sections) | Yes | Yes |
-| 30+ | Split into a presentation deck (≤20) and a report (P3) | — | — | — | — |
+| 21–30 | As above, plus an appendix after next steps (Honeydew + Blackmoss, report-style) | 4 | One (maximum two, in different sections) | Yes | Yes |
+| 30+ | Split into a presentation deck (≤20) and a report | — | — | — | — |
 
-**Rules at every length**
-- The cover and close use the same brand pairing (Sage + Honeydew by default, D6).
-- Pairings are assigned per section, not per slide. Every slide in a section uses that section's pairing, and adjacent sections never share one. Bookends, the agenda, dividers and the key-number slide do not count toward the 2–4 content pairings.
-- Dividers use the section's ink as a full field (for example Peacock + Honeydew for a section whose slides are Honeydew + Peacock) with a Light numeral (01, 02) and the section name.
-- **Rhythm:** at least one photo-led slide in every five, no more than two dense slides (tables or long text) in a row, and one chart per slide.
-- Staging-header navigation lists the deck's sections (maximum five). Decks with more sections group them.
-- Numbering is continuous. The appendix restarts at A1.
-- The recipe is data: `surfaces/decks/recipes.json` holds the slide order and pairing per length, so Codex generates a 5-, 10- or 15-slide deck from the same content file.
+Reference pairings (15 slides): cover and close Sage + Honeydew; agenda Honeydew + Blackmoss; Site Honeydew + Peacock (divider Peacock + Honeydew); System Sprig + Cedar (divider Cedar + Sprig); Economics Honeydew + Olive (divider Olive + Honeydew); key number Blackmoss + Honeydew with Crimson; Next steps Honeydew + Blackmoss. The 10-slide recipe shows the environment cover; the 5-slide recipe shows the earthy Olive + Honeydew cover and close.
+
+**Rules at every length** (enforced by `lib/ocean.js` on save)
+- The close uses the cover's pairing and background, whatever the cover uses, and carries the vertical logo only (decisions.md Part 13).
+- Pairings are assigned per section. Every content slide in a section uses that section's pairing, and adjacent sections never share one. Bookends, agenda, dividers, key number and notice slides do not count toward the content pairings.
+- A divider reverses its section's pairing and sits on that color's environment background (decisions.md Part 11), with a Light numeral and the section name.
+- **Rhythm:** no more than four slides in a row without a photograph or environment background, no more than two dense slides (tables, timelines, appendix) in a row, one chart per slide.
+- **Emphasis:** the ladder in decisions.md Part 9 (Bold, chip, highlighted tile, bottom line, Crimson).
+- **Notice:** one distribution notice per deck (decisions.md Part 10). Investor decks get an "Important notice" slide before the close automatically.
+- Staging-header navigation lists the deck's sections (maximum five). Numbering is continuous; the appendix restarts at A1.
+- Photographs are cropped to their frame before placement and QA rejects any stretched image.
 
 ---
 
@@ -354,4 +357,5 @@ Never use the mark as a bullet or pattern, repeat it more than once per page, or
 | `lib/ocean.js` (decks), `lib/publication.py` (reports, proposals), `lib/legal.py` (legal) | **Migrated 26 Sep 2026.** Tokens-driven; specimens regenerated in `output/pptx/` and `output/pdf/` |
 | Prototype builders (`tools/prototypes/`) | HTML/Chromium scripts that produced the approved references. They use absolute sandbox paths and are kept as a record of exact coordinates, not as production code |
 | Folder restructure in Section 2 | Optional. The current layout (`brand/`, `tokens/`, `assets/`, `charts/`, `surfaces/`, `lib/`) covers every role in Section 2, so existing commands keep working |
-| Off-token checks | `scripts/qa.py` rejects off-palette text colors, non-approved fonts and logos under the §16 minimums; `lib/ocean.js` rejects unapproved pairings and a second Crimson moment |
+| Off-token checks | `scripts/qa.py` rejects off-palette text colors, non-approved fonts, logos under the §16 minimums, stretched photos, words on the close and a close that differs from the cover; `lib/ocean.js` rejects unapproved pairings, a second Crimson moment, mixed pairings within a section and recipe rhythm breaks |
+| Recipes, emphasis, notices, environments | Added 26 Sep 2026: `lib/recipe.js`, `surfaces/decks/recipes.json`, `brand/notices.json`, `assets/environments/`, `scripts/make_environment.py`, `scripts/fit_image.py` |

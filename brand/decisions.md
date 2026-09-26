@@ -34,9 +34,12 @@ Companion specs, in order of precedence:
 | D18 | Sage + Honeydew | Measured at 3.6:1, so it is for large text and graphics only: covers, card fronts, hero lines. Never body text | **Approved 26 Sep 2026** |
 | D19 | Business cards, email, signage | Profiles in Spec §7, §12, §13. Card extras approved: registered emboss, optional Sage edge, and a personal QR code linking to oceanrcs.com. Arial is the only substitute font in email | **Approved 26 Sep 2026** |
 | D20 | Web and apps | oceanrcs.com defaults to Honeydew + Blackmoss with section pairings; micro-apps default to Blackmoss + Honeydew **with an approved Honeydew + Peacock alternative and a user toggle**; Crimson in apps only for alerts (Spec §4) | **Approved 26 Sep 2026** |
-
----
 | D21 | Logo sizing and the graphic mark | Minimum logo sizes per surface are fixed in Spec §16 (for example 44 px in the web header, 28 pt on letters, 0.9 in on the card front). The graphic mark alone is used for app icons, continuation pages, photo corners, chart sheets and signage corners | **Approved 26 Sep 2026** |
+| D22 | Emphasis | Six-step ladder (Bold, chip, scale, highlighted tile, bottom-line band, Crimson); one device per idea; works on every pairing without Crimson (Part 9) | **Approved 26 Sep 2026** |
+| D23 | Distribution notices | One notice per deck, proposal, report or contract from `brand/notices.json`; footer label plus cover line; investor decks add a notice slide (Part 10) | **Proposed 26 Sep 2026; wording needs counsel review** |
+| D24 | Environment backgrounds | One place photograph per color; gradient-mapped for dividers and optional covers; never behind body text (Part 11) | **Proposed 26 Sep 2026** |
+| D25 | Pairings | No new pairings; decks use more of the 30 approved (Part 12) | **Proposed 26 Sep 2026** |
+| D26 | Cover and close | Close repeats the cover pairing and background and shows the logo only (Part 13) | **Approved 26 Sep 2026** |
 
 ## Part 2 — Pairing reference (30 approved)
 
@@ -76,7 +79,7 @@ Design reasoning: Crimson is the palette's only hot color, and the guide uses it
 
 - **Where allowed:** only on Blackmoss, Peacock, Honeydew or Sprig fields (its approved partners). Never on Sage, Cedar, Olive or Citron fields.
 - **What it may mark:** one key number per page, a risk or warning flag, the active navigation chip, or a single diamond marker.
-- **Budget:** one large Crimson moment per deck; at most one small accent per page; none in body text.
+- **Budget:** one large Crimson moment per deck; at most one small accent per page; none in body text. For other emphasis use the ladder in Part 9.
 - **Meaning:** attention or warning. Never decoration, and never a chart series unless that series is the flagged value.
 - **Contracts and transactional documents:** Crimson only for legal warnings (for example "PAST DUE" or a required notice), nothing else.
 
@@ -257,3 +260,64 @@ A report delivered as slides (for example a quarterly investor update) uses the 
    - the typography violations in Rule 10 of the typography file.
 7. Build one sample per profile P1–P5 and P7–P8. Render every page. Open a pull request with before-and-after renders and a list of any unresolved decisions.
 8. Do not invent commercial data; mark all sample figures "Illustrative".
+
+---
+
+## Part 9 — Emphasis: making information pop (D22, 26 Sep 2026)
+
+Leadership asked for a reliable way to make important information stand out: statements, bottom-line conclusions, strong numbers and ROI. Crimson is one tool, not the only one. The ladder below runs from quietest to loudest; use the lowest step that does the job, and **one device per idea**.
+
+| Step | Device | How it looks | Use for | Code |
+|---|---|---|---|---|
+| E1 | Weight shift | Regular text with the key words in Bold | The words that carry the point in a sentence | `**412 kW**` in any deck text |
+| E2 | Inverted chip | The words set in the field color on a solid ink block | One fact per slide that must pop inside a sentence | `==One team==` |
+| E3 | Scale | Light display numeral (34–165 pt) with a caps key | Key figures in tiles, the key-number slide | `metrics`, `keyNumber` |
+| E4 | Highlighted tile | One metric tile filled solid in the ink, value in Bold | The one figure among several that decides it (payback, ROI, savings) | `metrics: [{..., highlight: true}]` |
+| E5 | Bottom line band | Full-width chamfered band in the ink, "BOTTOM LINE" key in Light caps, conclusion in Bold | The slide's conclusion or the number the reader must remember | `bottomLine: '10-year savings of $819K.'` |
+| E6 | Crimson | Crimson numeral or diamond | The deck's single key-number moment, a warning, or the diamond on a bottom-line band | `keyNumber`, automatic on the band where approved |
+
+Rules:
+- One highlighted tile and one bottom line per slide at most. A chip and a bottom line may share a slide; never stack E1, E2 and E5 on the same words.
+- Crimson keeps Part 4's limits (approved fields only; one moment per deck; one small accent per page). Where Crimson is not approved (Sage, Cedar, Olive, Citron fields or bands), the code falls back to E2, E4 or E5 automatically, so emphasis never depends on Crimson.
+- Emphasis is information, never decoration: the emphasized text must be a conclusion, a decision figure or a warning.
+- Reports and proposals use the same ladder: Bold in running text, glance tiles, and a risk flag for warnings.
+
+## Part 10 — Distribution notices (D23)
+
+Every deck, proposal, report and contract carries exactly one distribution notice from `brand/notices.json`. The short label runs in every footer; the full line sits on the cover above the closing rule.
+
+| Notice | Footer label | Use for |
+|---|---|---|
+| `confidential` (default) | Confidential | Client decks and reports |
+| `proposal` | Confidential proposal | Priced proposals: names the recipient, pricing validity and that nothing binds until a contract is signed |
+| `investor` | Confidential · For discussion only | Investor and lender decks: not an offer of securities; forward-looking statements are estimates. Adds an "Important notice" slide automatically before the close |
+| `internal` | Internal use only | Internal decks and reviews |
+| `public` | Not confidential | Material cleared to share |
+| `draft` | Draft · Do not use | Work in progress |
+| `specimen` | Design specimen · Do not use | Templates and reference files |
+
+The wording is a business template. Counsel should approve it before it is relied on, and legal agreements keep their own confidentiality clauses.
+
+## Part 11 — Environment backgrounds (D24)
+
+Guide 04 grounds each color in a place, and Guide 07 allows brand-color overlays and gradient maps on photography. The repository now holds one place photograph per color (`assets/environments/source/`, AI-generated representative images) and builds two treatments from them with `scripts/make_environment.py`:
+
+- **Gradient-mapped background** (`env_<color>_map_dark|light.jpg`): the photograph mapped into tones of the field color, kept within about 1.5:1 of the field and faded toward the title area, so it stays inside the two-color rule and Part 5's 1.8:1 limit.
+- **Photo strip** (`env_<color>_strip.jpg`): the photograph with an 18% field overlay, like the strips on the guide's palette cards.
+
+Where they are used:
+- **Dividers:** always, on the section ink's environment (Peacock = misty forested hills, Cedar = forest canopy, Olive = olive grove, and so on).
+- **Covers and closes:** optional (`background: 'environment'`) instead of the particle-wave texture. Olive + Honeydew with the olive grove is the earthy option.
+- **Never** behind body text, tables, charts or on report body pages.
+- Content slides keep unaltered real photographs (Ocean crews and sites first).
+
+## Part 12 — Pairings: use more of the 30, add none (D25)
+
+The guide approves 30 of the 36 possible color pairs. The six it leaves out are the ones that cannot be read: Sage + Crimson 1.09:1, Olive + Crimson 1.21:1, Sage + Citron 1.31:1, Sage + Olive 1.32:1, Citron + Crimson 1.42:1 and Cedar + Crimson 2.78:1. Adding any of them would break legibility and the guide, so no new pairings are added.
+
+What changes instead: decks use more of the 30 approved pairings. The reference decks now use Honeydew + Peacock, Sprig + Cedar, Honeydew + Olive and Honeydew + Blackmoss as section pairings, Peacock + Honeydew, Cedar + Sprig and Olive + Honeydew as dividers, and Olive + Honeydew as an alternative cover.
+
+## Part 13 — Cover and close (D26)
+
+- The close always uses the same pairing and background as the cover, whichever pairing the cover uses. The code copies it and rejects anything else.
+- The close carries the vertical logo only: no words, address, URL or notice. Contact details go on the next-steps slide.

@@ -122,6 +122,16 @@ def numbered_canvas(total_holder):
             super().save()
     return NumberedCanvas
 
+NOTICES = json.loads((ROOT/'brand/notices.json').read_text())
+
+
+def notice_for(data):
+    key = data.get('notice', 'specimen' if data.get('draft') else NOTICES['default'])
+    n = NOTICES['notices'][key]
+    fill = lambda t: t.replace('{recipient}', data.get('recipient', 'the named recipient')).replace('{validity}', data.get('validity', '30 days'))
+    return n['label'], fill(n['line'])
+
+
 def build(source, output):
     data = json.loads(Path(source).read_text(encoding='utf-8'))
     if not data.get('draft', False) and re.search(r'\[TBD|\[IMAGE|\[PLACEHOLDER', json.dumps(data), re.I):
@@ -133,6 +143,7 @@ def build(source, output):
     label = data.get('label', 'Ocean RCS'); edition = data.get('edition', 'Ocean RCS')
     docid = data.get('id', 'OCN-DOC'); date = data.get('date', '')
     cover = data.get('cover', True)
+    notice_label, notice_line = notice_for(data)
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(output), pagesize=size, leftMargin=LM, rightMargin=LM, topMargin=96, bottomMargin=62,
         title=data['title'], author='Ocean RCS', initialFontName='OceanRegular')
@@ -183,6 +194,7 @@ def build(source, output):
         c.setFont('OceanLight', 50); y = 262
         for line in str(data.get('coverTitle', data['title'])).split('\n'):
             c.drawString(52, y, line); y -= 46
+        c.setFont('OceanLight', 7); c.setFillColor(hd); c.drawString(56, 90, notice_line)
         c.setStrokeColor(hd); c.line(56, 76, w-56, 76)
         x = 56
         for k, v in data.get('meta', [['Date', date or '—'], ['Status', 'Specimen' if data.get('draft') else 'Issued']]):
@@ -200,7 +212,7 @@ def build(source, output):
         caps(c, x3+10, top-14, edition, 5.6, INK, 'OceanLight'); caps(c, x3+10, top-25, 'Ocean RCS', 5.6, INK)
         # Running footer: document ID, date, page X of Y.
         c.setLineWidth(0.6); c.line(LM, 46, w-LM, 46)
-        caps(c, LM, 32, f"{docid}{' · Design specimen' if data.get('draft') else ''}", 5.6, INK)
+        caps(c, LM, 32, f"{docid} · {notice_label}", 5.6, INK)
         caps(c, w/2, 32, date, 5.6, INK, 'OceanLight', 'left') if date else None
         caps(c, w-LM, 32, f'Page {page:02d} of {total:02d}', 5.6, INK, 'OceanBold', 'right')
         c.restoreState()

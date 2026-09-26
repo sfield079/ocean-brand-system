@@ -1,0 +1,59 @@
+{
+  "note": "Nine place photographs, one per brand color (Guide 04). AI-generated representative images (Perplexity Computer, 26 Sep 2026), owned output. Replace with Ocean or licensed photography when available; rerun scripts/make_environment.py.",
+  "images": [
+    {
+      "file": "source/env_blackmoss.jpg",
+      "color": "blackmoss",
+      "subject": "ocean rapids from above",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_peacock.jpg",
+      "color": "peacock",
+      "subject": "misty forested hills",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_cedar.jpg",
+      "color": "cedar",
+      "subject": "forest canopy",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_sage.jpg",
+      "color": "sage",
+      "subject": "alpine lake with conifers",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_honeydew.jpg",
+      "color": "honeydew",
+      "subject": "sky and calm sea",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_sprig.jpg",
+      "color": "sprig",
+      "subject": "shallow water over sand",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_olive.jpg",
+      "color": "olive",
+      "subject": "olive grove on earthy hillside",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_citron.jpg",
+      "color": "citron",
+      "subject": "sun rays through forest",
+      "ai_generated": true
+    },
+    {
+      "file": "source/env_crimson.jpg",
+      "color": "crimson",
+      "subject": "red earth",
+      "ai_generated": true
+    }
+  ]
+}

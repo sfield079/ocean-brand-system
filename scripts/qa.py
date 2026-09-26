@@ -28,9 +28,23 @@ def check(path,draft=False):
                 errors.append(f'slide {i}: horizontal logo below the 0.5 in minimum (BRAND-SYSTEM.md §16)')
             if sh.name.startswith('ocean:logo-graphic') and w<0.25:
                 errors.append(f'slide {i}: graphic mark below the 0.25 in minimum')
+            # Photographs must never be stretched: visible crop aspect must equal the frame aspect.
+            if sh.shape_type==13 and (sh.name.startswith('ocean:photo') or sh.name.startswith('ocean:environment')):
+                iw,ih=sh.image.size
+                cl,cr,ct,cb=sh.crop_left,sh.crop_right,sh.crop_top,sh.crop_bottom
+                vis=(iw*(1-cl-cr))/max(1,ih*(1-ct-cb))
+                if abs(vis/(w/h)-1)>0.02: errors.append(f'slide {i}: photo distorted {vis:.2f} vs frame {w/h:.2f} ({sh.name})')
+        # The close carries the logo only (BRAND-SYSTEM.md §8).
+        if i==len(prs.slides) and len(prs.slides)>2:
+            if any(sh.has_text_frame and sh.text_frame.text.strip() for sh in slide.shapes):
+                errors.append(f'slide {i}: the close must carry the logo only, no words')
         for a,b in itertools.combinations(boxes,2):
             if min(a[0]+a[2],b[0]+b[2])-max(a[0],b[0])>0.04 and min(a[1]+a[3],b[1]+b[3])-max(a[1],b[1])>0.04:
                 errors.append(f'slide {i}: text overlap: {a[4]} / {b[4]}')
+    if len(prs.slides)>2:
+        bg=lambda sl: sl.background.fill.fore_color.rgb if sl.background.fill.type==1 else None
+        if str(bg(prs.slides[0]))!=str(bg(prs.slides[len(prs.slides)-1])):
+            errors.append('cover and close use different pairings')
     with ZipFile(path) as z:
         for name in z.namelist():
             if not re.match(r'ppt/(slides/slide\d+|charts/chart\d+)\.xml$',name):continue
