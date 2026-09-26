@@ -1,26 +1,34 @@
-# Copy-paste Codex prompts
+# Reusable Ocean publication prompts
 
-## New investor deck (outline first)
-Follow AGENTS.md. Read everything in source/ and list what is in assets/. Build a [12]-slide
-investor deck for [OPPORTUNITY]. First give me a slide-by-slide outline as a table: slide #,
-layout function from lib/ocean.js, headline (takeaway, max 2 lines), max 3 points, visual/asset.
-Then list every fact, metric, and image you still need from me. Do not build until I approve.
+## Presentation
 
-## Build after approval
-Approved. Copy decks/_starter to decks/investor/[deck-name], build with lib/ocean.js layouts only,
-save as [deck-name]. Run scripts/render.sh and scripts/qa.py, open every PNG in output/renders,
-fix every issue, re-render, and give me the production note from AGENTS.md.
+Follow AGENTS.md and brand/DESIGN-SYSTEM.md. Create an editable presentation for
+[audience] to support [decision], using the supplied verified sources. Use the
+shared layout library, required Stack Sans Headline, light covers and original
+logos. No AI backgrounds or decorative AI elements. Choose the length the
+content needs. Build, validate, inspect every page, fix defects and deliver
+PPTX plus a PDF with embedded fonts. Clearly identify missing facts.
 
-## Customer solar + storage proposal
-Follow AGENTS.md. Using source/project-facts.md for [SITE], build a 10-slide customer feasibility
-deck in decks/solar-bess/[site]. Plain-language equipment on main slides, SKUs in the appendix,
-no internal margins. Mark anything unconfirmed as [TBD]. Run the full QA loop.
+## Customer proposal
 
-## Revise one slide
-Change only slide [N] of decks/[path]/build.js: [CHANGE]. Keep all other slides identical.
-Rebuild, re-render, inspect slide [N] and its neighbors.
+Use the Ocean publication system to create a readable Letter PDF proposal for
+[customer/project]. Use the verified scope, pricing and terms supplied here.
+Include decision summary, scope, assumptions, exclusions, schedule dependencies
+and next steps. Use lib/publication.py and preserve the editable JSON source.
+Match the approved editorial references without backgrounds or watermarks.
+Verify embedded fonts and inspect every page before delivery.
 
-## Add a new layout
-Add a new layout function `[name]` to lib/ocean.js following the existing pattern (brand colors
-only, fit() guards on every text box, 0.6 in margins, footer). Add an example to
-decks/_starter/build.js, run `npm run starter`, and inspect the render.
+## Report
+
+Create an Ocean report for [audience] using [sources]. Separate observations,
+measurements, interpretation and recommendations. Identify source dates and
+limitations. Use the Letter/A4 document layout, not slide typography. Keep
+tables readable, repeat headers and preserve useful evidence. Deliver verified
+PDF plus editable source after inspecting every page.
+
+## System validation
+
+Run npm test, npm run starter and npm run documents. Inspect every rendered page
+and verify font embedding. These are design specimens, so draft placeholders
+are permitted only in the layout reference. Report failures honestly. Do not
+publish sample business claims or create a fictional project to fill a layout.

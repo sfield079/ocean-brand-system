@@ -1,9 +1,11 @@
 # Assets
 
-- logos/ — approved Ocean RCS logo files (PNG/SVG, light and dark versions)
-- higgsfield-images/ — hero visuals, 16:9, no text. Starter deck looks for cover.jpg and divider-opportunity.jpg
-- site-photos/ — real project photos. Starter looks for hero-site.jpg and case-study.jpg
+- logos/ — original Ocean RCS horizontal, vertical and graphic SVGs, plus transparent horizontal PNG
+- higgsfield-images/ — legacy directory; no generated images are used by default
+- site-photos/ — real supplied project photos, with source and usage context
 - equipment-images/ — manufacturer product shots
-- icons/ — single-color icons in Cedar or White only
+- icons/ — only meaningful supplied icons, never generic decorative AI elements
 
-Missing images render as labeled [IMAGE: ...] placeholder blocks so layouts can be reviewed before assets exist.
+Production builds fail if an explicitly requested image is missing. Only draft
+mode may show a labeled placeholder. Covers and team layouts need no image.
+Do not create substitute logos or headshots. Original artwork is never recolored.

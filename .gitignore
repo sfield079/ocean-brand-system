@@ -3,3 +3,6 @@ node_modules/
 *.tmp
 ~$*.pptx
 output/renders/*/
+tmp/
+__pycache__/
+*.pyc

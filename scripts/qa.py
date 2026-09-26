@@ -1,67 +1,53 @@
-#!/usr/bin/env python3
-"""Automated pre-flight checks for Ocean RCS decks.
-
-Usage: python3 scripts/qa.py output/pptx/<deck>.pptx
-Checks: font-size minimums, off-slide objects, safe-margin violations,
-off-palette text colors, overlapping text boxes, and open [TBD placeholders.
-Automated checks do not replace inspecting every rendered PNG.
-"""
-import json, sys, itertools
+"""PPTX checks. --draft permits placeholders, never font/geometry defects."""
+import argparse, itertools, json, re
 from pathlib import Path
 from pptx import Presentation
-from pptx.util import Emu
-
-ROOT = Path(__file__).resolve().parent.parent
-brand = json.loads((ROOT / "brand" / "color-system.json").read_text())
-PALETTE = {v.upper() for v in {**brand["colors"], **brand["tints"]}.values()}
-MIN_PT = brand["typeScale"]["footnote"]
-MARGIN_IN = 0.6 - 0.05
-EMU_IN = 914400
-
-def inch(v): return v / EMU_IN
-
-def main(path):
-    prs = Presentation(path)
-    W, H = inch(prs.slide_width), inch(prs.slide_height)
-    errors, warnings, tbd = [], [], 0
-    for i, slide in enumerate(prs.slides, 1):
-        boxes = []
+from lxml import etree
+from zipfile import ZipFile
+ROOT=Path(__file__).resolve().parent.parent
+BRAND=json.loads((ROOT/'brand/color-system.json').read_text())
+PALETTE={v.upper() for v in {**BRAND['colors'],**BRAND['tints']}.values()}
+NS={'a':'http://schemas.openxmlformats.org/drawingml/2006/main'}
+def check(path,draft=False):
+    prs=Presentation(path); errors=[]; placeholders=0
+    W,H=prs.slide_width/914400,prs.slide_height/914400
+    for i,slide in enumerate(prs.slides,1):
+        boxes=[]
         for sh in slide.shapes:
-            x, y = inch(sh.left or 0), inch(sh.top or 0)
-            w, h = inch(sh.width or 0), inch(sh.height or 0)
-            full_bleed = sh.shape_type == 13 or (w >= W - 0.01 or h >= H - 0.01) or (x + w >= W - 0.01 and sh.shape_type == 13)
-            if x < -0.01 or y < -0.01 or x + w > W + 0.01 or y + h > H + 0.01:
-                errors.append(f"slide {i}: '{sh.name}' extends off the slide")
+            x,y,w,h=[float(v or 0)/914400 for v in (sh.left,sh.top,sh.width,sh.height)]
+            if min(x,y)<-0.01 or x+w>W+0.01 or y+h>H+0.01:
+                errors.append(f'slide {i}: off-slide object {sh.name}')
             if sh.has_text_frame and sh.text_frame.text.strip():
-                txt = sh.text_frame.text.strip()
-                if txt.startswith('[IMAGE:'):
-                    tbd += 1
-                    continue
-                tbd += txt.count("[TBD")
-                if not full_bleed and (x < MARGIN_IN or x + w > W - MARGIN_IN + 0.01):
-                    warnings.append(f"slide {i}: text '{txt[:30]}' inside safe margin")
-                boxes.append((sh.name, x, y, w, h, txt[:30]))
-                for p in sh.text_frame.paragraphs:
-                    for r in p.runs:
-                        if r.font.size and r.font.size.pt < MIN_PT:
-                            errors.append(f"slide {i}: {r.font.size.pt}pt text '{r.text[:30]}' below {MIN_PT}pt")
-                        try:
-                            rgb = str(r.font.color.rgb).upper() if r.font.color and r.font.color.type else None
-                        except AttributeError:
-                            rgb = None
-                        if rgb and rgb not in PALETTE:
-                            errors.append(f"slide {i}: off-palette color #{rgb} on '{r.text[:30]}'")
-        for a, b in itertools.combinations(boxes, 2):
-            ox = min(a[1] + a[3], b[1] + b[3]) - max(a[1], b[1])
-            oy = min(a[2] + a[4], b[2] + b[4]) - max(a[2], b[2])
-            if ox > 0.05 and oy > 0.05:
-                warnings.append(f"slide {i}: text boxes overlap: '{a[5]}' / '{b[5]}'")
-    print(f"QA: {path}  ({len(prs.slides)} slides)")
-    for e in errors: print("  ERROR  ", e)
-    for w in warnings: print("  WARN   ", w)
-    print(f"  INFO    {tbd} open [TBD] placeholder(s)")
-    print("  RESULT  " + ("FAIL" if errors else "PASS (now inspect every rendered PNG)"))
-    sys.exit(1 if errors else 0)
-
-if __name__ == "__main__":
-    main(sys.argv[1])
+                text=sh.text_frame.text.strip()
+                if x<0.55 or x+w>W-0.55 or y<0.4 or y+h>H-0.25:
+                    errors.append(f'slide {i}: text violates safe area: {text[:35]}')
+                boxes.append((x,y,w,h,text[:35]))
+        for a,b in itertools.combinations(boxes,2):
+            if min(a[0]+a[2],b[0]+b[2])-max(a[0],b[0])>0.04 and min(a[1]+a[3],b[1]+b[3])-max(a[1],b[1])>0.04:
+                errors.append(f'slide {i}: text overlap: {a[4]} / {b[4]}')
+    with ZipFile(path) as z:
+        for name in z.namelist():
+            if not re.match(r'ppt/(slides/slide\d+|charts/chart\d+)\.xml$',name):continue
+            xml=etree.fromstring(z.read(name))
+            for text in xml.findall('.//a:t',NS):
+                placeholders+=len(re.findall(r'\[TBD|\[IMAGE|\[PLACEHOLDER',text.text or '',re.I))
+            for face in xml.findall('.//a:latin',NS):
+                if face.get('typeface') not in ('Stack Sans Headline','+mn-lt','+mj-lt'):
+                    errors.append(f'{name}: unapproved font {face.get("typeface")}')
+            for run in xml.findall('.//a:rPr',NS):
+                if run.get('sz') and int(run.get('sz'))<900: errors.append(f'{name}: text below 9 pt')
+                rgb=run.find('./a:solidFill/a:srgbClr',NS)
+                if rgb is not None and rgb.get('val').upper() not in PALETTE:
+                    errors.append(f'{name}: off-palette text {rgb.get("val")}')
+            # Verify the theme cannot silently introduce an unapproved default.
+        theme=etree.fromstring(z.read('ppt/theme/theme1.xml'))
+        for face in theme.findall('.//a:fontScheme/a:majorFont/a:latin',NS)+theme.findall('.//a:fontScheme/a:minorFont/a:latin',NS):
+            if face.get('typeface')!='Stack Sans Headline': errors.append('Theme font is not Stack Sans Headline')
+    if placeholders and not draft: errors.append(f'{placeholders} unresolved placeholders in release')
+    print(f'QA: {path} ({len(prs.slides)} slides); placeholders: {placeholders}')
+    for error in errors:print('ERROR:',error)
+    print('RESULT FAIL' if errors else 'RESULT PASS (automated checks only; visual review still required)')
+    return not errors
+if __name__=='__main__':
+    p=argparse.ArgumentParser();p.add_argument('path');p.add_argument('--draft',action='store_true');a=p.parse_args()
+    raise SystemExit(0 if check(a.path,a.draft) else 1)
