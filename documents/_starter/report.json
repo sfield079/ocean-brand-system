@@ -25,11 +25,11 @@
         },
         {
           "label": "Usable roof",
-          "value": "68,400 ft\u00b2"
+          "value": "68,400 ft²"
         },
         {
           "label": "Service",
-          "value": "2,000 A \u00b7 480 V"
+          "value": "2,000 A · 480 V"
         }
       ]
     },
@@ -96,5 +96,7 @@
   "id": "OCN-RPT-0001",
   "date": "26 SEP 2026",
   "coverTitle": "A decision-ready\nview of the site",
-  "pair": "honeydew-blackmoss"
+  "pair": "honeydew-blackmoss",
+  "notice": "confidential",
+  "status": "specimen"
 }

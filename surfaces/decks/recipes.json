@@ -1,0 +1,99 @@
+{
+  "note": "Deck recipes (BRAND-SYSTEM.md \u00a78). A recipe lists slide ids from a content file and assigns one pairing per section. lib/recipe.js builds any length from the same content; lib/ocean.js checks the rules on save.",
+  "roles": {
+    "bookend": "sage-honeydew",
+    "agenda": "honeydew-blackmoss",
+    "keyNumber": "blackmoss-honeydew",
+    "notice": "honeydew-blackmoss"
+  },
+  "rules": {
+    "coverMatchesClose": "The close uses the cover's pairing and background, whatever pairing the cover uses.",
+    "closeIsLogoOnly": "The close shows the vertical logo and nothing else.",
+    "sectionPairing": "Every content slide in a section uses that section's pairing; adjacent sections never share one.",
+    "dividerPairing": "A divider reverses its section's pairing, or uses a pairing that shares one of its colours (for example Sprig + Sage for a Sprig + Cedar section). It sits on that field's environment background unless a photo is supplied under the image SOP.",
+    "maxContentPairings": 4,
+    "maxSlidesWithoutPhoto": 4,
+    "maxDenseInARow": 2,
+    "dense": [
+      "table",
+      "appendix",
+      "timeline"
+    ],
+    "noticeSlide": "Investor decks add a disclaimer slide immediately before the close. It does not count toward the recipe length.",
+    "pairingTiers": "Content slides use text or large tiers only. Display pairings (Sage + Sprig, Sprig + Crimson, Citron + Honeydew, Cedar + Olive) carry 44 pt type and up on dividers, pull quotes and key moments. Tonal pairings carry no text."
+  },
+  "recipes": {
+    "5": {
+      "name": "Briefing",
+      "sections": {
+        "Site": "honeydew-peacock",
+        "System": "honeydew-cedar"
+      },
+      "slides": [
+        "cover",
+        "situation",
+        "solution",
+        "key",
+        "close"
+      ],
+      "cover": {
+        "pair": "olive-honeydew",
+        "background": "environment"
+      },
+      "keyNumber": "sprig-crimson"
+    },
+    "10": {
+      "name": "Client presentation",
+      "cover": {
+        "background": "environment"
+      },
+      "sections": {
+        "Site": "honeydew-peacock",
+        "System": "sprig-cedar",
+        "Economics": "honeydew-olive",
+        "Next steps": "honeydew-blackmoss"
+      },
+      "slides": [
+        "cover",
+        "agenda",
+        "site",
+        "siteData",
+        "systemPhoto",
+        "systemDetail",
+        "econChart",
+        "key",
+        "nextSteps",
+        "close"
+      ]
+    },
+    "15": {
+      "name": "Investor or full proposal",
+      "sections": {
+        "Site": "honeydew-peacock",
+        "System": "sprig-cedar",
+        "Economics": "honeydew-olive",
+        "Next steps": "honeydew-blackmoss"
+      },
+      "slides": [
+        "cover",
+        "agenda",
+        "divider:Site",
+        "site",
+        "siteData",
+        "divider:System",
+        "systemPhoto",
+        "systemDetail",
+        "schedule",
+        "divider:Economics",
+        "econChart",
+        "econTable",
+        "key",
+        "nextSteps",
+        "close"
+      ],
+      "dividers": {
+        "System": "sprig-sage"
+      }
+    }
+  }
+}

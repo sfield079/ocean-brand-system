@@ -141,5 +141,9 @@
   "id": "OCN-PRP-0001",
   "date": "26 SEP 2026",
   "coverTitle": "A clear plan\nfor your site",
-  "pair": "honeydew-cedar"
+  "pair": "honeydew-cedar",
+  "notice": "proposal",
+  "recipient": "Client name",
+  "validity": "30 days",
+  "status": "specimen"
 }

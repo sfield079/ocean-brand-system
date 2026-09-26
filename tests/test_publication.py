@@ -27,6 +27,20 @@ class LegalTests(unittest.TestCase):
             self.assertTrue(check(out,draft=True,legal=True))
             self.assertFalse(check(out,draft=True))  # Stack Sans-only check must reject legal fonts
 
+class DeckQATests(unittest.TestCase):
+    def test_stretched_photo_is_rejected(self):
+        import subprocess, shutil
+        from pptx import Presentation
+        from pptx.util import Inches
+        sys.path.insert(0, str(ROOT/'scripts'))
+        from scripts import qa
+        with tempfile.TemporaryDirectory() as tmp:
+            prs = Presentation(); s = prs.slides.add_slide(prs.slide_layouts[6])
+            pic = s.shapes.add_picture(str(ROOT/'assets/images/rooftop.jpg'), Inches(1), Inches(1), Inches(4), Inches(4))
+            pic.name = 'ocean:photo'
+            out = Path(tmp)/'t.pptx'; prs.save(out)
+            self.assertFalse(qa.check(out, draft=True))
+
 if __name__=='__main__':unittest.main()
 
 class LegalTests(unittest.TestCase):

@@ -39,7 +39,7 @@ npm run starter
 npm run documents
 ```
 
-`starter` needs Bash, LibreOffice and Poppler. It builds all 16 editable layouts,
+`starter` needs Bash, LibreOffice and Poppler. It builds the 5-, 10- and 15-slide recipe decks and the layout catalog from `decks/_starter/content.js`,
 checks the PPTX, exports the PDF, verifies embedded fonts and renders PNGs.
 `documents` builds the proposal, report and legal contract specimens from structured JSON
 with embedded fonts, plus the Word legal template. No office renderer needed.

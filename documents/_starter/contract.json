@@ -72,5 +72,7 @@
       "label": "Contractor · Ocean RCS",
       "name": "Firstname Lastname"
     }
-  ]
+  ],
+  "notice": "confidential",
+  "status": "draft"
 }

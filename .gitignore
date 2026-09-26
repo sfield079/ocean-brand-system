@@ -6,3 +6,4 @@ output/renders/*/
 tmp/
 __pycache__/
 *.pyc
+output/.cache/

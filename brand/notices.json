@@ -1,0 +1,53 @@
+{
+  "note": "Distribution notices (brand/decisions.md Part 10). Every deck, proposal, report and contract has one classification (who may see it) and one status (whether it may be used). The footer shows both in one line, for example 'Confidential \u00b7 Draft \u00b7 Do not use'. Individual slides or pages can carry a stricter status. Wording is a business template; have counsel approve it before relying on it. {recipient} and {validity} are filled from the document settings.",
+  "defaults": {
+    "classification": "confidential",
+    "status": "final"
+  },
+  "classifications": {
+    "confidential": {
+      "label": "Confidential",
+      "line": "Confidential. Prepared for {recipient}. Do not copy, forward or distribute without the written consent of Ocean RCS."
+    },
+    "proposal": {
+      "label": "Confidential proposal",
+      "line": "Confidential proposal for {recipient}. Pricing valid for {validity}. Not binding until a contract is signed by both parties."
+    },
+    "investor": {
+      "label": "Confidential \u00b7 For discussion only",
+      "line": "Confidential. For discussion only. Not an offer to sell or a solicitation of an offer to buy any security.",
+      "disclaimer": "This presentation is confidential and is provided for discussion purposes only. It is not an offer to sell or a solicitation of an offer to buy any security. Forward-looking statements, projections and estimates reflect current assumptions, are not guarantees and may differ materially from actual results. Do not copy, forward or distribute without the written consent of Ocean RCS.",
+      "requiresDisclaimer": true
+    },
+    "internal": {
+      "label": "Internal use only",
+      "line": "Internal use only. Do not share outside Ocean RCS."
+    },
+    "public": {
+      "label": "Not confidential",
+      "line": "Not confidential. May be shared in full with attribution to Ocean RCS."
+    }
+  },
+  "statuses": {
+    "final": {
+      "label": "",
+      "line": ""
+    },
+    "draft": {
+      "label": "Draft \u00b7 Do not use",
+      "line": "Draft for discussion. Do not use, rely on or distribute. Figures and terms may change."
+    },
+    "specimen": {
+      "label": "Design specimen \u00b7 Do not use",
+      "line": "Design specimen with illustrative figures and representative images. Do not use for any commercial purpose."
+    },
+    "do-not-use": {
+      "label": "Do not use",
+      "line": "Do not use, rely on or distribute this material."
+    },
+    "superseded": {
+      "label": "Superseded \u00b7 Do not use",
+      "line": "Superseded. Do not use; refer to the current version."
+    }
+  }
+}
