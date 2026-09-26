@@ -1,0 +1,10 @@
+{
+  "name": "ocean-deck-system",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Ocean RCS presentation production system",
+  "scripts": {
+    "starter": "node decks/_starter/build.js && bash scripts/render.sh output/pptx/ocean-layout-reference.pptx && python3 scripts/qa.py output/pptx/ocean-layout-reference.pptx"
+  },
+  "dependencies": { "pptxgenjs": "^3.12.0" }
+}

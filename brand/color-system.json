@@ -1,0 +1,29 @@
+{
+  "colors": {
+    "blackmoss": "0B1617",
+    "peacock": "102426",
+    "cedar": "1B4039",
+    "sage": "618C7C",
+    "white": "FFFFFF"
+  },
+  "tints": {
+    "mist": "EEF2F0",
+    "fog": "D5DED9",
+    "sageLight": "A9C2B8"
+  },
+  "fonts": {
+    "heading": "Arial",
+    "body": "Arial",
+    "target": "Stack Sans",
+    "note": "Switch heading/body to 'Stack Sans' only when installed on every machine opening the PPTX."
+  },
+  "typeScale": {
+    "coverTitle": 44,
+    "dividerTitle": 36,
+    "headline": 28,
+    "subhead": 18,
+    "body": 16,
+    "label": 13,
+    "footnote": 10
+  }
+}
