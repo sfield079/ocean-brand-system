@@ -1,0 +1,31 @@
+:root{
+  --ocean-blackmoss:#0B1617;
+  --ocean-peacock:#102426;
+  --ocean-cedar:#1B4039;
+  --ocean-sage:#618C7C;
+  --ocean-olive:#6E734C;
+  --ocean-citron:#A69856;
+  --ocean-crimson:#EB3819;
+  --ocean-sprig:#D5CCA0;
+  --ocean-honeydew:#F3FBF8;
+  --ocean-white:#FFFFFF;
+  --ocean-font:"Stack Sans Headline",system-ui,sans-serif;
+  --ocean-w-light:300;--ocean-w-regular:400;--ocean-w-medium:500;--ocean-w-bold:700;
+  --ocean-track-caps:.25em;--ocean-track-label:.125em;--ocean-track-title:-.01em;--ocean-track-display:-.02em;--ocean-track-hero:-.04em;
+  --ocean-radius-sm:4px;--ocean-radius-md:12px;--ocean-radius-lg:20px;
+  --ocean-chamfer-sm:12px;--ocean-chamfer-md:24px;--ocean-chamfer-lg:44px;
+  --ocean-rule:1px;--ocean-frame:2px;
+  /* default pairing: Honeydew field + Blackmoss ink */
+  --ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-blackmoss);
+}
+[data-pair="honeydew-blackmoss"]{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-blackmoss)}
+[data-pair="honeydew-peacock"]{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-peacock)}
+[data-pair="honeydew-cedar"]{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-cedar)}
+[data-pair="blackmoss-honeydew"]{--ocean-field:var(--ocean-blackmoss);--ocean-ink:var(--ocean-honeydew)}
+[data-pair="peacock-honeydew"]{--ocean-field:var(--ocean-peacock);--ocean-ink:var(--ocean-honeydew)}
+[data-pair="sage-honeydew"]{--ocean-field:var(--ocean-sage);--ocean-ink:var(--ocean-honeydew)}
+[data-pair="sprig-peacock"]{--ocean-field:var(--ocean-sprig);--ocean-ink:var(--ocean-peacock)}
+[data-pair="white-blackmoss"]{--ocean-field:var(--ocean-white);--ocean-ink:var(--ocean-blackmoss)}
+.ocean-caps{text-transform:uppercase;letter-spacing:var(--ocean-track-caps);font-weight:var(--ocean-w-bold)}
+.ocean-chamfer{clip-path:polygon(var(--ocean-chamfer-md) 0,100% 0,100% 100%,0 100%,0 var(--ocean-chamfer-md));border-radius:0 var(--ocean-radius-lg) var(--ocean-radius-lg) var(--ocean-radius-lg)}
+.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24}

@@ -1,0 +1,78 @@
+{
+  "color": {
+    "blackmoss": {
+      "value": "#0B1617"
+    },
+    "peacock": {
+      "value": "#102426"
+    },
+    "cedar": {
+      "value": "#1B4039"
+    },
+    "sage": {
+      "value": "#618C7C"
+    },
+    "olive": {
+      "value": "#6E734C"
+    },
+    "citron": {
+      "value": "#A69856"
+    },
+    "crimson": {
+      "value": "#EB3819"
+    },
+    "sprig": {
+      "value": "#D5CCA0"
+    },
+    "honeydew": {
+      "value": "#F3FBF8"
+    },
+    "white": {
+      "value": "#FFFFFF"
+    }
+  },
+  "font": {
+    "family": {
+      "brand": "Stack Sans Headline",
+      "icon": "Material Symbols Outlined"
+    },
+    "weight": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "bold": 700
+    }
+  },
+  "tracking": {
+    "caps": "0.25em",
+    "label": "0.125em",
+    "body": "0",
+    "title": "-0.01em",
+    "display": "-0.02em",
+    "hero": "-0.04em",
+    "hero-bold": "-0.06em"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "12px",
+    "lg": "20px"
+  },
+  "chamfer": {
+    "sm": "12px",
+    "md": "24px",
+    "lg": "44px"
+  },
+  "rule": {
+    "hairline": "1px",
+    "frame": "2px",
+    "double-gap": "4px"
+  },
+  "icon": {
+    "style": "outlined",
+    "fill": 0,
+    "weight": 400,
+    "grade": 0,
+    "opsz": 24,
+    "cell-ratio": 0.5
+  }
+}

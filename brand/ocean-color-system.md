@@ -1,6 +1,5 @@
 # Ocean color roles
 
-Read `DESIGN-SYSTEM.md`. Canonical tokens live in `color-system.json`.
-White is the default canvas. Blackmoss is primary text, Cedar secondary text,
-Sage restrained emphasis. Default dark covers are retired. Small Sage text on
-white is not permitted. Photography and original black logos retain their colors.
+Superseded. Canonical tokens: `tokens/ocean.tokens.json`. Pairings, contrast
+limits and roles: `brand/BRAND-SYSTEM.md` §3 and `brand/decisions.md` Part 2.
+`brand/color-system.json` is kept only for the not-yet-migrated `lib/` code.

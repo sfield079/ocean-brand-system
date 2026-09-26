@@ -1,0 +1,35 @@
+{
+  "note": "All five images are AI-generated representative images used in reference renders. Label them 'Representative image' when used in client material, and replace with Ocean site photography or licensed stock before release. Unlicensed photos are not permitted (L6).",
+  "images": [
+    {
+      "file": "rooftop.jpg",
+      "source": "AI-generated (Perplexity Computer, 2026-09-26)",
+      "license": "Owned output",
+      "ai_generated": true
+    },
+    {
+      "file": "worker.jpg",
+      "source": "AI-generated (Perplexity Computer, 2026-09-26)",
+      "license": "Owned output",
+      "ai_generated": true
+    },
+    {
+      "file": "bess.jpg",
+      "source": "AI-generated (Perplexity Computer, 2026-09-26)",
+      "license": "Owned output",
+      "ai_generated": true
+    },
+    {
+      "file": "nature.jpg",
+      "source": "AI-generated (Perplexity Computer, 2026-09-26)",
+      "license": "Owned output",
+      "ai_generated": true
+    },
+    {
+      "file": "nature_gm.jpg",
+      "source": "AI-generated (Perplexity Computer, 2026-09-26)",
+      "license": "Owned output",
+      "ai_generated": true
+    }
+  ]
+}

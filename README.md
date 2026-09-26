@@ -1,12 +1,23 @@
-# Ocean RCS publication system
+# Ocean RCS brand system
 
-A reusable system for editable presentations and readable proposal/report PDFs.
-White pages, original logos, required Stack Sans Headline, restrained brand
-accents and explicit quality checks. Read AGENTS.md and brand/DESIGN-SYSTEM.md.
+The single brand source of truth for every Ocean surface: oceanrcs.com, micro-apps,
+decks, reports, proposals, formal and legal documents, business cards, email,
+signage, charts, icons and graphics. Read `AGENTS.md`, then `brand/BRAND-SYSTEM.md`.
+
+| Folder | Contents |
+|---|---|
+| `brand/` | Style guide (Brand Bible), decisions, typography rules, full spec, audit |
+| `tokens/` | Color, type, shape and contrast tokens; CSS, Tailwind and chart builds |
+| `assets/` | Logos and one-color variants, icons, fonts, micro-graphics, textures, images |
+| `charts/` | Chart system builder, SVG/PNG reference and animation reference |
+| `surfaces/` | Approved references per surface (web, apps, decks, formal, print, email, signage) |
+| `output/reference/` | Approved example deck, report, contract and overview boards |
+| `lib/`, `decks/`, `documents/`, `scripts/` | Production pipeline (migration to the approved system pending) |
+| `tools/prototypes/` | Builders that produced the approved references |
 
 ## Cloud setup
 
-Use repository `sfield079/ocean-deck-system`, branch `main`, image `universal`.
+Use repository `sfield079/ocean-brand-system` (formerly `ocean-deck-system`), branch `main`, image `universal`.
 Set the Codex environment setup script to:
 
 ```bash
@@ -80,8 +91,8 @@ source links are recorded in `brand/REFERENCE-NOTES.md`.
 ChatGPT project chats do not automatically load GitHub AGENTS.md. Add
 `brand/CHATGPT-PROJECT-INSTRUCTIONS.md` to the Ocean RCS project's sources and
 reference the repository in its instructions. Keep existing business context.
-The current user brief supersedes older chat instructions about dark covers,
-Arial fallbacks and generated backgrounds.
+The approved brand system (26 September 2026) supersedes older chat
+instructions about white-only pages, excluded palette colors and backgrounds.
 
 See CODEX-PROMPTS.md for reusable task briefs. Reference specimens are not
 external business deliverables and do not assert project results or returns.

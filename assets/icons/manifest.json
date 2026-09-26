@@ -1,0 +1,59 @@
+{
+ "guide": [
+  "layers",
+  "dashboard",
+  "grid_guides",
+  "palette",
+  "format_color_fill",
+  "format_size",
+  "burst_mode"
+ ],
+ "energy": [
+  "solar_power",
+  "battery_charging_full",
+  "ev_station",
+  "bolt",
+  "electric_meter",
+  "energy_program_saving",
+  "wind_power",
+  "power",
+  "charger",
+  "electrical_services"
+ ],
+ "infrastructure": [
+  "factory",
+  "warehouse",
+  "dns",
+  "memory",
+  "developer_board",
+  "water_drop",
+  "water",
+  "construction",
+  "engineering",
+  "foundation",
+  "roofing",
+  "location_on"
+ ],
+ "business": [
+  "description",
+  "contract",
+  "request_quote",
+  "payments",
+  "trending_up",
+  "schedule",
+  "calendar_month",
+  "verified",
+  "shield",
+  "handshake",
+  "groups",
+  "mail",
+  "call",
+  "language",
+  "download",
+  "arrow_forward",
+  "check",
+  "close",
+  "warning",
+  "info"
+ ]
+}

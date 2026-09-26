@@ -1,3 +1,5 @@
+> **Superseded 26 September 2026.** Historical record of the first build. Where it conflicts with `brand/BRAND-SYSTEM.md` or `brand/decisions.md` (white default, excluded palette colors, excluded textures, Arial rules), those files win.
+
 # Reference decisions — 2026-09-25
 
 | Reference | Adopt | Exclude |
