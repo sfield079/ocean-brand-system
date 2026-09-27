@@ -64,7 +64,7 @@ def build(source, output):
         raise ValueError('Release document contains unresolved placeholders')
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(output), pagesize=letter, leftMargin=M, rightMargin=M, topMargin=112, bottomMargin=72,
-                            title=data['title'].replace('\n', ' '), author='Ocean RCS')
+                            title=data['title'].replace('\n', ' '), author='Ocean RCS', subject='Built with ocean-brand-system lib/legal.py')
     story = [P(data['title'], 'title'), P(data['preamble'])]
     for cl in data['clauses']:
         story.append(Paragraph(f"{escape(cl['number'])}.&nbsp;&nbsp;{escape(cl['heading'])}", ST['head']))

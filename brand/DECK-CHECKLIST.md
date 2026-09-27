@@ -1,9 +1,10 @@
 # Ocean deck checklist
 
-Every Ocean deck must pass every line below, whoever or whatever builds it. Decks built with
-`lib/ocean.js` and `lib/recipe.js` enforce most of these in code. A deck made any other way
-(ChatGPT, PowerPoint, Keynote, Google Slides) has no enforcement, so check each line by eye and
-run `python3 scripts/qa.py <deck>.pptx` on the file. Sources: `brand/decisions.md` Parts 9–13,
+Every Ocean deck must pass every line below. Decks are built only with `lib/ocean.js` and
+`lib/recipe.js` from a content file (AGENTS.md, Build rule), which enforce most of these in code.
+A deck drawn any other way (ChatGPT or Codex drawing slides with ReportLab or python-pptx, PowerPoint,
+Keynote, Google Slides) fails `scripts/qa.py` / `scripts/qa_pdf.py` and must be rebuilt. Use this
+checklist to review the rendered PDF by eye. Sources: `brand/decisions.md` Parts 9–13,
 `brand/BRAND-SYSTEM.md` §8, `surfaces/decks/recipes.json`.
 
 ## Structure (recipe)

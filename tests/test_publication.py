@@ -76,3 +76,25 @@ class ProposalNoticeTests(unittest.TestCase):
         text = subprocess.run(['pdftotext', '-layout', '/tmp/p2.pdf', '-'], capture_output=True, text=True).stdout
         self.assertIn('CONFIDENTIAL PROPOSAL · DO NOT USE', text)
         self.assertIn('CONFIDENTIAL PROPOSAL · DRAFT · DO NOT USE', text)
+
+
+class BuilderRuleTests(unittest.TestCase):
+    """AGENTS.md Build rule: decks and documents come only from the repository builders."""
+    def test_hand_drawn_pdf_is_rejected(self):
+        # Mirrors a deck an AI tool drew with its own ReportLab code (27 Sep 2026): right fonts, wrong layouts.
+        from reportlab.pdfgen import canvas
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.ttfonts import TTFont
+        font = ROOT/'brand/fonts/StackSansHeadline-Regular.ttf'
+        pdfmetrics.registerFont(TTFont('StackSansHeadline-Regular', str(font)))
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)/'hand.pdf'; c = canvas.Canvas(str(out), pagesize=(960, 540))
+            c.setFont('StackSansHeadline-Regular', 40); c.drawString(48, 300, 'Mobility & Energy'); c.save()
+            self.assertFalse(check(out, draft=True))
+    def test_hand_drawn_pptx_is_rejected(self):
+        from pptx import Presentation
+        from scripts import qa
+        with tempfile.TemporaryDirectory() as tmp:
+            prs = Presentation(); prs.slides.add_slide(prs.slide_layouts[6])
+            out = Path(tmp)/'hand.pptx'; prs.save(out)
+            self.assertFalse(qa.check(str(out), draft=True))

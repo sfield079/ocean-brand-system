@@ -80,9 +80,9 @@ def build():
             shutil.rmtree(KIT / p, ignore_errors=True)
     (KIT / 'fonts').mkdir(parents=True, exist_ok=True)
     for n in FONTS:
-        f = TTFont(ROOT / f'brand/fonts/StackSansHeadline-{n}.ttf'); f.flavor = 'woff2'
+        f = TTFont(ROOT / f'brand/fonts/StackSansHeadline-{n}.ttf', recalcTimestamp=False); f.flavor = 'woff2'
         f.save(KIT / f'fonts/StackSansHeadline-{n}.woff2')
-    f = TTFont(ROOT / 'assets/fonts/MaterialSymbolsOutlined-400-static.ttf'); f.flavor = 'woff2'
+    f = TTFont(ROOT / 'assets/fonts/MaterialSymbolsOutlined-400-static.ttf', recalcTimestamp=False); f.flavor = 'woff2'
     f.save(KIT / 'fonts/MaterialSymbolsOutlined.woff2')
     shutil.copy(ROOT / 'brand/fonts/OFL.txt', KIT / 'fonts/OFL.txt')
     (KIT / 'ocean.css').write_text(head + font_faces() + '\n' + body)

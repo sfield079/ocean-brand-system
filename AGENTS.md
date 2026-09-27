@@ -4,6 +4,20 @@ This repository is the single brand source of truth for every Ocean surface:
 oceanrcs.com, Ocean micro-apps, decks, reports, proposals, formal and legal
 documents, business cards, email, digital signage, charts, icons and graphics.
 
+## Build rule (read first)
+
+Every Ocean deck and document is built by this repository's code. Nothing else is accepted.
+
+- Decks: write a content file (copy `decks/_starter/content.js`; investor example in
+  `decks/investor/mobility-energy-platform/`) and build it with `lib/recipe.js` / `lib/ocean.js`.
+  Your content may use its own section names; each takes the recipe slot in the same position.
+- Proposals and reports: `lib/publication.py` from a JSON file in `documents/`. Legal: `lib/legal.py`.
+- Never draw slides or pages yourself with ReportLab, python-pptx, matplotlib, HTML-to-PDF, canvas or
+  image tools, even when the fonts, colors and logos are right. The cover frame, headers, dividers,
+  notices, pairing and photo rhythm live in the builders; a hand-drawn file misses them.
+- `scripts/qa.py` and `scripts/qa_pdf.py` reject any PPTX or PDF the builders did not make.
+  If a layout cannot hold your content, shorten the content or ask; do not work around the builder.
+
 ## Controlling documents (read in this order)
 
 1. `brand/Ocean_StyleGuide_2026.pdf`: the Brand Bible. Every word, letter
