@@ -1,0 +1,361 @@
+{
+  "color": {
+    "blackmoss": {
+      "value": "#0B1617"
+    },
+    "peacock": {
+      "value": "#102426"
+    },
+    "cedar": {
+      "value": "#1B4039"
+    },
+    "sage": {
+      "value": "#618C7C"
+    },
+    "olive": {
+      "value": "#6E734C"
+    },
+    "citron": {
+      "value": "#A69856"
+    },
+    "crimson": {
+      "value": "#EB3819"
+    },
+    "sprig": {
+      "value": "#D5CCA0"
+    },
+    "honeydew": {
+      "value": "#F3FBF8"
+    },
+    "white": {
+      "value": "#FFFFFF"
+    }
+  },
+  "font": {
+    "family": {
+      "brand": "Stack Sans Headline",
+      "icon": "Material Symbols Outlined"
+    },
+    "weight": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "bold": 700
+    }
+  },
+  "tracking": {
+    "caps": "0.25em",
+    "label": "0.125em",
+    "body": "0",
+    "title": "-0.01em",
+    "display": "-0.02em",
+    "hero": "-0.04em",
+    "hero-bold": "-0.06em"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "12px",
+    "lg": "20px"
+  },
+  "chamfer": {
+    "sm": "12px",
+    "md": "24px",
+    "lg": "44px"
+  },
+  "rule": {
+    "hairline": "1px",
+    "frame": "2px",
+    "double-gap": "4px"
+  },
+  "icon": {
+    "style": "outlined",
+    "fill": 0,
+    "weight": 400,
+    "grade": 0,
+    "opsz": 24,
+    "cell-ratio": 0.5
+  },
+  "pairing": {
+    "approved": [
+      "blackmoss+peacock",
+      "blackmoss+cedar",
+      "blackmoss+sage",
+      "blackmoss+honeydew",
+      "blackmoss+sprig",
+      "blackmoss+olive",
+      "blackmoss+citron",
+      "blackmoss+crimson",
+      "peacock+cedar",
+      "peacock+sage",
+      "peacock+honeydew",
+      "peacock+sprig",
+      "peacock+olive",
+      "peacock+citron",
+      "peacock+crimson",
+      "cedar+sage",
+      "cedar+honeydew",
+      "cedar+sprig",
+      "cedar+olive",
+      "cedar+citron",
+      "sage+honeydew",
+      "sage+sprig",
+      "honeydew+sprig",
+      "honeydew+olive",
+      "honeydew+citron",
+      "honeydew+crimson",
+      "sprig+olive",
+      "sprig+citron",
+      "sprig+crimson",
+      "olive+citron"
+    ],
+    "note": "Unordered field + ink pairs (brand/decisions.md Part 2). Contrast limits: tokens/contrast-matrix.json.",
+    "tiers": {
+      "text": "4.5:1 and up: any text size",
+      "large": "3 to 4.5:1: text 25 pt and up, bold labels and graphics",
+      "display": "2 to 3:1: display text 44 pt and up and graphics only",
+      "tonal": "under 2:1: textures, marks and environment maps; no text"
+    },
+    "detail": [
+      {
+        "pair": "blackmoss+honeydew",
+        "contrast": 17.49,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Default dark pairing. Key-number slide (with the Crimson moment), investor covers, app default, signage. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "peacock+honeydew",
+        "contrast": 15.33,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Workhorse content pairing on Honeydew (Site sections, tables). Peacock field + Honeydew for dividers and the app light alternative. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "blackmoss+sprig",
+        "contrast": 11.37,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Warm dark pairing. Sprig text on Blackmoss for premium pages, card backs, signage. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "cedar+honeydew",
+        "contrast": 10.86,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Content on Honeydew with Cedar ink (chart pages), Cedar dividers, formal brand pieces. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "peacock+sprig",
+        "contrast": 9.96,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Warm content pairing (Sprig field, Peacock ink) for photo and detail slides. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "cedar+sprig",
+        "contrast": 7.05,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "System and technical sections (Sprig field, Cedar ink); Cedar dividers with Sprig type. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "blackmoss+citron",
+        "contrast": 6.35,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Premium accent: award, milestone or headline-figure slides; Citron type on Blackmoss. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "peacock+citron",
+        "contrast": 5.56,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Premium accent on Peacock; headline figures and quotes. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "blackmoss+sage",
+        "contrast": 4.86,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "Dark data pages and dashboards: Sage type and chart context on Blackmoss. Any text size.",
+        "priority": false
+      },
+      {
+        "pair": "honeydew+olive",
+        "contrast": 4.73,
+        "tier": "text",
+        "minTextPt": null,
+        "use": "The earthy pairing: covers and closes, Economics, sustainability, land, agriculture and water sections, Olive dividers. Olive ink on Honeydew is body-safe (4.73:1); Crimson is not approved on Olive, so emphasis uses chips, highlighted tiles and bottom lines.",
+        "priority": true
+      },
+      {
+        "pair": "blackmoss+crimson",
+        "contrast": 4.48,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Warnings and the key-number moment on Blackmoss. Crimson type 25 pt and up.",
+        "priority": false
+      },
+      {
+        "pair": "peacock+sage",
+        "contrast": 4.26,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Secondary dark content with Sage type; headlines 25 pt and up, labels, charts.",
+        "priority": false
+      },
+      {
+        "pair": "cedar+citron",
+        "contrast": 3.94,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Warm accent on Cedar: headlines 25 pt and up, figures, icons.",
+        "priority": false
+      },
+      {
+        "pair": "peacock+crimson",
+        "contrast": 3.93,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Alert or key figure on Peacock; Crimson 25 pt and up.",
+        "priority": false
+      },
+      {
+        "pair": "honeydew+crimson",
+        "contrast": 3.91,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Alerts, risk flags and past-due notices on Honeydew; Crimson type 25 pt and up or bold labels.",
+        "priority": false
+      },
+      {
+        "pair": "blackmoss+olive",
+        "contrast": 3.7,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Earthy dark accent: Olive headlines 25 pt and up and graphics on Blackmoss.",
+        "priority": false
+      },
+      {
+        "pair": "sage+honeydew",
+        "contrast": 3.6,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Default cover and close (Sage field, Honeydew type), card fronts, hero lines. 25 pt and up; never body text (D18).",
+        "priority": false
+      },
+      {
+        "pair": "peacock+olive",
+        "contrast": 3.24,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Earthy dark accent: headlines 25 pt and up, graphics.",
+        "priority": false
+      },
+      {
+        "pair": "sprig+olive",
+        "contrast": 3.07,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Warm earthy pairing: Sprig field with Olive headlines 25 pt and up; sustainability graphics.",
+        "priority": false
+      },
+      {
+        "pair": "cedar+sage",
+        "contrast": 3.02,
+        "tier": "large",
+        "minTextPt": 25,
+        "use": "Tonal green: headlines 25 pt and up, charts (Sage context on Cedar).",
+        "priority": false
+      },
+      {
+        "pair": "honeydew+citron",
+        "contrast": 2.75,
+        "tier": "display",
+        "minTextPt": 44,
+        "use": "Display only (44 pt and up) and graphics: sunlight accents, icons on Honeydew.",
+        "priority": false
+      },
+      {
+        "pair": "sprig+crimson",
+        "contrast": 2.54,
+        "tier": "display",
+        "minTextPt": 44,
+        "use": "The warm urgency pairing (Guide 04's Crimson card): the alternative key-number moment on a warm briefing, action-required and deadline slides, incentive-deadline banners, signage alerts and campaign or social graphics. Display type 44 pt and up only; the supporting detail goes on the next slide or in notes. Counts as the deck's Crimson moment.",
+        "priority": true
+      },
+      {
+        "pair": "sage+sprig",
+        "contrast": 2.34,
+        "tier": "display",
+        "minTextPt": 44,
+        "use": "The calm natural pairing (lake and shallow water): section dividers, pull-quote and statement slides, brand-atmosphere backgrounds, card backs, social tiles and signage idle screens. Display type 44 pt and up and graphics only; never body text, captions, tables or charts.",
+        "priority": true
+      },
+      {
+        "pair": "cedar+olive",
+        "contrast": 2.29,
+        "tier": "display",
+        "minTextPt": 44,
+        "use": "Display only (44 pt and up) and graphics: forest and grove textures.",
+        "priority": false
+      },
+      {
+        "pair": "sprig+citron",
+        "contrast": 1.79,
+        "tier": "tonal",
+        "minTextPt": "no text",
+        "use": "Tonal only: textures and marks; no text.",
+        "priority": false
+      },
+      {
+        "pair": "olive+citron",
+        "contrast": 1.72,
+        "tier": "tonal",
+        "minTextPt": "no text",
+        "use": "Tonal only: textures and marks; no text.",
+        "priority": false
+      },
+      {
+        "pair": "blackmoss+cedar",
+        "contrast": 1.61,
+        "tier": "tonal",
+        "minTextPt": "no text",
+        "use": "Tonal only: textures, the cover particle wave, marks; no text.",
+        "priority": false
+      },
+      {
+        "pair": "honeydew+sprig",
+        "contrast": 1.54,
+        "tier": "tonal",
+        "minTextPt": "no text",
+        "use": "Tonal only: textures, watermark marks; no text.",
+        "priority": false
+      },
+      {
+        "pair": "peacock+cedar",
+        "contrast": 1.41,
+        "tier": "tonal",
+        "minTextPt": "no text",
+        "use": "Tonal only: textures and marks; no text.",
+        "priority": false
+      },
+      {
+        "pair": "blackmoss+peacock",
+        "contrast": 1.14,
+        "tier": "tonal",
+        "minTextPt": "no text",
+        "use": "Tonal only: textures, the premium background wave; no text.",
+        "priority": false
+      }
+    ]
+  }
+}

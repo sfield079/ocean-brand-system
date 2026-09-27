@@ -16,7 +16,7 @@ Companion specs, in order of precedence:
 |---|---|---|---|
 | D1 | Authority and scope | The Style Guide 2026 controls. **The system now governs every Ocean surface: oceanrcs.com, Ocean micro-apps, decks, reports, proposals, formal documents, cards, email, signage, charts, icons and graphics** (see "Ocean Brand System Spec"). The current oceanrcs.com is still not a design reference; it is a target to be rebuilt to this system | Updated 26 Sep 2026 |
 | D2 | Body-text contrast | Body text in proposals, reports, contracts and investor/lender decks must reach at least 4.5:1 against its field. The guide's lower-contrast pairs (3.6–4.5:1) are allowed only for type 25 pt and larger and for brand pieces | — |
-| D3 | Deck and document type sizes | Rule 9 of the typography file is approved as written. Weights, case, tracking and line-spacing ratios are fixed. **Sizes live in one token file (`brand/type-scale.json`) so they can be changed later without touching layouts.** Minimums: 10.5 pt on slides; 7.5 pt for tracked caps in print | **Yes — flagged for possible revision by leadership** |
+| D3 | Deck and document type sizes | Rule 9 of the typography file is approved as written. Weights, case, tracking and line-spacing ratios are fixed. **Sizes live in one token file (implemented in `lib/ocean.js`, `lib/publication.py` and `tokens/ocean.tokens.json`) so they can be changed later without touching layouts.** Minimums: 10.5 pt on slides; 7.5 pt for tracked caps in print | **Yes — flagged for possible revision by leadership** |
 | D4 | Canvas | Honeydew `#F3FBF8` is Ocean's off-white and the default light background. White `#FFFFFF` is used only for print-destined pages (contracts, transactional documents, appendices) where a full-bleed tint is impractical | — |
 | D5 | Logo color | One brand color per placement, normally the page's ink. Never black `#000000`, never mixed colors, never non-brand colors. Build from the official SVG/EPS masters | — |
 | D6 | Default cover | **Sage field + Honeydew ink/logo** with a code-generated tonal texture in the manner of the guide cover (see Part 3). Approved alternates: Honeydew field + Sage ink (light), Blackmoss field + Honeydew ink (premium/investor). All three are approved pairings on Guide 05 | — |
@@ -57,7 +57,7 @@ Not approved: Cedar + Crimson, Sage + Olive, Sage + Citron, Sage + Crimson, Oliv
 
 ## Part 3 — Cover system (D6)
 
-The guide's cover texture can be recreated. A proof was built in this session: a particle-wave field drawn in code in exact palette colors, fading to a flat field behind the type. Codex should build it as a reusable generator (`scripts/make_texture.py`) so every cover texture is:
+The guide's cover texture can be recreated. A proof was built in this session: a particle-wave field drawn in code in exact palette colors, fading to a flat field behind the type. Codex should build it as a reusable generator (implemented: textures in `assets/textures/`, drawn in `lib/ocean.js`) so every cover texture is:
 - drawn in the cover's own two colors only (texture = ink color at 35–55% opacity, or a tonal partner such as Sage on Blackmoss);
 - fully deterministic (same seed, same image), so there are no stock or AI licensing questions;
 - faded out below about 50% of the height, so the title sits on a flat field;
@@ -116,7 +116,7 @@ Rules derived from the guide:
 
 **Photos you don't have rights to:** leadership asked to allow unlicensed photos. Recommendation: treat free-license libraries (e.g. Unsplash, Pexels) as allowed, but don't use copyrighted photos without permission in commercial materials. That creates takedown and infringement exposure on proposals and investor decks that are sent outside Ocean. **Needs a leadership decision.**
 
-**Manifest:** every image is logged in `assets/image-manifest.json` with its source type (Ocean / stock / AI), file, date, and license or prompt. This makes the two limits checkable and keeps a record if anything is questioned later.
+**Manifest:** every image is logged in `assets/images/image-manifest.json` with its source type (Ocean / stock / AI), file, date, and license or prompt. This makes the two limits checkable and keeps a record if anything is questioned later.
 
 **Treatment rules (Guides 04, 07, 08):**
 - Photos go in the rounded-plus-chamfer mask.
@@ -247,10 +247,10 @@ A report delivered as slides (for example a quarterly investor update) uses the 
    - `brand/color-system.json`
    - the ChatGPT and Codex instruction files
 4. Add:
-   - `brand/type-scale.json` (27 styles; sizes per format, **marked as leadership-adjustable**);
-   - `brand/pairings.json` (30 pairs);
-   - `brand/profiles.json` (P1–P10);
-   - `scripts/make_texture.py`.
+   - type sizes per format (implemented in `lib/ocean.js` and `lib/publication.py`, leadership-adjustable);
+   - the 30 pairs with tiers and uses (implemented in `tokens/ocean.tokens.json` → `pairing.detail`);
+   - profiles P1–P10 (kept in Part 7 of this file);
+   - cover textures (implemented in `assets/textures/`).
 5. Update `lib/ocean.js` and `lib/publication.py` so every page takes `profile` and `pairing`, and every text call takes a style token.
 6. Extend QA to reject:
    - unapproved pairs;

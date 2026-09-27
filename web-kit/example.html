@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-pair="honeydew-blackmoss">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ocean web kit example</title>
+<link rel="preload" href="./fonts/StackSansHeadline-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./ocean.css">
+<style>
+  body{margin:0} section{padding:56px 64px} .row{display:flex;gap:20px;flex-wrap:wrap}
+  header{display:flex;align-items:center;border:var(--ocean-frame) solid var(--ocean-ink);margin:24px 64px 0}
+  nav{flex:1} header>*{padding:14px 20px;border-right:var(--ocean-frame) solid var(--ocean-ink)} header>:last-child{border-right:0;margin-left:auto}
+  .card{padding:22px;width:240px} h1{font-size:72px;margin:10px 0 18px} p{font-size:18px;line-height:28px;max-width:640px}
+</style>
+</head>
+<body>
+<header>
+  <img src="./logos/logo_horizontal_blackmoss.svg" alt="Ocean" height="28">
+  <nav class="ocean-caps" style="font-size:12px">Solar · Storage · EV charging · Data centers</nav>
+  <a class="ocean-btn" href="#">Request a site review <span class="material-symbols-outlined">arrow_forward</span></a>
+</header>
+<section>
+  <div class="ocean-caps" style="font-size:12px">Commercial energy infrastructure</div>
+  <h1 class="ocean-hero">Power that<br>pays for itself</h1>
+  <p>Use <b>Bold</b> for the words that carry the point, <span class="ocean-chip">a chip</span> for the one fact that must pop.</p>
+  <div class="ocean-bottom-line" style="max-width:640px">Payback in 6.4 years with the existing service.</div>
+</section>
+<section data-pair="sage-honeydew">
+  <div class="row">
+    <div class="ocean-card card"><span class="material-symbols-outlined" style="font-size:32px">solar_power</span>
+      <div class="ocean-caps" style="font-size:12px;margin-top:12px">Solar</div><p style="font-size:16px">Rooftop and carport arrays.</p></div>
+    <div class="ocean-card card"><span class="material-symbols-outlined" style="font-size:32px">battery_charging_full</span>
+      <div class="ocean-caps" style="font-size:12px;margin-top:12px">Storage</div><p style="font-size:16px">Peak shaving and backup.</p></div>
+  </div>
+</section>
+<section data-pair="honeydew-olive"><div class="ocean-caps" style="font-size:12px">Economics</div>
+  <p>Olive + Honeydew is the earthy content pairing and is safe for body text.</p></section>
+<section data-pair="sprig-sage"><div class="ocean-display" style="font-size:48px">Sage + Sprig carries 44 px type and up.</div></section>
+<footer data-pair="honeydew-blackmoss" style="padding:16px 64px"><span class="ocean-notice">Ocean RCS · Confidential · Design specimen · Do not use</span></footer>
+</body>
+</html>

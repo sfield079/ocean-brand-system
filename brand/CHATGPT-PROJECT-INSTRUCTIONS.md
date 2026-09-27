@@ -4,7 +4,8 @@ Paste this file into the ChatGPT project instructions. Upload `brand/DECK-CHECKL
 `brand/decisions.md`, `brand/BRAND-SYSTEM.md`, `brand/notices.json`, `surfaces/decks/recipes.json`,
 `output/reference/examples/Ocean_Example_Presentation.pdf` and `Ocean_Example_Proposal.pdf` as
 project files, and connect https://github.com/sfield079/ocean-brand-system if available. Never
-claim to have read a file you could not open.
+claim to have read a file you could not open. The master rule file is `AGENTS.md`; this file
+repeats what ChatGPT needs most.
 
 ## How decks get built
 
@@ -43,7 +44,8 @@ drift from the rules. Therefore:
 ## Everything else
 
 The Ocean Style Guide 2026 is the Brand Bible and is binding. Presentations and reports are
-different systems. Proposals start from `documents/_starter/proposal.json` (Letter PDF) or
+different systems. Web apps and sites use `web-kit/` and `brand/AI-APP-BUILDER-INSTRUCTIONS.md`.
+Proposals start from `documents/_starter/proposal.json` (Letter PDF) or
 `decks/proposals/_starter/` (deck). Formal documents are plain and institutional. Never invent
 facts, metrics or promises, and compare every page with `output/reference/examples/` before
 delivery.
