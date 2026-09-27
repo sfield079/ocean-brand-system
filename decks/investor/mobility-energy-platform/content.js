@@ -42,7 +42,7 @@ module.exports = {
     systemPhoto: {layout: 'caseStudy', section: 'Pipeline', eyebrow: 'Pipeline', headline: 'A mobility hub is\nmore than charging',
       lede: 'Site formats can combine energy, mobility, retail, fleet and service revenue.',
       image: IMG('mobility-hub.jpg'), imageLabel: 'Representative image', imageFocus: [0.5, 0.5],
-      summary: 'Representative image: infrastructure concept, not an Ocean site.',
+      summary: 'Representative image: infrastructure concept, not an Ocean site',
       facts: [{label: 'Charging', value: 'Public DC fast charging'}, {label: 'Fleet', value: 'Charging and staging'},
         {label: 'Energy', value: 'Solar canopy and BESS'}, {label: 'Services', value: 'Retail, amenities, wash'}]},
     systemDetail: {layout: 'table', section: 'Pipeline', eyebrow: 'Pipeline', headline: 'Several project lanes\nmove at once',
@@ -60,9 +60,11 @@ module.exports = {
         {label: '02 · Validate', title: 'Utility and permits', text: 'Confirm the utility path and the permits.'},
         {label: '03 · Approve', title: 'Financing and collateral', text: 'Approve financing and collateral.'},
         {label: '04 · Execute', title: 'Build and operate', text: 'Build, operate and expand.'}],
-      footnote: 'Opportunistic equipment: title, condition, serviceability and site fit verified before purchase.'},
+      footnote: 'Forward-looking and subject to diligence; not a guarantee of returns.',
+      notes: 'Opportunistic equipment: title, condition, serviceability and site fit verified before purchase.'},
     // Investment
     econChart: {layout: 'pillars', section: 'Capital', eyebrow: 'Capital', headline: 'Revenue begins with\ncontracted work',
+      lede: 'Forward-looking and subject to diligence; not a guarantee of returns.',
       pillars: [
         {title: 'Base revenue', text: 'EPC margin, O&M, monitoring, solar and BESS value.'},
         {title: 'Contracted expansion', text: 'Fleet charging, site services and memberships.'},
@@ -81,7 +83,8 @@ module.exports = {
       notes: 'Gates: originate, screen, control, validate, fund, build, operate, monetize.'},
     // Next steps
     nextSteps: {layout: 'ask', section: 'Next steps', eyebrow: 'Next steps', headline: 'Milestone-based capital',
-      lede: 'Monetization follows stabilization: refinance, sell, recapitalize or form joint ventures.',
+      lede: 'Forward-looking and subject to diligence; not a guarantee of returns.',
+      notes: 'Monetization follows stabilization: refinance, sell, recapitalize or form joint ventures.',
       amount: '[TBD]', amountLabel: 'Capital sought', uses: [{label: 'First funded asset', value: '[TBD]'}, {label: 'Terms', value: '[TBD]'}],
       nextSteps: ['Confirm investor mandate', 'Define first funded asset', 'Complete diligence package', 'Approve stage-gated capital']},
     notice: {text: 'This presentation is confidential and is provided for discussion purposes only. It is not an offer to sell or a solicitation of an offer to buy any security. Any project, equipment acquisition, incentive, utility service, fleet relationship, charging utilization, compute deployment, financial return or exit transaction is subject to final diligence, written agreements and applicable law.\n\nOcean RCS is the market-facing operating brand for the platform. Project-specific legal entities may be formed at equipment acquisition, property closing, financing or operations launch. Forward-looking statements, projections and estimates are not guarantees. Do not copy, forward or distribute without the written consent of Ocean RCS.'},
