@@ -191,7 +191,7 @@ Correction to the page-by-page report: errata #11 ("lowercase ocean") and #12 ("
 
 ## Rule 9 — Translating the ladder to Ocean deliverables (approved 26 Sep 2026; sizes flagged as leadership-adjustable)
 
-The guide is a 1080 × 1920 pt vertical "small format." Decks and documents need the same ladder at a different scale. **Keep the weights, case, tracking and leading ratios exactly; scale only the sizes.** Approved sizes (stored in `brand/type-scale.json` so they can be changed without touching layouts). Reports and presentations are separate systems; see "Reports and presentations are separate systems" in the decisions file:
+The guide is a 1080 × 1920 pt vertical "small format." Decks and documents need the same ladder at a different scale. **Keep the weights, case, tracking and leading ratios exactly; scale only the sizes.** Approved sizes (implemented in the layout code, `lib/ocean.js` and `lib/publication.py`, with tracking in `tokens/ocean.tokens.json`). Reports and presentations are separate systems; see "Reports and presentations are separate systems" in the decisions file:
 
 | Role | Guide | Presentations: 16:9 (13.33 × 7.5 in) | Reports and proposals: Letter portrait |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Floors: no text under 10.5 pt on slides, and no tracked caps under 7.5 pt in pri
 
 ## Rule 10 — Repository encoding (for Codex, after your approval)
 
-Add a `brand/type-scale.json` with the 27 styles above (T1–T27) as named tokens: role, weight, case, tracking and leading ratio, plus size per format. Then:
+Implemented 26 Sep 2026 in the layout libraries. Original instruction: add a type-scale token file with the 27 styles above (T1–T27) as named tokens: role, weight, case, tracking and leading ratio, plus size per format. Then:
 
 1. Make every text helper in the deck and document builders take a style token, not a free size and weight.
 2. Add a QA check that fails on:

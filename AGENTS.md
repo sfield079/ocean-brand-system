@@ -156,5 +156,8 @@ things must look are in `output/reference/` and `surfaces/*/`.
 6. Work on a branch and open a pull request with before/after renders. Do not
    merge brand-rule changes without Ocean leadership approval.
 
-Keep rules, tokens, layout code, references, fonts and checks synchronized.
+Keep rules, tokens, layout code, references, fonts and checks synchronized. After changing tokens,
+run `python3 scripts/build_web_kit.py`. Tool-specific pointer files (`CLAUDE.md`, `GEMINI.md`,
+`.github/copilot-instructions.md`, `.cursor/rules/ocean-brand.mdc`, `skills/ocean-brand/SKILL.md`)
+and the app-builder rules are listed in `AI-TOOLS.md`; update them when a most-missed rule changes.
 ChatGPT projects bridge through `brand/CHATGPT-PROJECT-INSTRUCTIONS.md`.

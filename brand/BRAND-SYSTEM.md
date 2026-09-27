@@ -36,7 +36,6 @@ ocean-brand-system/
     errata.md                       guide errors and the corrected reading
   tokens/
     ocean.tokens.json               source of truth (colors, weights, tracking, radius, chamfer, icon)
-    type-scale.json                 sizes per surface (deck, letter, web, signage, card); leadership-adjustable
     contrast-matrix.json            measured WCAG ratios for every palette pair
     build/ocean.css                 generated CSS custom properties + data-pair themes
     build/tailwind.preset.js        generated Tailwind preset for oceanrcs.com and micro-apps
@@ -93,7 +92,7 @@ Every pair below is also on the approved pairing list. Contrast decides what eac
 | Honeydew / Sprig | 1.5 | Texture only |
 
 ### Type
-Stack Sans Headline only. Four working weights: Light 300, Regular 400, Medium 500, Bold 700 (SemiBold and ExtraLight appear in the guide only as specimens). All caps always Bold or Light at +0.25 em. Sizes come from `type-scale.json` per surface.
+Stack Sans Headline only. Four working weights: Light 300, Regular 400, Medium 500, Bold 700 (SemiBold and ExtraLight appear in the guide only as specimens). All caps always Bold or Light at +0.25 em. Sizes per surface are set in the layout libraries (`lib/ocean.js`, `lib/publication.py`) and `web-kit/ocean.css`.
 
 ### Shape
 Rounded corners (4 / 12 / 20) and a single 45° chamfer (12 / 24 / 44), taken from the guide's panels and header frame. Frames are hairline (1 px) or structural (2 px). One chamfer per object, top-left for image and hero frames, bottom-right for data tiles.
@@ -105,7 +104,7 @@ Measured against the guide's header strip: **Material Symbols Outlined, weight 4
 
 ## 4. Website and micro-apps
 
-oceanrcs.com and all Ocean micro-apps (dashboards, portals, calculators, internal tools) use `tokens/build/ocean.css` or the Tailwind preset. Reference renders: `web_home.png`, `app_dashboard.png`.
+oceanrcs.com and all Ocean micro-apps (dashboards, portals, calculators, internal tools) use `web-kit/` (self-hosted fonts, logos, every approved pairing as `data-pair`, the Tailwind preset). App builders such as Base44 follow `brand/AI-APP-BUILDER-INSTRUCTIONS.md`. Reference renders: `web_home.png`, `app_dashboard.png`.
 
 **Marketing site (oceanrcs.com)**
 - Default theme: Honeydew field, Blackmoss ink. Each page section may switch to one other approved pairing through `data-pair`, with no two adjacent sections on the same pairing. Sage + Honeydew bands carry large text and icons only.

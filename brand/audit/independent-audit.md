@@ -1,3 +1,5 @@
+> **Historical record (26 Sep 2026).** This is the independent audit that led to the current system. Files it proposes (for example `scripts/qa_color.py` or `brand/pairing-families.md`) may have been implemented differently or not at all. For current rules, read `AGENTS.md` and `brand/decisions.md`.
+
 # Ocean RCS Style Guide — Independent Visual Audit
 
 Audit-only review. No files, branches, or pull requests were changed.

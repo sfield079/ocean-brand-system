@@ -1,0 +1,22 @@
+# Ocean RCS brand system
+
+> The single brand source of truth for Ocean RCS: oceanrcs.com, micro-apps, decks, proposals, reports, contracts, business cards, email, signage, charts and icons. The Ocean Style Guide 2026 is binding. AI tools start with AGENTS.md.
+
+## Start here
+- [AGENTS.md](AGENTS.md): master rules for every AI tool and contributor
+- [AI-TOOLS.md](AI-TOOLS.md): how Codex, Claude, Gemini, Copilot, Cursor, ChatGPT, Base44 and other builders use this repository
+
+## Rules
+- [brand/decisions.md](brand/decisions.md): approved decisions, document profiles, emphasis, notices, environments, pairings, cover and close
+- [brand/BRAND-SYSTEM.md](brand/BRAND-SYSTEM.md): every surface, logo sizes, deck recipes
+- [brand/typography.md](brand/typography.md): type rules
+- [brand/DECK-CHECKLIST.md](brand/DECK-CHECKLIST.md): checklist every deck must pass
+- [brand/notices.json](brand/notices.json): confidentiality and status wording
+
+## Tokens and kits
+- [tokens/ocean.tokens.json](tokens/ocean.tokens.json): colors, pairings with tiers and uses, tracking, radii
+- [web-kit/](web-kit/): CSS, fonts, logos and Tailwind preset for any web app or site
+- [brand/AI-APP-BUILDER-INSTRUCTIONS.md](brand/AI-APP-BUILDER-INSTRUCTIONS.md): paste-in rules for Base44, Lovable, Bolt, v0 and Replit
+
+## Examples
+- [output/reference/examples/](output/reference/examples/): approved presentation, proposal, report and contract

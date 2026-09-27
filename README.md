@@ -15,6 +15,10 @@ signage, charts, icons and graphics. Read `AGENTS.md`, then `brand/BRAND-SYSTEM.
 | `lib/`, `decks/`, `documents/`, `scripts/` | Production pipelines: decks (`ocean.js`), reports and proposals (`publication.py`), legal (`legal.py`) |
 | `tools/prototypes/` | Builders that produced the approved references |
 
+## Using with AI tools
+
+Any AI tool that can read GitHub can use this repository. `AGENTS.md` is the master rule file; `AI-TOOLS.md` lists the file each tool reads (Codex, Claude, Gemini, Copilot, Cursor, ChatGPT, Base44 and other app builders) and what each kind of tool can build. Web apps and sites take the brand from `web-kit/`.
+
 ## Cloud setup
 
 Use repository `sfield079/ocean-brand-system` (formerly `ocean-deck-system`), branch `main`, image `universal`.
