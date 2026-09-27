@@ -1,6 +1,7 @@
 // Ocean RCS Mobility & Energy Platform investor deck (draft). Wording comes from the deck Ocean leadership
 // reviewed on 27 Sep 2026; nothing here is a new claim. Values marked [TBD] need verified figures before release.
-// Photos are representative (decisions.md Part 6) and labeled on the slide. See images/manifest.json.
+// DJI_0482 is a real Ocean project, confirmed by Ocean leadership on 27 Sep 2026.
+// Concept imagery remains labeled Representative image. See images/manifest.json.
 const path = require('path');
 const IMG = f => path.join(__dirname, 'images', f);
 module.exports = {
@@ -26,8 +27,9 @@ module.exports = {
     // Platform
     site: {layout: 'caseStudy', section: 'Platform', eyebrow: 'Platform', headline: 'Three systems,\none platform',
       lede: 'Ocean RCS develops infrastructure for electrified mobility, distributed energy and selective modular compute.',
-      image: IMG('solar-carport-campus.jpg'), imageLabel: 'Representative image', imageFocus: [0.35, 0.55],
-      summary: 'Representative image: solar parking structures on a corporate campus.',
+      image: IMG('solar-carport-campus.jpg'), imageLabel: 'Ocean project photo', imageFocus: [0.35, 0.55],
+      summary: 'Ocean project photo: solar parking structures, DJI_0482',
+      notes: 'Ocean leadership confirmed on 27 Sep 2026 that the supplied drone photo is a real Ocean project. No project size, customer or performance claim is inferred from it.',
       facts: [{label: 'Renewable energy', value: 'Solar, storage, electrical, controls'},
         {label: 'Connected mobility', value: 'Charging, fleet energy, site operations'},
         {label: 'Qualified compute', value: 'Power, fiber, liquid cooling, partners'}]},
