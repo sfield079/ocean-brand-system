@@ -1,0 +1,48 @@
+name: Mobility energy deck review
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Repository setup
+        run: bash scripts/setup.sh
+      - name: Build all three decks from content
+        run: |
+          node decks/investor/mobility-energy-platform/build.js
+          node decks/company/leadership-overview/build.js
+          node decks/internal/diligence-appendix/build.js
+      - name: Check and render each deck
+        run: |
+          for name in ocean-mobility-energy-investor ocean-company-leadership-overview ocean-internal-diligence-appendix; do
+            python3 scripts/qa.py "output/pptx/$name.pptx" --draft
+            bash scripts/render.sh "output/pptx/$name.pptx" --draft
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ocean-decks-for-review
+          retention-days: 14
+          path: |
+            output/pptx/ocean-mobility-energy-investor.pptx
+            output/pptx/ocean-company-leadership-overview.pptx
+            output/pptx/ocean-internal-diligence-appendix.pptx
+            output/pdf/ocean-mobility-energy-investor.pdf
+            output/pdf/ocean-company-leadership-overview.pdf
+            output/pdf/ocean-internal-diligence-appendix.pdf
+            output/renders/ocean-mobility-energy-investor/
+            output/renders/ocean-company-leadership-overview/
+            output/renders/ocean-internal-diligence-appendix/
