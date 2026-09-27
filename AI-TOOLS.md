@@ -11,7 +11,7 @@ their own filename; each one points back to `AGENTS.md` and repeats the rules mo
 | Gemini CLI, Gemini Code Assist | `GEMINI.md` | Open the repository |
 | GitHub Copilot chat | `.github/copilot-instructions.md` | Nothing; Copilot loads it in this repository |
 | Cursor (rules) | `.cursor/rules/ocean-brand.mdc` | Nothing; always applied |
-| ChatGPT projects | `brand/CHATGPT-PROJECT-INSTRUCTIONS.md` | Paste it into the project instructions and upload the files it lists |
+| ChatGPT projects | `brand/CHATGPT-PROJECT-INSTRUCTIONS.md` | Paste the text below its line into the project instructions. ChatGPT plans the work and writes the Codex task; Codex builds it |
 | Base44, Lovable, Bolt, v0, Replit and other app builders | `brand/AI-APP-BUILDER-INSTRUCTIONS.md` and `web-kit/` | See below |
 | Tools that load Agent Skills (Base44 agents, Claude, Perplexity Computer and others) | `skills/ocean-brand/SKILL.md` | Add the skill folder; Base44 agent skills follow the open Agent Skills format ([Base44 docs](https://docs.base44.com/developers/backend/overview/skills)) |
 | Perplexity Computer and any tool that reads a repository index | `llms.txt` | Point the tool at the repository |
