@@ -19,6 +19,10 @@ def embedded_fonts(resources):
 
 def check(path,draft=False,legal=False):
     reader=PdfReader(path);errors=[]
+    # Every Ocean PDF comes from the pipeline: lib/ocean.js via scripts/render.sh, lib/publication.py or lib/legal.py.
+    subject=str((reader.metadata or {}).get('/Subject','') or '')
+    if not subject.startswith('Built with ocean-brand-system'):
+        errors.append('not built by the Ocean pipeline (lib/ocean.js + scripts/render.sh, lib/publication.py or lib/legal.py); rebuild it (AGENTS.md, Build rule)')
     with pdfplumber.open(path) as pdf:
         for n,(page,raw) in enumerate(zip(pdf.pages,reader.pages),1):
             text=page.extract_text() or ''

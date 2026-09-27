@@ -154,7 +154,7 @@ def build(source, output):
     doc_status = data.get('status') or ('specimen' if data.get('draft') else 'final')
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(output), pagesize=size, leftMargin=LM, rightMargin=LM, topMargin=96, bottomMargin=62,
-        title=data['title'], author='Ocean RCS', initialFontName='OceanRegular')
+        title=data['title'], author='Ocean RCS', subject='Built with ocean-brand-system lib/publication.py', initialFontName='OceanRegular')
     def p(text, kind='body'): return Paragraph(escape(str(text)).replace('\n', '<br/>'), st[kind])
 
     story = []

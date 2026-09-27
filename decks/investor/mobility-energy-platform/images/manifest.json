@@ -1,0 +1,8 @@
+{
+  "note": "Representative images (decisions.md Part 6). Each is labeled 'Representative image' on the slide. Confirm rights before external release; replace with Ocean site photography when available.",
+  "images": [
+    {"file": "solar-carport-campus.jpg", "source": "Drone photograph supplied by Ocean leadership, 27 Sep 2026 (DJI_0482)", "ai_generated": false, "ocean_project": "not confirmed", "rights": "confirm before release"},
+    {"file": "mobility-hub.jpg", "source": "Infrastructure concept image from the ChatGPT draft deck, 27 Sep 2026", "ai_generated": true, "rights": "AI-generated; label as representative"},
+    {"file": "hub-dusk.jpg", "source": "Infrastructure concept image from the ChatGPT draft deck, 27 Sep 2026", "ai_generated": true, "rights": "AI-generated; label as representative; spare"}
+  ]
+}

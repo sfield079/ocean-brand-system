@@ -12,6 +12,9 @@ FACES={'Stack Sans Headline','Stack Sans Headline Light','Stack Sans Headline Me
 NS={'a':'http://schemas.openxmlformats.org/drawingml/2006/main'}
 def check(path,draft=False):
     prs=Presentation(path); errors=[]; placeholders=0
+    # Decks are built only with lib/ocean.js (AGENTS.md). Hand-drawn decks from python-pptx or other tools are rejected.
+    if not (prs.core_properties.subject or '').startswith('Built with ocean-brand-system'):
+        errors.append('not built with lib/ocean.js: rebuild from a content file with lib/recipe.js (AGENTS.md, Build rule)')
     W,H=prs.slide_width/914400,prs.slide_height/914400
     for i,slide in enumerate(prs.slides,1):
         boxes=[]

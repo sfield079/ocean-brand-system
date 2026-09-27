@@ -6,7 +6,9 @@ Follow AGENTS.md and brand/BRAND-SYSTEM.md. Create an editable presentation for
 [audience] to support [decision], using the supplied verified sources. Use the
 shared layout library, tokens, Stack Sans Headline, the deck recipe for the
 chosen length (§8), one approved pairing per section and original logos at §16
-sizes. Build it with lib/recipe.js or lib/ocean.js; never hand-build slides.
+sizes. Write a content file (copy decks/_starter/content.js; investor example in
+decks/investor/mobility-energy-platform/) and build it with lib/recipe.js. Never
+draw slides with ReportLab, python-pptx or any other tool: qa.py and qa_pdf.py reject them.
 Set the notice: classification (confidential, proposal, investor, internal or
 public) and status (draft until approved). Match
 output/reference/examples/Ocean_Example_Presentation.pdf and check every item in
