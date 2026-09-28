@@ -1,0 +1,34 @@
+{
+  "executive-dark": {
+    "description": "Darker bookends with crisp client-review body pages.",
+    "bookend": "blackmoss-sprig",
+    "agenda": "honeydew-blackmoss",
+    "keyNumber": "blackmoss-honeydew",
+    "sections": ["honeydew-peacock", "honeydew-olive", "honeydew-cedar", "honeydew-blackmoss"],
+    "dividers": ["peacock-honeydew", "olive-honeydew", "cedar-honeydew", "blackmoss-honeydew"]
+  },
+  "technical-clean": {
+    "description": "Light technical proposal pages with Peacock and Cedar variation.",
+    "bookend": "blackmoss-honeydew",
+    "agenda": "honeydew-blackmoss",
+    "keyNumber": "blackmoss-honeydew",
+    "sections": ["honeydew-peacock", "honeydew-cedar", "honeydew-sage", "honeydew-blackmoss"],
+    "dividers": ["peacock-honeydew", "cedar-honeydew", "sage-honeydew", "blackmoss-honeydew"]
+  },
+  "financial-focus": {
+    "description": "Investment-forward proposal with Olive economics and restrained dark bookends.",
+    "bookend": "blackmoss-sprig",
+    "agenda": "honeydew-blackmoss",
+    "keyNumber": "blackmoss-honeydew",
+    "sections": ["honeydew-peacock", "honeydew-olive", "honeydew-cedar", "honeydew-blackmoss"],
+    "dividers": ["peacock-honeydew", "olive-honeydew", "cedar-honeydew", "blackmoss-honeydew"]
+  },
+  "client-review-light": {
+    "description": "Lighter proposal pacing for review meetings and client-facing approvals.",
+    "bookend": "blackmoss-honeydew",
+    "agenda": "honeydew-peacock",
+    "keyNumber": "blackmoss-honeydew",
+    "sections": ["honeydew-peacock", "honeydew-olive", "honeydew-sage", "honeydew-blackmoss"],
+    "dividers": ["peacock-honeydew", "olive-honeydew", "sage-honeydew", "blackmoss-honeydew"]
+  }
+}

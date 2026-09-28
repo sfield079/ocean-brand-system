@@ -1,0 +1,30 @@
+{
+  "blocked": [
+    {"pattern": "\\bmargin(s)?\\b", "label": "internal margin language", "reason": "Protect commercial margin detail in client-facing material."},
+    {"pattern": "\\bmarkup(s)?\\b", "label": "markup language", "reason": "Avoid exposing internal commercial structure."},
+    {"pattern": "\\boverhead\\b", "label": "overhead language", "reason": "Avoid internal cost build-up language."},
+    {"pattern": "\\bprofit\\b", "label": "profit language", "reason": "Avoid margin/profit discussion in client decks."},
+    {"pattern": "\\bvendor quote(s)?\\b", "label": "vendor quote reference", "reason": "Do not expose sourcing detail."},
+    {"pattern": "\\bunit cost(s)?\\b", "label": "unit-cost reference", "reason": "Protect estimating inputs."},
+    {"pattern": "\\bcost build[- ]?up\\b", "label": "cost build-up", "reason": "Avoid internal estimating structure."},
+    {"pattern": "\\binternal estimate\\b", "label": "internal estimate", "reason": "Client copy should present client-facing allowances or pricing."},
+    {"pattern": "\\bcreator note(s)?\\b", "label": "creator note", "reason": "Remove production notes from client-facing material."},
+    {"pattern": "\\bsource provider\\b", "label": "source-provider reference", "reason": "Do not name proprietary measurement or design sources."},
+    {"pattern": "\\breport id\\b", "label": "report identifier", "reason": "Remove third-party report metadata."},
+    {"pattern": "\\bexported from\\b", "label": "export metadata", "reason": "Remove production-source language."},
+    {"pattern": "\\bcopied from\\b", "label": "copy-source metadata", "reason": "Remove production-source language."},
+    {"pattern": "\\bplanning reserve\\b", "label": "vague reserve language", "reason": "Use plain client-facing category labels instead."}
+  ],
+  "sensitiveTools": [
+    {"pattern": "\\bEagleView\\b", "label": "measurement-provider name"},
+    {"pattern": "\\bHelioScope\\b", "label": "design-tool name"},
+    {"pattern": "\\bPictometry\\b", "label": "imagery-provider name"},
+    {"pattern": "\\bpower shaving\\b", "label": "sensitive technical phrase"},
+    {"pattern": "\\bpower conditioning\\b", "label": "sensitive technical phrase"}
+  ],
+  "plainCategorySuggestions": {
+    "occupied-site logistics": "Site access and protection",
+    "details, drainage and warranty path": "Edges, drains and weatherproofing",
+    "verification and planning reserve": "Use a specific scope category or omit from client breakdown"
+  }
+}

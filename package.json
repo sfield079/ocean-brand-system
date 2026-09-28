@@ -7,9 +7,10 @@
     "build:starter": "node decks/_starter/build.js && node decks/_starter/build.js 5 && node decks/_starter/build.js 10 && node decks/_catalog/build.js && node decks/proposals/_starter/build.js && node decks/investor/mobility-energy-platform/build.js",
     "starter": "npm run build:starter && for f in ocean-layout-reference ocean-deck-recipe-5 ocean-deck-recipe-10 ocean-layout-catalog ocean-proposal-deck-reference ocean-mobility-energy-investor; do python3 scripts/qa.py output/pptx/$f.pptx --draft && bash scripts/render.sh output/pptx/$f.pptx --draft || exit 1; done",
     "documents": "python3 scripts/build_documents.py && python3 scripts/qa_pdf.py output/pdf/ocean-proposal-reference.pdf --draft && python3 scripts/qa_pdf.py output/pdf/ocean-report-reference.pdf --draft && python3 scripts/qa_pdf.py output/pdf/ocean-contract-reference.pdf --draft --legal",
-    "test": "node tests/layouts.test.js && python3 -m unittest discover -s tests -p test_*.py && python3 scripts/check_references.py",
+    "test": "node tests/layouts.test.js && node tests/proposal_systems.test.js && python3 -m unittest discover -s tests -p test_*.py && python3 scripts/check_references.py",
     "environments": "python3 scripts/make_environment.py",
-    "kit": "python3 scripts/build_web_kit.py"
+    "kit": "python3 scripts/build_web_kit.py",
+    "client-safe": "python3 scripts/check_client_safe_language.py"
   },
   "dependencies": {
     "opentype.js": "^2.0.0",
