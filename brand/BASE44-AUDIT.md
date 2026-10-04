@@ -9,6 +9,8 @@ Status: read-only discovery snapshot, 4 Oct 2026. This file records what was vis
 | Ocean / Vault / public site | `Ocean ` | `690fe9219910b72e92dadea9` | Main Ocean app with public site, Vault, project records, proposals, service network, Wave access fields and many internal operations screens |
 | Wave | `Wave` | `6a08eea86eb86429e0143787` | Separate Wave app with rail navigation, scene routing, service-company experience, agreement authoring and Wave modules |
 
+Vault is inside the `Ocean` Base44 app. It is not a separate Base44 app in this account. Treat `Ocean` as the app to inspect and update for Vault, public-site and shared operations work.
+
 The Ocean-email Base44 connection required reauthentication during this audit. The second linked Base44 account allowed read-only access to the apps above. No Base44 app files were changed.
 
 ## Shared findings
