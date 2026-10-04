@@ -17,7 +17,7 @@ Merged into the repository on 26 September 2026, and the production libraries we
 | Website excluded | oceanrcs.com and every micro-app must follow the system. The current site is still **not a reference**; it is a **target** to be brought into compliance |
 | Formal documents styled like reports | Formal documents follow a separate plain standard (Section 6): top-tier law-firm/institutional quality, logo only, no brand decoration |
 | No card, email, signage, chart, icon or graphic rules | Each has a profile and assets below |
-| Deck rules assume one length | Deck recipes scale the same rules from 5 to 30 slides (Section 8) |
+| Deck rules assume one length | Deck recipes are starter spines. Deck length follows audience, decision, evidence and readability (Section 8) |
 
 ---
 
@@ -50,8 +50,8 @@ ocean-brand-system/
     images/                         image library + image-manifest.json (source, license, AI flag)
   surfaces/
     web/                            oceanrcs.com component rules + reference page
-    apps/                           micro-app shell, dashboard and table patterns
-    decks/                          16:9 layouts, recipes, starter
+    apps/                           micro-app shell, dashboard, table and product-mode patterns
+    decks/                          16:9 layouts, starter recipes and master color-pairing specimen
     reports/                        Letter report layouts
     proposals/                      Letter proposal layouts
     formal/                         contracts, letters, memos, NDAs, invoices, change orders
@@ -71,7 +71,7 @@ Rule: **tokens first**. A surface may not hard-code a hex value, weight or track
 ## 3. Core tokens (all surfaces)
 
 ### Color
-Blackmoss `#0B1617`, Peacock `#102426`, Cedar `#1B4039`, Sage `#618C7C`, Olive `#6E734C`, Citron `#A69856`, Crimson `#EB3819`, Sprig `#D5CCA0`, Honeydew `#F3FBF8`, plus White `#FFFFFF` for print only (D4). Only the 30 approved pairings may be used as field + ink (decisions file, Part 2).
+Blackmoss `#0B1617`, Peacock `#102426`, Cedar `#1B4039`, Sage `#618C7C`, Olive `#6E734C`, Citron `#A69856`, Crimson `#EB3819`, Sprig `#D5CCA0`, Honeydew `#F3FBF8`, plus White `#FFFFFF` for print only (D4). Only the 30 approved pairings may be used as field + ink (decisions file, Part 12). A semantic accent may add a third brand color only when it marks commercially important, operationally critical or decision-driving information.
 
 ### Measured contrast that governs use (WCAG 2.x)
 Every pair below is also on the approved pairing list. Contrast decides what each pair may carry.
@@ -117,14 +117,18 @@ oceanrcs.com and all Ocean micro-apps (dashboards, portals, calculators, interna
 - Fonts: self-host Stack Sans Headline (woff2) and a subset of Material Symbols, and preload both.
 
 **Micro-apps**
-- **Default theme (approved, L3):** Blackmoss field, Honeydew ink, Sage hairline tiles (`app_dashboard.png`).
-- **Alternative theme (approved, L3):** Honeydew field, Peacock ink and tiles, with the active navigation item inverted to a Peacock chip (`app_dashboard_light.png`). Use it for document-like tools, daylight or field tablets, and client-facing portals.
-- Every app ships both themes from the same tokens, with a user toggle. The app remembers the choice and follows the operating system setting on first load.
+- **Default workspace mode:** Honeydew field, Blackmoss ink, Sage rules and Cedar secondary text. Use for the public site, ordinary forms, reading, content management and mobile-first operational pages.
+- **Command/dark mode:** Blackmoss field, Honeydew ink, Sprig highlights and Sage hairline tiles (`app_dashboard.png`). Use for operator consoles, live monitoring, command surfaces and low-glare dashboards.
+- **Asset/site mode:** Honeydew field, Olive or Cedar structure, Blackmoss text and real site imagery. Use for project vaults, site records, evidence galleries, asset profiles and field tablet workflows.
+- **Financial/pro-forma mode:** White or Honeydew field, Blackmoss text, Peacock headers and controlled Crimson semantic accents. Use for detailed pro formas, revenue summaries, sensitivity views, pricing and investor-facing financial screens.
+- **Alternative app theme (approved, L3):** Honeydew field, Peacock ink and tiles, with the active navigation item inverted to a Peacock chip (`app_dashboard_light.png`). It remains valid where the four product modes do not need a stronger distinction.
+- Every app ships responsive mobile, tablet and desktop layouts from the same tokens, with a user theme toggle where the app has dark and light operating contexts. The app remembers the choice and follows the operating system setting on first load.
 - The graphic mark sits in the navigation footer with the app name and version (for example OCEAN OPS · V 1.0), and it is the app icon and favicon.
 - Shell: 240 px left navigation with icon + caps labels. The active item is inverted (field and ink swapped), matching the guide's active-tab treatment.
 - Key-figure tiles: hairline Sage frame with bottom-right chamfer, a Light caps key, a Light number at display tracking and a Regular note.
 - Tables: Bold caps headers at +0.25 em, row rules in ink at 20% opacity, and numbers in Bold caps with +0.12 em tracking.
-- Alerts are the only place Crimson appears in an app, as the risk-flag triangle beside the affected value.
+- Crimson in apps is semantic, never decorative. It may mark real alerts, total revenue, critical impact statements, missing required inputs, stale data, high-risk dependencies or investor-decision figures. Use at most one Crimson emphasis in a card, row or screen state; keep routine navigation and decoration out of Crimson.
+- Product details, responsive behavior, charts, reports and state rules live in `brand/PRODUCT-KIT.md`.
 
 ---
 
@@ -182,20 +186,31 @@ The same logic extends to letterhead (identical to the formal-letter header), en
 
 ---
 
-## 8. Deck recipes: same system at any length
+## 8. Deck recipes: starter spines, no hard cap
 
-Reference renders: `deck_recipes.png` (built from the real 5-, 10- and 15-slide decks). Data: `surfaces/decks/recipes.json`. Builder: `lib/recipe.js`, so one content file produces any length (`node decks/_starter/build.js 5|10|15`).
+Reference renders: `deck_recipes.png` (built from the real 5-, 10- and 15-slide starter decks). Data: `surfaces/decks/recipes.json`. Builder: `lib/recipe.js`, so one content file produces the starter lengths (`node decks/_starter/build.js 5|10|15`). Longer decks use the same shared layouts in `lib/ocean.js`; add sections and appendix modules when the audience, decision and evidence require them.
 
 | Deck length | Required spine | Content pairings | Crimson | Dividers | Agenda |
 |---|---|---|---|---|---|
 | 1–4 (one-pager deck) | Cover + content + close | 1–2 | None, or one small accent | No | No |
-| 5–7 | Cover, content, one key-number slide, close | 2 | One key-number moment | No | No |
-| 8–11 | Cover, agenda, sections, key number, next steps, close | 3–4 | One | No | Yes |
-| 12–20 | Cover, agenda, one divider per section, key number, next steps, close | 3–4 | One | Yes, one per section | Yes |
-| 21–30 | As above, plus an appendix after next steps (Honeydew + Blackmoss, report-style) | 4 | One (maximum two, in different sections) | Yes | Yes |
-| 30+ | Split into a presentation deck (≤20) and a report | — | — | — | — |
+| 5–7 | Cover, content, one key-number or decision slide, close | 2 | Semantic accent when warranted | No | No |
+| 8–11 | Cover, agenda, sections, key number or decision slide, next steps, close | 3–4 | Semantic accent when warranted | No | Yes |
+| 12–20 | Cover, agenda, one divider per section, key number or decision slide, next steps, close | 3–4 | Semantic accent when warranted | Yes, one per section | Yes |
+| 21+ | As above, plus appendix modules after next steps as needed (Honeydew + Blackmoss, report-style) | 4 active pairings per main story; appendix uses report-style pairing | Semantic accents per slide only | Yes | Yes |
 
 Reference pairings (15 slides): cover and close Sage + Honeydew; agenda Honeydew + Blackmoss; Site Honeydew + Peacock (divider Peacock + Honeydew); System Sprig + Cedar (divider **Sprig + Sage** on shallow water); Economics **Honeydew + Olive** (divider Olive + Honeydew on the olive grove); key number Blackmoss + Honeydew with Crimson; Next steps Honeydew + Blackmoss. The 10-slide recipe shows the environment cover; the 5-slide recipe shows the earthy **Olive + Honeydew** cover and close and the **Sprig + Crimson** key-number moment. The layout catalog shows a Sage + Sprig pull quote and a cover built from a project photo. Where every pairing is used: decisions.md Part 12.
+
+No deck has a hard slide cap. Keep the main story readable and purposeful; move backup into appendix modules, and split into a separate report only when the reader needs long-form review, legal detail, technical evidence or spreadsheet-level analysis.
+
+**Approved cover modes**
+- **Light editorial:** Honeydew + Blackmoss, sparse Sage accents. Default for proposals, reports and public-facing decks.
+- **Ocean dark:** Blackmoss + Honeydew, restrained Sprig or Sage accent. Use for investor, lender and premium boardroom contexts.
+- **Institutional:** Sage + Honeydew, quiet and formal. Use for internal, governance and overview decks.
+- **Earth / infrastructure:** Olive + Honeydew, for land, facilities, agriculture, water and operating assets.
+- **High-stakes investor:** Blackmoss + Honeydew with one Crimson semantic signal, used only when the cover itself carries a critical ask or decision figure.
+
+**Master color-pairing deck order**
+The master specimen deck teaches use, not just color combinations. Organize it as: approved cover modes; core editorial pages; high-value number pages; case study and site evidence pages; pro-forma and financial pages; proposal and pricing pages; investor risk and disclosure pages; mobile app screens; tablet app screens; desktop dashboard screens; and rejected patterns.
 
 **Rules at every length** (enforced by `lib/ocean.js` on save)
 - The close uses the cover's pairing and background, whatever the cover uses, and carries the vertical logo only (decisions.md Part 13).
@@ -290,7 +305,7 @@ Assets: `email/ocean-email-signature.html` (production) and `email_signature.png
 
 ## 14. Social and digital graphics
 
-Social and digital graphics follow the presentation rules at their own sizes: 1080×1080, 1080×1350, 1200×628 and 1920×1080. They use one pairing per post and one message, with the logo placed in a corner at 8% of the width. The Crimson moment follows the deck rule (one per campaign asset).
+Social and digital graphics follow the presentation rules at their own sizes: 1080×1080, 1080×1350, 1200×628 and 1920×1080. They use one pairing per post and one message, with the logo placed in a corner at 8% of the width. Crimson follows the semantic-accent rule: one meaningful Crimson emphasis per asset or state, never decoration.
 
 ---
 
@@ -301,7 +316,7 @@ Social and digital graphics follow the presentation rules at their own sizes: 10
 3. Contrast: check every text/field pair against `contrast-matrix.json` using the D2 limits.
 4. Weights: fail on SemiBold or ExtraLight anywhere.
 5. Pairings: check against the approved list, the section rotation and the adjacent-section rule.
-6. Crimson count per surface, as the profile allows.
+6. Crimson use per surface: semantic only, one meaningful emphasis per slide, card, row, chart or screen state unless a profile explicitly allows a stricter limit.
 7. Formal documents: fail on any color other than Blackmoss/White, any image, any icon or any tracked-caps heading.
 8. Images: every image must have an entry in `image-manifest.json` with source and license, and evidence photos must be flagged as real.
 
@@ -342,7 +357,7 @@ Never use the mark as a bullet or pattern, repeat it more than once per page, or
 |---|---|---|
 | L1 | Rename the repo to `ocean-brand-system` | Approved. The old name redirects |
 | L2 | Primary website theme | Approved: Honeydew + Blackmoss, which replaces the current White/Blackmoss site when it is rebuilt |
-| L3 | Micro-app theme | Approved: Blackmoss + Honeydew default, **plus the Honeydew + Peacock alternative** with a user toggle |
+| L3 | Micro-app theme | Approved: four product modes in Section 4, with the original Blackmoss + Honeydew and Honeydew + Peacock themes retained as valid modes |
 | L4 | Card extras | Approved: registered emboss of the front logo, optional Sage edge color, and a personal QR code on the back |
 | L5 | Formal document fonts | Approved: Stack Sans for letters and transactional documents; **Times New Roman for legal documents** |
 | L6 | Unlicensed photos | Approved exclusion (infringement risk) |
@@ -358,5 +373,5 @@ Never use the mark as a bullet or pattern, repeat it more than once per page, or
 | `lib/ocean.js` (decks), `lib/publication.py` (reports, proposals), `lib/legal.py` (legal) | **Migrated 26 Sep 2026.** Tokens-driven; specimens regenerated in `output/pptx/` and `output/pdf/` |
 | Prototype builders (`tools/prototypes/`) | HTML/Chromium scripts that produced the approved references. They use absolute sandbox paths and are kept as a record of exact coordinates, not as production code |
 | Folder restructure in Section 2 | Optional. The current layout (`brand/`, `tokens/`, `assets/`, `charts/`, `surfaces/`, `lib/`) covers every role in Section 2, so existing commands keep working |
-| Off-token checks | `scripts/qa.py` rejects off-palette text colors, non-approved fonts, logos under the §16 minimums, stretched photos, words on the close and a close that differs from the cover; `lib/ocean.js` rejects unapproved pairings, a second Crimson moment, mixed pairings within a section and recipe rhythm breaks |
+| Off-token checks | `scripts/qa.py` rejects off-palette text colors, non-approved fonts, logos under the §16 minimums, stretched photos, words on the close and a close that differs from the cover; `lib/ocean.js` rejects unapproved pairings, mixed pairings within a section and recipe rhythm breaks |
 | Recipes, emphasis, notices, environments | Added 26 Sep 2026: `lib/recipe.js`, `surfaces/decks/recipes.json`, `brand/notices.json`, `assets/environments/`, `scripts/make_environment.py`, `scripts/fit_image.py` |

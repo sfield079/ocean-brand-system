@@ -121,7 +121,7 @@
         "contrast": 17.49,
         "tier": "text",
         "minTextPt": null,
-        "use": "Default dark pairing. Key-number slide (with the Crimson moment), investor covers, app default, signage. Any text size.",
+        "use": "Default dark pairing. Key-number slides with semantic Crimson accents, investor covers, command/dark app mode, signage. Any text size.",
         "priority": false
       },
       {
@@ -289,7 +289,7 @@
         "contrast": 2.54,
         "tier": "display",
         "minTextPt": 44,
-        "use": "The warm urgency pairing (Guide 04's Crimson card): the alternative key-number moment on a warm briefing, action-required and deadline slides, incentive-deadline banners, signage alerts and campaign or social graphics. Display type 44 pt and up only; the supporting detail goes on the next slide or in notes. Counts as the deck's Crimson moment.",
+        "use": "The warm urgency pairing (Guide 04's Crimson card): alternative key-number moments on warm briefings, action-required and deadline slides, incentive-deadline banners, signage alerts and campaign or social graphics. Display type 44 pt and up only; the supporting detail goes on the next slide or in notes. Counts as a semantic Crimson emphasis on that slide.",
         "priority": true
       },
       {

@@ -1,12 +1,13 @@
 # Ocean RCS brand system
 
 The single brand source of truth for every Ocean surface: oceanrcs.com, micro-apps,
-decks, reports, proposals, formal and legal documents, business cards, email,
-signage, charts, icons and graphics. Read `AGENTS.md`, then `brand/BRAND-SYSTEM.md`.
+decks, reports, proposals, pro formas, formal and legal documents, business cards,
+email, signage, charts, icons and graphics. Read `AGENTS.md`, then
+`brand/BRAND-SYSTEM.md`.
 
 | Folder | Contents |
 |---|---|
-| `brand/` | Style guide (Brand Bible), decisions, typography rules, full spec, audit |
+| `brand/` | Style guide (Brand Bible), decisions, typography rules, full spec, product kit, pro-forma kit, audit |
 | `tokens/` | Color, type, shape and contrast tokens; CSS, Tailwind and chart builds |
 | `assets/` | Logos and one-color variants, icons, fonts, micro-graphics, textures, images |
 | `charts/` | Chart system builder, SVG/PNG reference and animation reference |
@@ -17,7 +18,9 @@ signage, charts, icons and graphics. Read `AGENTS.md`, then `brand/BRAND-SYSTEM.
 
 ## Using with AI tools
 
-Any AI tool that can read GitHub can use this repository. `AGENTS.md` is the master rule file; `AI-TOOLS.md` lists the file each tool reads (Codex, Claude, Gemini, Copilot, Cursor, ChatGPT, Base44 and other app builders) and what each kind of tool can build. Web apps and sites take the brand from `web-kit/`.
+Any AI tool that can read GitHub can use this repository. `AGENTS.md` is the master rule file; `AI-TOOLS.md` lists the file each tool reads (Codex, Claude, Gemini, Copilot, Cursor, ChatGPT, Base44 and other app builders) and what each kind of tool can build. Web apps and sites take the brand from `web-kit/`, `brand/PRODUCT-KIT.md` and `brand/AI-APP-BUILDER-INSTRUCTIONS.md`.
+
+Older Ocean deck or presentation repositories are deprecated for new work. See `brand/REPO-MIGRATION.md`.
 
 ## Cloud setup
 

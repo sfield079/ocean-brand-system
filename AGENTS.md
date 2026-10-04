@@ -50,13 +50,18 @@ things must look are in `output/reference/` and `surfaces/*/`.
 - Tokens come from `tokens/ocean.tokens.json` (CSS and Tailwind builds in
   `tokens/build/`). Never hard-code a hex value outside tokens.
 - Each page, slide or screen section uses **one approved two-color pairing**
-  (field + ink) from `brand/decisions.md` Part 2. Photography, charts and a
-  single Crimson accent are the permitted exceptions.
+  (field + ink) from `brand/decisions.md` Part 12. Photography, charts, app
+  states and semantic accents are the permitted exceptions. A semantic accent
+  may add a third brand color only when it marks commercially important,
+  operationally critical or decision-driving information.
 - Contrast decides use (`tokens/contrast-matrix.json`): body text needs 4.5:1;
   Sage/Honeydew (3.6:1) carries large text and graphics only.
-- Crimson appears once per deck as a moment, and otherwise only to flag one
-  value or an alert. To make information pop, use the emphasis ladder in
-  `brand/decisions.md` Part 9 (Bold, chip, highlighted tile, bottom line), not extra colors.
+- Crimson is a semantic accent, not decoration. Use it for total revenue,
+  critical impact statements, decision figures, real alerts, risk flags and
+  deadline signals. Use at most one Crimson emphasis per slide or screen state,
+  and keep the field + ink pairing dominant. To make information pop, start with
+  the emphasis ladder in `brand/decisions.md` Part 9 (Bold, chip, highlighted
+  tile, bottom line) and add Crimson only when the information warrants it.
 - Only the 30 approved pairings, each used where Part 12 says. Olive + Honeydew, Sage + Sprig
   and Sprig + Crimson are leadership priorities; display pairings carry 44 pt type and up only.
 - The close repeats the cover's pairing and background and carries the logo only.
@@ -93,15 +98,18 @@ things must look are in `output/reference/` and `surfaces/*/`.
 
 ## Surfaces
 
-- **Presentations and reports are different systems.** Decks follow the
-  recipes in §8 (5 to 30 slides, same spine). Reports and proposals follow the
-  report profile in `brand/decisions.md`.
+- **Presentations and reports are different systems.** Deck recipes are
+  starters, not caps. A deck can exceed 30 slides when the audience, decision
+  and evidence require it; use a tight main story, appendices and readable
+  section modules. Split into a report only when the reader's job changes to
+  long-form review. Reports and proposals follow the report profile in
+  `brand/decisions.md`.
 - **Formal documents** follow the plain institutional standard (§6): white,
   Blackmoss only, logo on page 1 and graphic mark on continuation pages, and no
   textures, photos, chamfers, icons or color.
-- **Web and micro-apps** follow §4. oceanrcs.com uses Honeydew + Blackmoss
-  (L2). Apps default to Blackmoss + Honeydew, with the approved Honeydew +
-  Peacock alternative and a user toggle (L3).
+- **Web and micro-apps** follow §4 plus `brand/PRODUCT-KIT.md`. oceanrcs.com
+  uses Honeydew + Blackmoss (L2). Apps use the four approved product modes:
+  default workspace, command/dark, asset/site and financial/pro-forma.
 - **Business cards, email and signage** follow §7, §12 and §13. The card
   back carries a personal QR code linking to oceanrcs.com, and the front logo
   may be embossed (L4).
@@ -141,11 +149,14 @@ things must look are in `output/reference/` and `surfaces/*/`.
 ## Production paths
 
 - Decks: `lib/ocean.js` (pptxgenjs) and `lib/recipe.js`. Write one content file like
-  `decks/_starter/content.js` and build 5, 10 or 15 slides from `surfaces/decks/recipes.json`;
+  `decks/_starter/content.js`; the 5, 10 and 15-slide recipes in
+  `surfaces/decks/recipes.json` are starters, not limits. Longer decks use the
+  same shared layouts, section pairing rules and appendix modules;
   `decks/_catalog` shows the remaining layouts and the investor notice. Layouts: cover, agenda,
-  divider, statement, keyNumber (the one Crimson moment), twoColumn, pillars, metrics,
+  divider, statement, keyNumber (a semantic Crimson moment when warranted), twoColumn, pillars, metrics,
   timeline, table, chart, caseStudy, team, ask, appendix and back. Each takes an approved
-  `pair` (for example `honeydew-peacock`); unapproved pairings and a second Crimson moment throw.
+  `pair` (for example `honeydew-peacock`); unapproved pairings throw. Crimson
+  emphasis is limited per slide/screen state, not once per deck.
 - Proposals: `documents/_starter/proposal.json` (Letter PDF) and `decks/proposals/_starter/`
   (deck), both with the `proposal` notice, recipient and validity (decisions.md P2, Part 10).
 - Reports and proposals: `lib/publication.py` (JSON source in `documents/_starter`).

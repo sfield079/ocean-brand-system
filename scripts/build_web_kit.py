@@ -53,15 +53,20 @@ UTIL = '''.ocean-caps{text-transform:uppercase;letter-spacing:var(--ocean-track-
 .ocean-btn{text-decoration:none;display:inline-flex;align-items:center;gap:.6em;padding:.9em 1.4em;background:var(--ocean-ink);color:var(--ocean-field);border:0;text-transform:uppercase;letter-spacing:var(--ocean-track-caps);font:700 12px/1 var(--ocean-font);clip-path:polygon(var(--ocean-chamfer-sm) 0,100% 0,100% 100%,0 100%,0 var(--ocean-chamfer-sm))}
 .ocean-btn-secondary{background:transparent;color:var(--ocean-ink);border:var(--ocean-frame) solid var(--ocean-ink);clip-path:none}
 .ocean-chip{background:var(--ocean-ink);color:var(--ocean-field);padding:0 .25em;font-weight:var(--ocean-w-bold)}
+.ocean-highlight{background:var(--ocean-ink);color:var(--ocean-field);border-color:var(--ocean-ink)}
+.ocean-semantic{color:var(--ocean-crimson);font-weight:var(--ocean-w-bold)}
 .ocean-bottom-line{display:flex;gap:1em;align-items:center;background:var(--ocean-ink);color:var(--ocean-field);padding:.8em 1.2em;font-weight:var(--ocean-w-bold)}
 .ocean-bottom-line::before{content:"BOTTOM LINE";font-weight:var(--ocean-w-light);letter-spacing:var(--ocean-track-caps);font-size:.72em}
 .ocean-notice{text-transform:uppercase;letter-spacing:var(--ocean-track-caps);font-weight:var(--ocean-w-light);font-size:11px}
 :focus-visible{outline:2px solid var(--ocean-ink);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:400;font-style:normal;font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24;line-height:1;display:inline-block}
-/* Micro-app themes (L3): default dark, approved light alternative, user toggle on <html data-theme> */
-[data-theme="dark"],.ocean-app{--ocean-field:var(--ocean-blackmoss);--ocean-ink:var(--ocean-honeydew);--ocean-tile:var(--ocean-sage)}
-[data-theme="light"]{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-peacock);--ocean-tile:var(--ocean-peacock)}'''
+/* Product modes (brand/PRODUCT-KIT.md), mobile-first and expandable */
+[data-product-mode="workspace"],.ocean-mode-workspace{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-blackmoss);--ocean-tile:var(--ocean-sage);--ocean-secondary:var(--ocean-cedar)}
+[data-product-mode="command"],[data-theme="dark"],.ocean-app,.ocean-mode-command{--ocean-field:var(--ocean-blackmoss);--ocean-ink:var(--ocean-honeydew);--ocean-tile:var(--ocean-sage);--ocean-secondary:var(--ocean-sprig)}
+[data-product-mode="asset"],.ocean-mode-asset{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-blackmoss);--ocean-tile:var(--ocean-olive);--ocean-secondary:var(--ocean-cedar)}
+[data-product-mode="financial"],.ocean-mode-financial{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-blackmoss);--ocean-tile:var(--ocean-peacock);--ocean-secondary:var(--ocean-peacock)}
+[data-theme="light"]{--ocean-field:var(--ocean-honeydew);--ocean-ink:var(--ocean-peacock);--ocean-tile:var(--ocean-peacock);--ocean-secondary:var(--ocean-cedar)}'''
 
 
 def font_faces():
@@ -86,7 +91,7 @@ def build():
     f.save(KIT / 'fonts/MaterialSymbolsOutlined.woff2')
     shutil.copy(ROOT / 'brand/fonts/OFL.txt', KIT / 'fonts/OFL.txt')
     (KIT / 'ocean.css').write_text(head + font_faces() + '\n' + body)
-    shutil.copytree(ROOT / 'assets/logos/variants', KIT / 'logos')
+    shutil.copytree(ROOT / 'assets/logos/variants', KIT / 'logos', dirs_exist_ok=True)
     for svg in ('Ocean_LOGO_Graphic.svg', 'Ocean_LOGO_Horizontal.svg', 'Ocean_LOGO_Vertical.svg'):
         shutil.copy(ROOT / 'assets/logos' / svg, KIT / 'logos' / svg)
     shutil.copy(ROOT / 'tokens/build/tailwind.preset.js', KIT / 'tailwind.preset.js')

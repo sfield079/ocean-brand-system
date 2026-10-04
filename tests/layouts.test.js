@@ -17,8 +17,8 @@ assert.throws(()=>pairing('sage-citron'),/not an approved/);
 assert.ok(pairing('honeydew-blackmoss').F==='F3FBF8');
 const d2=new OceanDeck({draft:true});
 d2.keyNumber({kicker:'K',value:'1',text:'Once'});
-assert.throws(()=>d2.keyNumber({kicker:'K',value:'2',text:'Twice'}),/Crimson appears once/);
-console.log('PASS: approved pairings and one Crimson moment per deck');
+assert.doesNotThrow(()=>d2.keyNumber({kicker:'K',value:'2',text:'Twice'}));
+console.log('PASS: approved pairings and semantic Crimson accents');
 // Recipe rules (26 Sep 2026 revision)
 {
   const {OceanDeck: D} = require('../lib/ocean');
