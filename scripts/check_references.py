@@ -9,8 +9,8 @@ ROOT = Path(__file__).resolve().parent.parent
 EXT = 'md|json|js|py|pdf|png|pptx|docx|css|svg|sh|mplstyle|jpg|yml|ttf|txt|woff2|html|mdc'
 SKIP = ('node_modules/', 'brand/audit/', 'output/')
 bad = []
-files = [p for p in ROOT.rglob('*') if p.suffix in ('.md', '.mdc', '.txt') and not any(str(p.relative_to(ROOT)).startswith(s) for s in SKIP)]
-names = {str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if 'node_modules' not in p.parts}
+files = [p for p in ROOT.rglob('*') if p.suffix in ('.md', '.mdc', '.txt') and not any(p.relative_to(ROOT).as_posix().startswith(s) for s in SKIP)]
+names = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*') if 'node_modules' not in p.parts}
 for md in files:
     for ref in set(re.findall(rf'`([A-Za-z0-9_./<>-]+\.(?:{EXT}))`', md.read_text(errors='ignore'))):
         if '<' in ref or ref.startswith('output/renders'): continue

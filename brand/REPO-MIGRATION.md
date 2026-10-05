@@ -14,3 +14,5 @@ When an AI tool, ChatGPT project, Base44 app, local checkout or prompt refers to
 - controlling files: `AGENTS.md`, `brand/BRAND-SYSTEM.md`, `brand/decisions.md`, `brand/PRODUCT-KIT.md`, `brand/PROFORMA-KIT.md`
 
 If an older repo must remain on disk, add a top-level note that it is deprecated and point back to this file.
+
+Local copy reconciliation and pending release status: `brand/LOCAL-ALIGNMENT.md`.

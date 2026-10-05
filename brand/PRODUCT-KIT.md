@@ -1,6 +1,6 @@
 # Ocean Product Kit
 
-Status: controlling product guidance, added 4 Oct 2026. Applies to oceanrcs.com, Vault, Wave, portals, dashboards, calculators, micro-apps and app-like website screens. Use with `web-kit/` and `brand/AI-APP-BUILDER-INSTRUCTIONS.md`.
+Status: proposed product guidance on the review branch, added 4 Oct 2026; approval and merge are pending. Applies to oceanrcs.com, Vault, Wave, portals, dashboards, calculators, micro-apps and app-like website screens. Use with `web-kit/` and `brand/AI-APP-BUILDER-INSTRUCTIONS.md`.
 
 ## 1. Build mobile first
 
@@ -22,7 +22,7 @@ Use one mode per screen or workflow. Do not mix modes inside one small component
 | Asset / site | Honeydew field, Olive or Cedar structure, Blackmoss text | Vault records, project profiles, field evidence, site galleries, audit trails |
 | Financial / pro-forma | Honeydew or White field, Blackmoss text, Peacock headers | revenue, pricing, sensitivity tables, capital stacks, investor financial screens |
 
-Crimson is semantic in every mode. It may mark total revenue, critical impact, investor-decision figures, missing required inputs, stale data, real alerts, risks and deadlines. Use at most one Crimson emphasis per card, row or screen state.
+Crimson is semantic in every mode. It may mark total revenue, critical impact, investor-decision figures, missing required inputs, stale data, real alerts, risks and deadlines. Use at most one Crimson emphasis per screen state, consistent with AGENTS.md.
 
 ## 3. Vault
 
@@ -37,7 +37,7 @@ Vault is the evidence and project-record product. It should feel calm, searchabl
 
 ## 4. Wave
 
-Wave is the monitoring, impact and financial signal product. It should feel live, legible and decisive.
+Wave includes workflow and action surfaces. The local audit records WavePro proposals and estimating, WaveTech, WaveSign and service-network entry points. Reconcile these existing workflows before redesigning its navigation. Monitoring, impact and financial signal screens are proposed kit examples; their presence must not be assumed to prove a live product capability.
 
 - Use command/dark mode for live operations and financial/pro-forma mode for revenue and investor review.
 - Highlight totals, deltas, critical thresholds and unresolved inputs with semantic accents.

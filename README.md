@@ -104,3 +104,7 @@ instructions about white-only pages, excluded palette colors and backgrounds.
 
 See CODEX-PROMPTS.md for reusable task briefs. Reference specimens are not
 external business deliverables and do not assert project results or returns.
+
+Local copy reconciliation and pending release status: `brand/LOCAL-ALIGNMENT.md`.
+
+For native Windows builds with a bundled Python runtime, set `OCEAN_PYTHON` to its executable path before running the Node deck builders. This controls the image-cropping helper and leaves cloud setup unchanged.
