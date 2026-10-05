@@ -21,7 +21,7 @@ Companion specs, in order of precedence:
 | D5 | Logo color | One brand color per placement, normally the page's ink. Never black `#000000`, never mixed colors, never non-brand colors. Build from the official SVG/EPS masters | — |
 | D6 | Default cover | **Sage field + Honeydew ink/logo** with a code-generated tonal texture in the manner of the guide cover (see Part 3). Approved alternates: Honeydew field + Sage ink (light), Blackmoss field + Honeydew ink (premium/investor). All three are approved pairings on Guide 05 | — |
 | D7 | Guide errata | Confirmed. The second "Blackmoss + Citron" tile on Guide 05 is **Blackmoss + Crimson**. "Sprig + Citron" is a duplicate. The approved matrix has 30 unique pairs | — |
-| D8 | Crimson | One Crimson "moment" per deck (large type), plus small accents where design allows (Part 4) | — |
+| D8 | Crimson | Semantic accent for commercially important, operationally critical and decision-driving information; at most one Crimson emphasis per slide, page, card, row, chart or screen state (Part 4) | Updated 4 Oct 2026 |
 | D9 | Textures behind text | Allowed under the guide's own limits (Part 5). Never on contract, transactional or report body pages | — |
 | D10 | Image sources | All sources are equal and may be mixed in any order: Ocean project photos, licensed or free-license stock, and any high-quality AI image generator (Higgsfield or other top-rated models). Two integrity limits apply (Part 6) | — |
 | D11 | Staging header | Required on every interior slide and report/proposal page, adapted to 16:9 and Letter. **Not used on formal documents (D13)** | Updated 26 Sep 2026 |
@@ -30,10 +30,10 @@ Companion specs, in order of precedence:
 | D14 | Tokens first | Every surface reads colors, weights, tracking, radius, chamfer and icon settings from `tokens/`. Hard-coded values fail QA (Spec §2) | **Approved 26 Sep 2026** |
 | D15 | Icons | Material Symbols Outlined, weight 400, fill 0, grade 0, optical size 24; icon = 50% of its cell. Measured from the guide's header strip (Spec §3, §10) | **Approved 26 Sep 2026** |
 | D16 | Charts | Sage for context, Cedar for the focus; max four categories in fixed order; **every number on a data shape is Honeydew Bold**; vector output, animated entry on screen; Crimson flags one value; direct labels and chips; no pies, 3D or gradients (Spec §9) | **Approved 26 Sep 2026** |
-| D17 | Deck length | Deck recipes scale from 1 to 30 slides; above 20, split into a deck plus a report (Spec §8) | **Approved 26 Sep 2026** |
+| D17 | Deck length | Deck recipes are starter spines, not caps. Deck length follows audience, decision, evidence and readability; appendices are allowed, and splitting into a report is required only when the reader needs long-form review (Spec §8) | Updated 4 Oct 2026 |
 | D18 | Sage + Honeydew | Measured at 3.6:1, so it is for large text and graphics only: covers, card fronts, hero lines. Never body text | **Approved 26 Sep 2026** |
 | D19 | Business cards, email, signage | Profiles in Spec §7, §12, §13. Card extras approved: registered emboss, optional Sage edge, and a personal QR code linking to oceanrcs.com. Arial is the only substitute font in email | **Approved 26 Sep 2026** |
-| D20 | Web and apps | oceanrcs.com defaults to Honeydew + Blackmoss with section pairings; micro-apps default to Blackmoss + Honeydew **with an approved Honeydew + Peacock alternative and a user toggle**; Crimson in apps only for alerts (Spec §4) | **Approved 26 Sep 2026** |
+| D20 | Web and apps | oceanrcs.com defaults to Honeydew + Blackmoss with section pairings; micro-apps use four product modes (default workspace, command/dark, asset/site and financial/pro-forma); Crimson in apps is semantic, not alert-only (Spec §4, PRODUCT-KIT.md) | Updated 4 Oct 2026 |
 | D21 | Logo sizing and the graphic mark | Minimum logo sizes per surface are fixed in Spec §16 (for example 44 px in the web header, 28 pt on letters, 0.9 in on the card front). The graphic mark alone is used for app icons, continuation pages, photo corners, chart sheets and signage corners | **Approved 26 Sep 2026** |
 | D22 | Emphasis | Six-step ladder (Bold, chip, scale, highlighted tile, bottom-line band, Crimson); one device per idea; works on every pairing without Crimson (Part 9) | **Approved 26 Sep 2026** |
 | D23 | Distribution notices | Classification plus status in one footer (for example Confidential · Draft · Do not use) on every deck, proposal, report and contract page; cover line; investor notice slide (Part 10) | **Approved 26 Sep 2026; wording to be reviewed by counsel** |
@@ -73,14 +73,14 @@ Cover composition (all three variants):
 
 ---
 
-## Part 4 — Crimson accents (D8)
+## Part 4 — Crimson semantic accents (D8)
 
-Design reasoning: Crimson is the palette's only hot color, and the guide uses it for warnings (the triangle markers on Guide 03) and for one full-page pairing (Guide 08). Small accents work, provided they stay rare and keep one meaning.
+Design reasoning: Crimson is the palette's only hot color, and the guide uses it for warnings (the triangle markers on Guide 03) and for one full-page pairing (Guide 08). It works when it has a job. It fails when it becomes decoration.
 
 - **Where allowed:** only on Blackmoss, Peacock, Honeydew or Sprig fields (its approved partners). Never on Sage, Cedar, Olive or Citron fields.
-- **What it may mark:** one key number per page, a risk or warning flag, the active navigation chip, or a single diamond marker.
-- **Budget:** one large Crimson moment per deck; at most one small accent per page; none in body text. For other emphasis use the ladder in Part 9.
-- **Meaning:** attention or warning. Never decoration, and never a chart series unless that series is the flagged value.
+- **What it may mark:** total revenue, critical impact statements, one key number per page, risk or warning flags, investor asks, missing required inputs, stale data, active critical navigation chips, or a single diamond marker tied to a decision.
+- **Budget:** at most one Crimson emphasis per slide, page, card, row, chart or screen state. A deck may contain multiple Crimson accents when each one marks real commercial or operational importance. None in body text. For routine emphasis use the ladder in Part 9.
+- **Meaning:** attention, risk, value or decision. Never decoration, and never a chart series unless that series is the flagged value.
 - **Contracts and transactional documents:** Crimson only for legal warnings (for example "PAST DUE" or a required notice), nothing else.
 
 ---
@@ -148,7 +148,7 @@ Reports and presentations share the brand (palette, pairings, type ladder ratios
 | Textures | Cover and dividers only | Cover, dividers, statement slides |
 | Charts | Detailed, with axes, sources and data tables in the appendix | One message per chart, highlighted value, minimal axes |
 | Tables | Multi-page, repeating headers | Short (≤ 6 rows); detail goes to an appendix or leave-behind |
-| Crimson | Risk flags only | One moment per deck, plus small accents |
+| Crimson | Risk flags and decision-value accents | Semantic accents per slide or page; never decorative |
 | Navigation | Contents page, section numbers, cross-references | Agenda slide (Bold display allowed), section dividers |
 | Output QA | Page-by-page render, text flow, widows and orphans, table breaks, PDF/A | Slide-by-slide render, overflow, speaker notes, opens in PowerPoint and Keynote |
 
@@ -161,8 +161,8 @@ A report delivered as slides (for example a quarterly investor update) uses the 
 | **P1 Contracts and legal** (EPC agreement, MSA, PPA, NDA, lien waiver) | Letter, print | White title page, Blackmoss ink | White + Blackmoss | No | No | Legal warnings only | Compact |
 | **P2 Commercial proposals** | Letter, digital-first | D6 default (Sage + Honeydew) | Honeydew + Blackmoss; sections rotate Honeydew + Peacock / Honeydew + Cedar | Cover, dividers | Yes | One accent per page | Full |
 | **P3 Technical and feasibility reports** | Letter | D6 default | Honeydew + Blackmoss or Peacock | Cover and dividers | Any source; evidence photos real | Risk flags only | Full + running footer |
-| **P4 Investor and lender decks** | 16:9 | Blackmoss + Honeydew (premium alternate) or D6 default | Rotate 2–4 pairings | Cover, dividers, statements | Yes | One moment + accents | Full |
-| **P5 Sales and customer presentations** | 16:9 | D6 default | Honeydew-led, rotate 2–3 pairings | Cover, dividers | Yes, photo-heavy | One moment + accents | Full |
+| **P4 Investor and lender decks** | 16:9 | Blackmoss + Honeydew (premium alternate) or D6 default | Rotate 2–4 pairings | Cover, dividers, statements | Yes | Semantic accents | Full |
+| **P5 Sales and customer presentations** | 16:9 | D6 default | Honeydew-led, rotate 2–3 pairings | Cover, dividers | Yes, photo-heavy | Semantic accents | Full |
 | **P6 Internal and operations decks** | 16:9 | Honeydew + Sage | Honeydew + Blackmoss | Optional | Optional | Warnings only | Compact |
 | **P7 One-pagers, spec sheets, leave-behinds** | Letter, 1–2 pages | None (header acts as cover) | Honeydew + Blackmoss or Peacock | No | One hero photo | One key number | Full |
 | **P8 Quotes, invoices, change orders, transmittals** | Letter, print | None | White + Blackmoss | No | No | "PAST DUE"/notices only | Compact |
@@ -198,7 +198,7 @@ A report delivered as slides (for example a quarterly investor update) uses the 
 ### P4 — Investor and lender decks
 - Cover: Blackmoss + Honeydew (premium) or the D6 default; texture per Part 3.
 - Sequence rotates 2–4 pairings: e.g. Blackmoss + Honeydew (cover, dividers), Honeydew + Peacock (content), Honeydew + Blackmoss (financials), Sprig + Peacock (statement).
-- One Crimson moment (for example the ask or headline return figure) on a Blackmoss, Peacock, Honeydew or Sprig field.
+- Crimson may mark the ask, headline return figure, risk, total revenue or another decision-driving figure on a Blackmoss, Peacock, Honeydew or Sprig field. Use at most one Crimson emphasis per slide.
 - Illustrative figures labeled "Illustrative". No "[TBD]" in a release build.
 - Agenda or index slide may use Bold display (the guide's contents-page exception).
 
@@ -213,7 +213,7 @@ A report delivered as slides (for example a quarterly investor update) uses the 
 
 ### P7 — One-pagers, spec sheets and leave-behinds
 - The full staging header serves as the cover.
-- One hero photo in a chamfer mask, one key/value block, one Crimson key number at most.
+- One hero photo in a chamfer mask, one key/value block, and at most one Crimson semantic accent.
 - Front and back only; contact block at the bottom.
 
 ### P8 — Quotes, invoices, change orders and transmittals (updated by D13)
@@ -275,11 +275,11 @@ Leadership asked for a reliable way to make important information stand out: sta
 | E3 | Scale | Light display numeral (34–165 pt) with a caps key | Key figures in tiles, the key-number slide | `metrics`, `keyNumber` |
 | E4 | Highlighted tile | One metric tile filled solid in the ink, value in Bold | The one figure among several that decides it (payback, ROI, savings) | `metrics: [{..., highlight: true}]` |
 | E5 | Bottom line band | Full-width chamfered band in the ink, "BOTTOM LINE" key in Light caps, conclusion in Bold | The slide's conclusion or the number the reader must remember | `bottomLine: '10-year savings of $819K.'` |
-| E6 | Crimson | Crimson numeral or diamond | The deck's single key-number moment, a warning, or the diamond on a bottom-line band | `keyNumber`, automatic on the band where approved |
+| E6 | Crimson | Crimson numeral, diamond, flag or value state | Total revenue, critical impact, investor ask, warning, stale data, missing required input, or the diamond on a bottom-line band | `keyNumber`, semantic accent, automatic on the band where approved |
 
 Rules:
 - One highlighted tile and one bottom line per slide at most. A chip and a bottom line may share a slide; never stack E1, E2 and E5 on the same words.
-- Crimson keeps Part 4's limits (approved fields only; one moment per deck; one small accent per page). Where Crimson is not approved (Sage, Cedar, Olive, Citron fields or bands), the code falls back to E2, E4 or E5 automatically, so emphasis never depends on Crimson.
+- Crimson keeps Part 4's limits (approved fields only; semantic use only; at most one Crimson emphasis per slide, page, card, row, chart or screen state). Where Crimson is not approved (Sage, Cedar, Olive, Citron fields or bands), the code falls back to E2, E4 or E5 automatically, so emphasis never depends on Crimson.
 - Emphasis is information, never decoration: the emphasized text must be a conclusion, a decision figure or a warning.
 - Reports and proposals use the same ladder: Bold in running text, glance tiles, and a risk flag for warnings.
 
@@ -342,7 +342,7 @@ No new pairings are added. The guide approves 30 of the 36 possible pairs; the s
 |---|---|---|---|---|
 | **Olive + Honeydew** | 4.73:1 | The earthy pairing: land, growth, economics and sustainability | Earthy covers and closes (olive grove environment); Economics, sustainability, land, agriculture and water sections (Honeydew field, Olive ink); Olive dividers; Olive chart focus | Nowhere is off limits for text. Crimson is not approved on Olive, so emphasis uses chips, highlighted tiles and bottom lines |
 | **Sage + Sprig** | 2.34:1 | The calm natural pairing: lake and shallow water | Section dividers (Sprig field, Sage 120 pt numeral and 44 pt title on the shallow-water background), pull-quote and statement slides, brand-atmosphere backgrounds, card backs, social tiles, signage idle screens | Body text, captions, labels, tables, charts, footers and content slides. Type 44 pt and up only |
-| **Sprig + Crimson** | 2.54:1 | The warm urgency pairing (Guide 04's Crimson card) | The alternative key-number moment on warm briefings; action-required and deadline slides; incentive-deadline banners; signage alerts; campaign and social graphics | Body text, tables, charts and routine pages. Type 44 pt and up only; supporting detail goes on the next slide or in notes. Counts as the deck's one Crimson moment |
+| **Sprig + Crimson** | 2.54:1 | The warm urgency pairing (Guide 04's Crimson card) | Alternative key-number moments on warm briefings; action-required and deadline slides; incentive-deadline banners; signage alerts; campaign and social graphics | Body text, tables, charts and routine pages. Type 44 pt and up only; supporting detail goes on the next slide or in notes. Counts as a semantic Crimson emphasis on that slide |
 
 ### Tiers (enforced in code)
 
@@ -380,7 +380,7 @@ No new pairings are added. The guide approves 30 of the 36 possible pairs; the s
 | Sprig + Olive | 3.07:1 | Large | Warm earthy pairing: Sprig field with Olive headlines 25 pt and up; sustainability graphics. |
 | Cedar + Sage | 3.02:1 | Large | Tonal green: headlines 25 pt and up, charts (Sage context on Cedar). |
 | Honeydew + Citron | 2.75:1 | Display | Display only (44 pt and up) and graphics: sunlight accents, icons on Honeydew. |
-| Sprig + Crimson | 2.54:1 | Display | The warm urgency pairing (Guide 04's Crimson card): the alternative key-number moment on a warm briefing, action-required and deadline slides, incentive-deadline banners, signage alerts and campaign or social graphics. Display type 44 pt and up only; the supporting detail goes on the next slide or in notes. Counts as the deck's Crimson moment. |
+| Sprig + Crimson | 2.54:1 | Display | The warm urgency pairing (Guide 04's Crimson card): alternative key-number moments on warm briefings, action-required and deadline slides, incentive-deadline banners, signage alerts and campaign or social graphics. Display type 44 pt and up only; the supporting detail goes on the next slide or in notes. Counts as a semantic Crimson emphasis on that slide. |
 | Sage + Sprig | 2.34:1 | Display | The calm natural pairing (lake and shallow water): section dividers, pull-quote and statement slides, brand-atmosphere backgrounds, card backs, social tiles and signage idle screens. Display type 44 pt and up and graphics only; never body text, captions, tables or charts. |
 | Cedar + Olive | 2.29:1 | Display | Display only (44 pt and up) and graphics: forest and grove textures. |
 | Sprig + Citron | 1.79:1 | Tonal | Tonal only: textures and marks; no text. |

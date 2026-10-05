@@ -87,7 +87,7 @@ class Glance(Flowable):
             caps(c, x+10, y+20, it['value'], 10, self.ink, 'OceanBold')
 
 class RiskFlag(Flowable):
-    """Crimson triangle marker beside a flagged risk (the only Crimson in a report)."""
+    """Crimson triangle marker beside a flagged risk or semantic financial warning."""
     def __init__(self, title, text, ink, width_style):
         super().__init__(); self.title, self.text, self.ink, self.st = title, text, ink, width_style
     def wrap(self, aw, ah):

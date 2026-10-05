@@ -5,7 +5,7 @@
 Follow AGENTS.md and brand/BRAND-SYSTEM.md. Create an editable presentation for
 [audience] to support [decision], using the supplied verified sources. Use the
 shared layout library, tokens, Stack Sans Headline, the deck recipe for the
-chosen length (§8), one approved pairing per section and original logos at §16
+chosen starter length or a longer modular deck when needed (§8), one approved pairing per section and original logos at §16
 sizes. Write a content file (copy decks/_starter/content.js; investor example in
 decks/investor/mobility-energy-platform/) and build it with lib/recipe.js. Never
 draw slides with ReportLab, python-pptx or any other tool: qa.py and qa_pdf.py reject them.
@@ -28,6 +28,26 @@ section that is not cleared, such as unapproved pricing, with "status":
 Match output/reference/examples/Ocean_Example_Proposal.pdf and profile P2 in brand/decisions.md.
 For a proposal deck, start from decks/proposals/_starter/.
 Verify embedded fonts and inspect every page before delivery.
+
+## Detailed pro forma
+
+Use brand/PROFORMA-KIT.md. Build a detailed pro forma for [audience] to support
+[decision] using only verified inputs. Include summary economics, assumptions,
+revenue bridge, cost stack, incentive logic, capital stack, sensitivities, risks,
+sources and [TBD] items. Use the financial/pro-forma mode: Honeydew or White
+field, Blackmoss text, Peacock headers, Sage rules and Crimson semantic accents
+for total revenue, critical impact, missing inputs or decision figures. Do not
+invent returns, incentives, pricing, savings or terms.
+
+## Web app or site
+
+Use brand/AI-APP-BUILDER-INSTRUCTIONS.md, brand/PRODUCT-KIT.md and web-kit/.
+Build mobile first, then tablet and desktop. Choose the matching product mode:
+default workspace, command/dark, asset/site or financial/pro-forma. For Vault,
+prioritize project records, evidence, files, status and audit trails. For Wave,
+prioritize live state, revenue, impact, alerts, charts and exportable reports.
+Use semantic Crimson accents only for commercially important, operationally
+critical or decision-driving information.
 
 ## Report
 

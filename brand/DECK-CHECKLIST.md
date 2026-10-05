@@ -14,7 +14,8 @@ checklist to review the rendered PDF by eye. Sources: `brand/decisions.md` Parts
   - 5 slides: cover, situation, solution, key number, close.
   - 10 slides: cover, agenda, Site ×2, System ×2, Economics chart, key number, next steps, close.
   - 15 slides: the 10-slide spine plus dividers for Site, System and Economics, a schedule and an economics table.
-  - Over 20 slides: add an appendix; over 30, split into a deck and a report.
+  - Over 20 slides: add an appendix when useful for proof, backup or diligence.
+  - Over 30 slides: keep the main story tight and organize backup into appendix modules. Split into a separate report only when the reader needs long-form review, legal detail, technical evidence or spreadsheet-level analysis.
 - [ ] Every section uses one pairing on all of its content slides, and adjacent sections differ.
 - [ ] At most four content pairings in the deck.
 - [ ] Dividers reverse their section's pairing or share one of its colors, on an environment background or a photo.
@@ -28,10 +29,10 @@ checklist to review the rendered PDF by eye. Sources: `brand/decisions.md` Parts
 
 ## Color
 
-- [ ] Every slide uses one approved two-color pairing (field + ink). Photos, and the footer on display pairings, are the only exceptions.
+- [ ] Every slide uses one approved two-color pairing (field + ink). Photos, charts, footer readability and semantic accents are the only exceptions.
 - [ ] Content slides use text- or large-tier pairings only. Sage + Sprig, Sprig + Crimson, Citron + Honeydew and Cedar + Olive carry 44 pt type and up only (dividers, pull quotes, key moments).
 - [ ] Olive + Honeydew, Sage + Sprig and Sprig + Crimson are used where decisions.md Part 12 assigns them.
-- [ ] Crimson appears as one key moment per deck at most, only on Blackmoss, Peacock, Honeydew or Sprig. Emphasis does not need Crimson.
+- [ ] Crimson appears only as a semantic accent: total revenue, critical impact, decision figure, risk, alert, deadline or investor ask. Use at most one Crimson emphasis per slide, only on approved fields, and keep the field + ink pairing dominant.
 
 ## Emphasis (Part 9)
 

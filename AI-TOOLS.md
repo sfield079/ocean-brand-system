@@ -12,7 +12,7 @@ their own filename; each one points back to `AGENTS.md` and repeats the rules mo
 | GitHub Copilot chat | `.github/copilot-instructions.md` | Nothing; Copilot loads it in this repository |
 | Cursor (rules) | `.cursor/rules/ocean-brand.mdc` | Nothing; always applied |
 | ChatGPT projects | `brand/CHATGPT-PROJECT-INSTRUCTIONS.md` | Paste the text below its line into the project instructions. ChatGPT plans the work and writes the Codex task; Codex builds it |
-| Base44, Lovable, Bolt, v0, Replit and other app builders | `brand/AI-APP-BUILDER-INSTRUCTIONS.md` and `web-kit/` | See below |
+| Base44, Lovable, Bolt, v0, Replit and other app builders | `brand/AI-APP-BUILDER-INSTRUCTIONS.md`, `brand/PRODUCT-KIT.md` and `web-kit/` | See below |
 | Tools that load Agent Skills (Base44 agents, Claude, Perplexity Computer and others) | `skills/ocean-brand/SKILL.md` | Add the skill folder; Base44 agent skills follow the open Agent Skills format ([Base44 docs](https://docs.base44.com/developers/backend/overview/skills)) |
 | Perplexity Computer and any tool that reads a repository index | `llms.txt` | Point the tool at the repository |
 
@@ -26,7 +26,7 @@ their own filename; each one points back to `AGENTS.md` and repeats the rules mo
   and review work. Decks they draw by hand are not rule-checked; build them with a code-running
   tool, or check them against `brand/DECK-CHECKLIST.md` and `scripts/qa.py`.
 - **App and site builders** (Base44, Lovable, Bolt, v0, Replit): build web apps and sites
-  with `web-kit/` and the app-builder instructions. They do not build decks or documents.
+  with `web-kit/`, the app-builder instructions and `brand/PRODUCT-KIT.md`. They do not build decks or documents.
 
 ## Base44 and other app builders
 
@@ -40,7 +40,8 @@ So the app lives in its own repository and takes the brand from here:
 3. Paste `brand/AI-APP-BUILDER-INSTRUCTIONS.md` into the app's instructions or knowledge.
    It stays under 10,000 characters because Base44 sends only the first 10,000 characters of
    an app's custom instructions to its agent ([Base44 docs](https://docs.base44.com/developers/white-label/custom-instructions)).
-4. When the brand changes, rerun `python3 scripts/build_web_kit.py` here and copy `web-kit/` again.
+4. Use `brand/PRODUCT-KIT.md` for Vault, Wave, public-site screens, mobile/tablet/desktop behavior and product states. Use `brand/PROFORMA-KIT.md` for detailed financial screens and exports.
+5. When the brand changes, rerun `python3 scripts/build_web_kit.py` here and copy `web-kit/` again.
 
 `web-kit/example.html` shows the kit working: header, hero, emphasis, cards, pairings and a
 notice footer.

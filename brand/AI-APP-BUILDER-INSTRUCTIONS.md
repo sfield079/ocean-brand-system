@@ -20,7 +20,9 @@ cut long instructions receive all of it. Source of truth: https://github.com/sfi
 - Palette: Blackmoss #0B1617, Peacock #102426, Cedar #1B4039, Sage #618C7C, Olive #6E734C,
   Citron #A69856, Crimson #EB3819, Sprig #D5CCA0, Honeydew #F3FBF8. White #FFFFFF is for print.
 - Every section uses one approved two-color pairing: `data-pair="<field>-<ink>"` on the section.
-  Adjacent sections use different pairings. Never invent a color, tint, gradient or shadow.
+  Adjacent sections use different pairings. Semantic accents may add a third brand color only
+  for commercially important, operationally critical or decision-driving information. Never invent
+  a color, tint, gradient or shadow.
 - Text-safe pairings for body copy: Honeydew + Blackmoss (site default), Honeydew + Peacock,
   Honeydew + Cedar, Honeydew + Olive, Sprig + Blackmoss, Sprig + Peacock, Sprig + Cedar,
   Blackmoss + Citron, Peacock + Citron, Blackmoss + Sage.
@@ -33,9 +35,11 @@ cut long instructions receive all of it. Source of truth: https://github.com/sfi
 - Never pair Sage + Crimson, Olive + Crimson, Sage + Citron, Sage + Olive, Citron + Crimson or
   Cedar + Crimson.
 - Leadership priorities: Olive + Honeydew for earthy content (economics, land, sustainability);
-  Sage + Sprig for calm statement bands and quotes; Sprig + Crimson for one urgent moment
+  Sage + Sprig for calm statement bands and quotes; Sprig + Crimson for urgent display moments
   (deadline, action required).
-- Crimson is rare: one key moment per page at most, or the risk-flag triangle in apps.
+- Crimson is semantic: total revenue, critical impact, investor-decision figures, real alerts,
+  risk flags, missing required inputs, stale data or deadlines. Use at most one Crimson emphasis
+  per card, row or screen state. Never use Crimson as decoration.
 
 ## Type
 
@@ -43,8 +47,8 @@ cut long instructions receive all of it. Source of truth: https://github.com/sfi
 - All caps are always Bold or Light with 0.25 em letter spacing (`.ocean-caps`,
   `.ocean-caps-light`). Hero type is Light with -0.04 em tracking (`.ocean-hero`).
 - Body 16–18 px with 1.5–1.6 line height. Body contrast at least 4.5:1.
-- Emphasis: Bold words, one inverted chip (`.ocean-chip`) or a bottom-line band
-  (`.ocean-bottom-line`). One device per idea.
+- Emphasis: Bold words, one inverted chip (`.ocean-chip`), one highlighted tile
+  (`.ocean-highlight`) or a bottom-line band (`.ocean-bottom-line`). One device per idea.
 
 ## Components
 
@@ -60,12 +64,18 @@ cut long instructions receive all of it. Source of truth: https://github.com/sfi
 ## Sites and apps
 
 - oceanrcs.com: Honeydew field with Blackmoss ink by default; sections may switch pairings.
-- Micro-apps (dashboards, portals, calculators): default dark theme (Blackmoss field, Honeydew
-  ink, Sage hairline tiles) with an approved light theme (Honeydew field, Peacock ink). Ship both
-  with a user toggle on `<html data-theme="dark|light">`, remember the choice and follow the OS
-  setting on first load. 240 px left navigation with icon + caps labels; the active item is
-  inverted. The graphic mark and app name + version sit in the navigation footer, and the
-  graphic mark is the favicon.
+- Build mobile first, then expand into tablet and desktop. Phone views use bottom navigation or
+  a compact top bar; tablet uses split panes; desktop may use the full 240 px left navigation.
+- Product modes:
+  1. Default workspace: Honeydew + Blackmoss, Sage rules, Cedar secondary text.
+  2. Command/dark: Blackmoss + Honeydew, Sprig highlights, Sage hairline tiles.
+  3. Asset/site: Honeydew + Olive or Honeydew + Cedar, Blackmoss text, real site imagery.
+  4. Financial/pro-forma: Honeydew or White + Blackmoss, Peacock headers, Crimson semantic accents.
+- Vault uses asset/site mode for project records, evidence, files and audit trails. Wave uses
+  command/dark or financial/pro-forma mode for live monitoring, revenue, impact and alerts.
+- Ship any dark/light pair from the same tokens with a user toggle on `<html data-theme>`, remember
+  the choice and follow the OS setting on first load. The active item is inverted. The graphic mark
+  and app name + version sit in the navigation footer where space allows, and the graphic mark is the favicon.
 - Tables: Bold caps headers, row rules at 20% ink, numbers in Bold.
 - Charts: Sage for context, Cedar for the focus, every number on a bar in Honeydew Bold.
 

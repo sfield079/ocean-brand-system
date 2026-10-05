@@ -69,11 +69,15 @@ class ProposalNoticeTests(unittest.TestCase):
 
     def test_section_status_marks_its_pages(self):
         from lib import publication
-        import json, subprocess
+        import json
+        from pypdf import PdfReader
         d = json.loads((ROOT / 'documents/_starter/proposal.json').read_text())
         d['status'] = 'draft'; d['sections'][3]['status'] = 'do-not-use'
-        src = self._src(**d); publication.build(src, '/tmp/p2.pdf')
-        text = subprocess.run(['pdftotext', '-layout', '/tmp/p2.pdf', '-'], capture_output=True, text=True).stdout
+        src = self._src(**d)
+        with tempfile.TemporaryDirectory() as directory:
+            pdf = Path(directory) / 'proposal.pdf'
+            publication.build(src, pdf)
+            text = '\n'.join(page.extract_text() for page in PdfReader(pdf).pages)
         self.assertIn('CONFIDENTIAL PROPOSAL · DO NOT USE', text)
         self.assertIn('CONFIDENTIAL PROPOSAL · DRAFT · DO NOT USE', text)
 
